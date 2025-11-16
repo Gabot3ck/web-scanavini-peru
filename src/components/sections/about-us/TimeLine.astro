@@ -1,0 +1,140 @@
+---
+import { timelineData } from "../../../data/timelineData";
+import TitleOfSection from "../../layout/TitleOfSection.astro";
+---
+
+<section class="container-custom mx-auto py-12 md:py-16 xl:py-28 px-2">
+  <!-- Heading -->
+  <TitleOfSection
+    titleOfSection="SCANAVINI A TRAVÉS DE LA HISTORIA"
+    description="Un viaje de más de 75 años construyendo el futuro"
+  />
+
+  <!-- Wrapper -->
+  <div 
+    class="relative sm:mt-10 lg:mt-14 px-1 sm:px-6 lg:px-10 xl:px-20 overflow-hidden min-h-[440px] sm:min-h-[450px] md:min-h-[470px] lg:min-h-[540px] xl:min-h-[500px]  "
+    style="--axis-y: 40px;">
+      
+    <!-- Viewport -->
+    <div
+      id="tl-viewport"
+      class="relative overflow-x-auto overflow-y-hidden scroll-smooth py-5 pb-8 md:pb-10 lg:pb-12 "
+      tabindex="0"
+      aria-label="Línea de tiempo"
+    >
+      <ul
+        id="tl-track"
+        class="flex gap-8 lg:gap-10 snap-x snap-mandatory px-1 "
+        aria-live="polite"
+      >
+        {timelineData.map((it, i) => (
+          <li
+            class="snap-center flex-shrink-0 max-w-[180px] lg:max-w-[260px] w-[50%] sm:w-[48%] lg:w-[28%] xl:w-[23.8%] h-[310px] md:h-[350px] lg:h-[400px] select-none relative"
+            data-index={i}
+          >
+            <!-- CARD (usa tu utility .card + borde brand) -->
+            <article
+              class="card h-[280px] md:h-[300px] lg:h-[360px] cursor-pointer py-5 px-2 md:px-3  lg:py-6 lg:px-5 xl:p-6 rounded-xl border-brand"
+              data-index={i}
+            >
+              {it.image && (
+                <figure class="mx-auto -mt-1 mb-3 w-14 h-14 sm:w-16 sm:h-16 lg:w-24 lg:h-24 xl:w-28 xl:h-28 rounded-full overflow-hidden">
+                  <img
+                    src={it.image}
+                    alt={`${it.year} - ${it.title}`}
+                    class="rounded-full w-full h-full object-cover"
+                  />
+                </figure>
+              )}
+
+              {it.subtitle && (
+                <p class="lg:mb-1 text-[11px] md:text-xs lg:text-sm text-center font-semibold tracking-wide text-neutral-grey">
+                  {it.subtitle}
+                </p>
+              )}
+
+              <h3 class="mb-2 md:mb-3 lg:mb-4 text-brand font-semibold text-center text-xs md:text-sm lg:text-[clamp(1rem,1.8vw,1.2rem)] leading-tight">
+                {it.title}
+              </h3>
+
+              <p class="lg:mt-2 text-[11px] md:text-xs lg:text-[14px] leading-relaxed text-center text-neutral-grey">
+                {it.description}
+              </p>
+            </article>
+
+            <!-- AÑO en círculo -->
+            <div  class="absolute left-1/2 -translate-x-1/2 z-[3] pointer-events-none -bottom-6 md:-bottom-2 lg:-bottom-6  xl:-bottom-10">
+              <span
+                class="inline-flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 lg:w-[50px] lg:h-[50px] xl:w-14  xl:h-14 rounded-full border-2 border-brand bg-white shadow-[0_0_0_3px_rgba(250,70,22,0.12)]"
+              >
+                <span class="text-[12px] lg:text-[13px] xl:text-[14px] font-semibold leading-none text-neutral-dark select-none">
+                  {it.year}
+                </span>
+              </span>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Flecha de línea de tiempo (usa pseudo-elementos Tailwind) -->
+    <div
+      class="absolute inset-x-0 bottom-[103px] sm:bottom-[120px] xl:bottom-16 h-[2px] z-[2] mx-4 sm:mx-8 lg:mx-20
+             bg-gradient-to-r from-brand to-brand-dark
+             before:content-[''] before:absolute before:-bottom-[6px] before:-left-[2px]
+             before:border-t-[6px] before:border-b-[6px] before:border-t-transparent before:border-b-transparent
+             before:border-r-[10px] before:border-r-brand
+             after:content-[''] after:absolute after:-bottom-[6px] after:-right-[2px]
+             after:border-t-[6px] after:border-b-[6px] after:border-t-transparent after:border-b-transparent
+             after:border-l-[10px] after:border-l-brand"
+      aria-hidden="true"
+    ></div>
+
+    <!-- Botones (usa tus utilidades .carousel-nav-btn) -->
+    <button
+      id="tl-prev"
+      class="carousel-nav-btn left-2 sm:left-0 bg-gray-500 hover:bg-slate-600 text-4xl lg:bottom-auto lg:top-1/2 lg:-translate-y-1/2 z-[50] pointer-events-auto"
+      aria-label="Anterior"
+      type="button"
+    >
+      ‹
+    </button>
+    <button
+      id="tl-next"
+      class="carousel-nav-btn right-2 sm:right-0 bg-gray-500 hover:bg-slate-600 text-4xl
+            lg:bottom-auto lg:top-1/2 lg:-translate-y-1/2
+            z-[50] pointer-events-auto"
+      aria-label="Siguiente"
+      type="button"
+    >
+      ›
+    </button>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const viewport = document.getElementById('tl-viewport');
+    const track = document.getElementById('tl-track');
+    const prev = document.getElementById('tl-prev');
+    const next = document.getElementById('tl-next');
+    if (!viewport || !track || !prev || !next) return;
+    const step = () => {
+      // cantidad de scroll = ancho de una card visible
+      const card = track.querySelector('li');
+      return card ? (card as HTMLElement).offsetWidth + 24 /*gap aprox*/ : 320;
+    };
+    const go = (dir: -1 | 1) => {
+      viewport.scrollBy({ left: step() * dir, behavior: 'smooth' });
+    };
+    // listeners
+    prev.addEventListener('click', (e) => { e.stopPropagation(); go(-1); });
+    next.addEventListener('click', (e) => { e.stopPropagation(); go(1); });
+  });
+</script>
+<style>
+  /* Ocultar scrollbar nativo del viewport sin plugins extra */
+  #tl-viewport { -ms-overflow-style: none; scrollbar-width: none; }
+  #tl-viewport::-webkit-scrollbar { display: none; }
+  .carousel-nav-btn { position: absolute; }
+</style>

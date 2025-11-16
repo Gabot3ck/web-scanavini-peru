@@ -1,0 +1,81 @@
+---
+import TitleOfSection from "../../layout/TitleOfSection.astro";
+
+
+interface ValueItem {
+  iconUrl: string;
+  line1: string;
+  line2: string;
+}
+
+const {
+  items = [
+    { iconUrl: "/images/icons/valor-innovador.svg", line1: "INNOVADORES", line2: "Y CREATIVOS" },
+    { iconUrl: "/images/icons/valor-adaptable.svg",  line1: "ADAPTABLE AL", line2: "ENTORNO" },
+    { iconUrl: "/images/icons/valor-colaborativo.svg", line1: "CULTURA",     line2: "COLABORATIVA" },
+    { iconUrl: "/images/icons/valor-cliente.svg",      line1: "PENSAR COMO", line2: "CLIENTE" },
+    { iconUrl: "/images/icons/valor-mejora-continua.svg",       line1: "MEJORA",      line2: "CONTINUA" },
+    { iconUrl: "/images/icons/valor-mentalidad-dueño.svg",        line1: "MENTALIDAD DE", line2: "DUEÑO" },
+  ],
+} = Astro.props as {
+  subtitle?: string;
+  heading?: string;
+  items?: ValueItem[];
+};
+---
+
+<section class="container-custom mx-auto pb-12 md:pb-16 xl:pb-24">
+  <TitleOfSection
+    subtitle="valores" 
+    titleOfSection="promovidos en scanavini"
+  />
+
+  <!-- Grid 2 cols (mobile) / 3 cols (desktop) -->
+  <div
+    class="mt-8 md:mt-12 lg:mt-20 grid grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-10 md:gap-x-16 md:gap-y-14 place-items-center"
+    aria-labelledby="brands-heading"
+  >
+    {items.map((item) => (
+      <article
+        class="w-full max-w-[220px] sm:max-w-[240px] md:max-w-[260px] text-center select-none"
+        data-animation="our-values"
+      >
+        <!-- Ícono dentro de círculo con borde -->
+        <div class="mx-auto w-14 h-14  sm:w-[70px] sm:h-[70px] md:w-20 md:h-20 xl:w-24 xl:h-24 rounded-full flex items-center justify-center border-2 border-background-muted bg-white shadow-soft">
+          <img
+            src={item.iconUrl}
+            alt=""
+            class="w-[70%] h-[70%] object-contain"
+            loading="lazy"
+          />
+        </div>
+
+        <!-- Títulos en dos líneas -->
+        <h3 class="mt-4 md:mt-5 leading-tight">
+          <span class="block text-neutral-dark font-semibold tracking-wide text-[11px] sm:text-xs md:text-sm lg:text-base ">
+            {item.line1}
+          </span>
+          <span class="block text-brand font-extrabold tracking-wide text-[12px] sm:text-sm md:text-base lg:text-lg">
+            {item.line2}
+          </span>
+        </h3>
+      </article>
+    ))}
+  </div>
+</section>
+
+<script>
+  import ScrollReveal from "scrollreveal";
+
+	ScrollReveal().reveal('[data-animation="our-values"]', {
+		distance: "120px",          // se mueve un poco desde abajo
+		origin: "bottom",
+		opacity: 0,
+		duration: 700,
+		easing: "cubic-bezier(0.4, 0, 0.2, 1)", // similar a tu transición global
+		interval: 80,              // stagger entre cada card
+		reset: false,              // solo se anima una vez
+		cleanup: true,           // limpia estilos inline cuando termina
+		delay: 1100,
+	});
+</script>

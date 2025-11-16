@@ -1,0 +1,126 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Datos para la página
+const pageData = {
+  title: 'Términos y Condiciones',
+  description: 'Términos y condiciones de uso del sitio web.',
+};
+---
+
+<!-- logoSwapOnHoverAtTop={true} Activa el cambio del logo en hover cuando se está “arriba” -->
+<Layout 
+  title={pageData.title}
+  description={pageData.description}
+  menuTextClass="text-gray-700"
+  logoBaseVariant="dark"
+  logoSwapOnHoverAtTop={false}
+  logoSwapOnScroll={true}
+  robots="index,follow"
+>
+  <section class="container-custom sm:px-3 md:px-5 lg:px-10 xl:px-0 min-h-[60vh] py-20 xl:mt-16">
+    <header class="border-b border-neutral-grey/20">
+      <div class="container-custom py-8">
+        <h1 class=" text-xl  xl:text-3xl 2xl:text-4xl font-semibold text-neutral-dark">
+          Términos y Condiciones
+        </h1>
+        <p class="mt-2 text-sm md:text-base text-neutral-grey">
+          Última actualización: <time datetime="2025-10-01">01 de octubre de 2025</time>
+        </p>
+      </div>
+    </header>
+
+  <main  class="container-custom py-8 md:py-12">
+    <article 
+      class="card shadow-soft border border-neutral-grey/20 bg-background-light p-6 md:p-10 rounded-2xl"
+      role="article"
+    >
+      <ol class="space-y-8 list-decimal pl-6">
+        <li id="informacion-general">
+          <h2 class="text-lg  lg:text-xl font-semibold mb-3">Información General</h2>
+          <p class="leading-relaxed text-sm lg:text-base text-justify text-justify">
+            El presente sitio web es propiedad de <strong>Comercial Scanavini Ltda.</strong>, empresa chilena legalmente constituida y dedicada a la venta y distribución de cerraduras, candados, bisagras, manillas y otros productos afines. El sitio tiene carácter informativo y promocional, y su uso implica la aceptación de estos Términos y Condiciones.
+          </p>
+        </li>
+
+        <li id="uso-del-sitio">
+          <h2 class="text-lg  lg:text-xl font-semibold mb-3">Uso del Sitio Web</h2>
+          <p class="leading-relaxed text-sm lg:text-base text-justify">
+            El usuario se compromete a utilizar este sitio de manera responsable, lícita y conforme a la legislación vigente en Chile, especialmente a lo dispuesto en la Ley N° 19.496 sobre Protección de los Derechos de los Consumidores. Queda estrictamente prohibido usar el sitio con fines ilícitos, fraudulentos o contrarios al orden público, realizar acciones que alteren la funcionalidad del sitio o acceder sin autorización a sistemas o datos.
+          </p>
+        </li>
+
+        <li id="contenido">
+          <h2 class="text-lg  lg:text-xl font-semibold mb-3">Contenido</h2>
+          <p class="leading-relaxed text-sm lg:text-base text-justify">
+            La información publicada es verificada y actualizada periódicamente; sin embargo, <strong>Comercial Scanavini Ltda.</strong> No garantiza su exactitud absoluta ni la ausencia de errores. Nos reservamos el derecho de modificar, actualizar o eliminar contenido sin previo aviso, conforme al principio de mejora continua, norma ISO 9001-2015.
+          </p>
+        </li>
+
+        <li id="formulario-de-contacto">
+          <h2 class="text-lg  lg:text-xl font-semibold mb-3">Formulario de Contacto y Protección de Datos</h2>
+          <p class="leading-relaxed text-sm lg:text-base text-justify">
+            El sitio dispone de un formulario destinado exclusivamente a consultas o solicitudes de información. Los datos personales proporcionados se utilizan únicamente para responder dichas consultas, conforme a la Ley N° 21.719 sobre Protección de Datos Personales de Chile y a nuestra Política de Privacidad. No se compartirán datos con terceros sin consentimiento expreso del titular.
+          </p>
+        </li>
+
+        <li id="comercio-electronico">
+          <h2 class="text-lg  lg:text-xl font-semibold mb-3">Comercio Electrónico</h2>
+          <p class="leading-relaxed text-sm lg:text-base text-justify">
+            Las ventas y transacciones comerciales no se realizan en este sitio, sino en nuestra plataforma de ecommerce accesible en <a href="https://tiendascanavini.cl" target="_blank"  class="underline underline text-brand hover:text-brand-dark break-all hover:opacity-80" rel="noopener">Tienda Scanavini</a>. Para realizar compras, por favor visite dicha página, donde se aplican términos y condiciones específicos para la transacción.
+          </p>
+        </li>
+
+        <li id="propiedad-intelectual">
+          <h2 class="text-lg  lg:text-xl font-semibold mb-3">Propiedad Intelectual</h2>
+          <p class="leading-relaxed text-sm lg:text-base text-justify">
+            Todos los contenidos del sitio, incluyendo textos, logotipos, gráficos, imágenes e íconos, son propiedad de <strong>Comercial Scanavini Ltda.</strong> O cuentan con la debida autorización de uso. Queda prohibida su reproducción total o parcial sin consentimiento previo y por escrito. 
+          </p>
+        </li>
+
+        <li id="limitacion-de-responsabilidad">
+          <h2 class="text-lg  lg:text-xl font-semibold mb-3">Limitación de Responsabilidad</h2>
+          <p class="leading-relaxed text-sm lg:text-base text-justify">
+            <strong>Comercial Scanavini Ltda.</strong>  No será responsable por daños directos, indirectos o incidentales derivados del uso o imposibilidad de uso del sitio web, interrupciones técnicas o enlaces externos, los cuales son responsabilidad exclusiva de sus respectivos propietarios.
+          </p>
+        </li>
+
+        <li id="vigencia">
+          <h2 class="text-lg  lg:text-xl font-semibold mb-3">Modificaciones y Vigencia de los Términos</h2>
+          <p class="leading-relaxed text-sm lg:text-base text-justify">
+            <strong>Comercial Scanavini Ltda.</strong> Podrá modificar estos Términos y Condiciones para adaptarlos a cambios normativos o tecnológicos. Las modificaciones entrarán en vigor desde su publicación en esta página web. El usuario será notificado mediante un aviso emergente (pop-up) al momento de ingresar a nuestro sitio web y su aceptación expresa será requisito para continuar navegando o utilizando los servicios ofrecidos.
+          </p>
+        </li>
+
+        <li id="jurisdiccion">
+          <h2 class="text-lg  lg:text-xl font-semibold mb-3">Jurisdicción y Ley Aplicable</h2>
+          <p class="leading-relaxed text-sm lg:text-base text-justify">
+            Estos Términos y Condiciones se rigen por las leyes de la República de Chile, y cualquier controversia será sometida a los Tribunales Ordinarios de Justicia de Santiago.
+          </p>
+        </li>
+
+        <li id="contacto">
+          <h2 class="text-lg  lg:text-xl font-semibold mb-3">Contacto</h2>
+          <p class="leading-relaxed text-sm lg:text-base text-justify">
+            Para consultas o aclaraciones relacionadas con estos Términos y Condiciones, puede comunicarse a través de:
+            <ul class="xl:ml-6 list-disc mt-1" >
+              <li class="leading-relaxed text-sm lg:text-base text-justify" >
+                Formulario de contacto: <a href="/contacto"  class="underline hover:opacity-80 hover:text-brand-dark">www.scanavini.com/contacto</a>
+              </li>
+              <li class="leading-relaxed text-sm lg:text-base text-justify" >
+                Correo electrónico: <a href="mailto:info@scanavini.com" class="underline hover:opacity-80 hover:text-brand-dark">info@scanavini.com</a>
+              </li>
+              <li class="leading-relaxed text-sm lg:text-base text-justify" >
+                Teléfono: <a href="tel:+56228290100" class="underline hover:opacity-80 hover:text-brand-dark">+56 2 2829 0100</a>.
+              </li>
+            </ul>
+          </p>
+        </li>
+      </ol>
+
+    </article>
+  </main>
+  </section>
+  
+</Layout>
+

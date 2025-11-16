@@ -1,0 +1,69 @@
+---
+import TitleOfSection from "../../layout/TitleOfSection.astro";
+
+
+const {
+  mobileSrc = "/images/services/soluciones.webp",
+  desktopSrc = "/images/services/soluciones.webp",
+  alt = "Donut gráfico",
+  maxImageWidth = "980px", // ancho máximo (desktop)
+} = Astro.props as {
+  mobileSrc?: string;
+  desktopSrc?: string;
+  alt?: string;
+  maxImageWidth?: string;
+};
+---
+<section class="pt-12 sm:py-16 lg:pt-20 lg:pb-36 bg-white relative max-h-[1100px]">
+  <div
+    class="container-custom mx-auto px-8 md:px-16 xl:px-2 lg:my-10
+          flex flex-col items-center justify-start
+          pt-10 md:pt-12 
+          h-[calc(100dvh-var(--header-height))] max-h-[450px] sm:max-h-[550px] lg:max-h-[950px]"
+  >
+
+    <TitleOfSection 
+      subtitle="soluciones" 
+      titleOfSection="personalizadas" 
+    />
+
+    <!-- Donut (responsive) -->
+    <figure
+      class=" w-full flex items-center justify-center"
+      style={`--maxw:${maxImageWidth};`}
+      data-animation="image-services"
+    >
+      <picture>
+        <!-- Desktop (>= 960px, tu breakpoint lg) -->
+        <source srcset={desktopSrc} media="(min-width: 960px)" />
+        <!-- Fallback / Mobile -->
+        <img
+          src={mobileSrc}
+          alt={alt}
+          class="w-full h-auto object-contain
+                max-w-[min(var(--maxw),95vw)]
+                max-h-[min(76dvh,830px)]"
+          loading="lazy"
+          decoding="async"
+        />
+      </picture>
+    </figure>
+  </div>
+</section>
+
+
+<script>
+  import ScrollReveal from "scrollreveal";
+
+	ScrollReveal().reveal('[data-animation="image-services"]', {
+		distance: "180px",          // se mueve un poco desde abajo
+		origin: "bottom",
+		opacity: 0,
+		duration: 700,
+		easing: "cubic-bezier(0.4, 0, 0.2, 1)", // similar a tu transición global
+		interval: 80,              // stagger entre cada card
+		reset: false,              // solo se anima una vez
+		cleanup: false,             // limpia estilos inline cuando termina
+		delay: 700,
+	});
+</script>

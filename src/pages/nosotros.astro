@@ -1,0 +1,42 @@
+---
+import HeroAboutUs from '../components/sections/about-us/HeroAboutUs.astro';
+import Environment from '../components/sections/about-us/Environment.astro';
+import OurPurpose from '../components/sections/about-us/OurPurpose.astro';
+import OurValues from '../components/sections/about-us/OurValues.astro';
+import TimeLine from '../components/sections/about-us/TimeLine.astro';
+import QualityPolicies from '../components/sections/about-us/QualityPolicies.astro';
+import Layout from '../layouts/Layout.astro';
+
+// Datos para la página About
+const pageData = {
+  title: 'Nosotros | Nuestra Historia y Valores',
+  description: 'Conoce más sobre nuestra empresa, nuestro equipo y los valores que nos guían hacia la excelencia.',
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Comercial Scanavini Ltda.",
+  "url": "https://www.scanavini.com/nosotros",
+  "foundingDate": "1950",
+  "founder": "Giuseppe Scanavini",
+  "description": "empresa chilena líder en la venta y distribución de cerraduras, candados, bisagras, manillas y otros productos afines",
+  "logo": "https://www.scanavini.com/iso_scanavini.svg"
+};
+---
+<!-- logoSwapOnHoverAtTop={true} Activa el cambio del logo en hover cuando se está “arriba” -->
+<Layout 
+  title={pageData.title}
+  description={pageData.description}
+  logoSwapOnHoverAtTop={true}
+  robots="index,follow"
+  jsonLd={ jsonLd }
+>
+  <!-- Hero Section -->
+  <HeroAboutUs />
+  <TimeLine />
+  <OurPurpose />
+  <OurValues />
+  <Environment />
+  <QualityPolicies />
+</Layout>

@@ -1,0 +1,28 @@
+---
+import NavBar from './NavBar.astro';
+
+export interface Props {
+  menuTextClass?: string;
+  logoLightSrc?: string;
+  logoDarkSrc?: string;
+  logoBaseVariant?: 'light' | 'dark';
+  logoSwapOnScroll?: boolean;
+  logoSwapOnHoverAtTop?: boolean;
+}
+
+const {
+  menuTextClass = 'text-white',
+  logoBaseVariant = 'light',
+  logoSwapOnScroll = true,
+  logoSwapOnHoverAtTop = false,
+} = Astro.props;
+---
+
+<header id="main-header">
+  <NavBar
+    menuTextClass={menuTextClass}
+    logoBaseVariant={logoBaseVariant}
+    logoSwapOnHoverAtTop={logoSwapOnHoverAtTop}
+    logoSwapOnScroll={logoSwapOnScroll}
+  />
+</header>

@@ -1,0 +1,155 @@
+---
+const btnCTA =
+  "text-[10px] sm:text-[11px] md:text-xs lg:text-[15px] font-regular lg:font-medium w-10/12 md:w-full max-w-[143px] md:max-w-[210px] h-8 md:h-10 lg:h-12 tracking-wide flex justify-center items-center bg-accent-dark text-background-light drop-shadow-lg rounded-full hover:scale-105 transition-transform duration-400"
+
+const btnSecondary =
+  "text-[10px] sm:text-[11px] md:text-xs lg:text-[15px] font-regular lg:font-medium w-10/12 md:w-full max-w-[143px] md:max-w-[210px] h-8 md:h-10 lg:h-12 tracking-wide flex justify-center items-center bg-transparent border-2 border-accent-dark text-accent-dark rounded-full hover:bg-accent-dark hover:text-background-light hover:scale-105 transition-all duration-400"
+---
+<section class="container-custom py-10 md:py-12 xl:py-28">
+  <div class="grid gap-8 xl:gap-0 xl:grid-cols-2 items-center">
+    <div 
+      class="order-2 xl:order-1 flex justify-center h-full"
+      data-animation="image-products"
+    >
+      <img
+        class="w-[90%] sm:max-w-[70%] xl:max-w-full xl:max-h-[600px] transition-all duration-300"
+        src="/images/products/bodegon.webp"
+        alt="Bodegon de productos Scanavini"
+      />
+    </div>
+
+    <div class="order-1 xl:order-2 xl:pl-14 2xl:pl-16">
+      <h2 
+        class="text-sm md:text-base lg:text-2xl xl:text-3xl xl:mb-2 text-center xl:text-left font-medium max-w-2xl text-gray-600 mx-auto description-section"
+        data-animation="title-up"
+      >
+        NUESTROS
+      </h2>
+      <h2
+				class="text-[22px]  md:text-2xl lg:text-5xl xl:text-4xl 2xl:text-5xl text-center xl:text-left mb-4 lg:mb-6 font-bold text-brand lg:mb-1 title-section"
+				data-animation="title-up"
+			>
+        PRODUCTOS 
+      </h2>
+
+      <p 
+        class="mx-auto text-sm lg:text-lg  text-center xl:text-justify max-w-[400px] sm:max-w-[480px] lg:max-w-[600px] xl:max-w-none leading-relaxed mb-2 lg:mb-8"
+        data-animation="text-up"
+      >
+        Somos una empresa comprometida con la excelencia, la innovación y la sostenibilidad en cada uno de nuestros productos y servicios. Con más de 75 años de experiencia en el área de cerraduras, ofrecemos soluciones de alta calidad, fusionando tecnología de vanguardia con diseño y funcionalidad.
+      </p>
+
+      <!-- BOTONES EN DESKTOP -->
+      <div class="hidden xl:flex gap-12 ">
+        <a
+          href="/productos"
+          class=`${ btnCTA }`
+          aria-label={`Ver productos de Scanavini`}
+          rel="noopener noreferrer"
+          data-animation="btn-primary"
+        >
+          VER MÁS
+        </a>
+        <a
+          href="https://storage.scanavini.cl/catalogos/CatalogoScanavini_2024.pdf"
+          class=`${ btnSecondary } `
+          aria-label={`Descargar catálogo de productos de Scanavini`}
+          rel="noopener noreferrer"
+          target="_blank"
+          data-animation="btn-secondary"
+        >
+          DESCARGAR CATÁLOGO
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BOTONES EN MOBILE -->
+  <div class="w-full flex flex-col sm:flex-row justify-center items-center xl:hidden gap-4 sm:gap-8 md:gap-12 mt-8" >
+    <a
+      href="/productos"
+      class=`${ btnCTA } xl:hidden` 
+      aria-label={`Ver productos de Scanavini`}
+      rel="noopener noreferrer"
+    >
+      VER PRODUCTOS
+    </a>
+    <a
+      href="https://storage.scanavini.cl/catalogos/CatalogoScanavini_2024.pdf"
+      class=`${ btnSecondary } `
+      aria-label={`Descargar catálogo de productos de Scanavini`}
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      DESCARGAR CATÁLOGO
+    </a>
+  </div>
+
+</section>
+
+
+<script>
+  import ScrollReveal from "scrollreveal";
+
+	ScrollReveal().reveal('[data-animation="title-up"]', {
+		distance: "30px",          // se mueve un poco desde abajo
+		origin: "top",
+		opacity: 0,
+		duration: 700,
+		easing: "cubic-bezier(0.4, 0, 0.2, 1)", // similar a tu transición global
+		interval: 80,              // stagger entre cada card
+		reset: true,              // solo se anima una vez
+		cleanup: false,             // limpia estilos inline cuando termina
+		delay: 100,
+	});
+
+	ScrollReveal().reveal('[data-animation="text-up"]', {
+		distance: "120px",          
+		origin: "right",
+		opacity: 0,
+		duration: 1400,
+		easing: "cubic-bezier(0.4, 0, 0.2, 1)", 
+		interval: 80,              
+		reset: true,              
+		cleanup: false,             
+		delay: 250,
+	});
+
+	ScrollReveal().reveal('[data-animation="image-products"]', {
+		distance: "100px",          
+		origin: "left",
+		opacity: 0,
+		duration: 1600,
+		easing: "cubic-bezier(0.4, 0, 0.2, 1)", 
+		interval: 80,              
+		reset: true,              
+		cleanup: false,             
+		delay: 400,
+	});
+
+  ScrollReveal().reveal('[data-animation="btn-primary"]', {
+		distance: "80px",          
+		origin: "bottom",
+		opacity: 0,
+		duration: 1000,
+		easing: "cubic-bezier(0.4, 0, 0.2, 1)", 
+		interval: 80,              
+		reset: true,              
+		cleanup: false,             
+		delay: 500,
+	});
+
+  ScrollReveal().reveal('[data-animation="btn-secondary"]', {
+		distance: "100px",          
+		origin: "bottom",
+		opacity: 0,
+		duration: 1000,
+		easing: "cubic-bezier(0.4, 0, 0.2, 1)", 
+		interval: 80,              
+		reset: true,              
+		cleanup: false,             
+		delay: 800,
+	});
+
+</script>

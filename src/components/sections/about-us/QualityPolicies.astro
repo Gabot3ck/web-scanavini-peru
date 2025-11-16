@@ -1,0 +1,120 @@
+---
+import VideoLazy from "../../layout/VideoLazy.astro";
+import TitleOfSection from "../../layout/TitleOfSection.astro";
+
+---
+
+<section class="bg-neutral-dark min-h-screen flex items-start justify-center py-10 md:py-12 xl:py-28 overflow-x-hidden relative">
+  <div class="container-custom">
+    <!-- Heading -->
+    <TitleOfSection 
+      subtitle="NUESTRAS"
+      subtitleColor="text-white"
+      titleOfSection="POLÍTICAS DE CALIDAD"
+    />
+    <!-- ROW 1 -->
+    <div class="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 xl:gap-28  items-start mb-16" data-animation="videoOfQuality">
+      <VideoLazy
+				title="Video Showroom Scanavini, Vitacura"
+				poster="/images/control-de-calidad-scanavini.webp"
+				srcMp4="https://storage.scanavini.cl/videos/control-de-calidad-cerraduras-scanavini.mp4"  
+				capMaxHeight
+			/>
+
+
+      <!-- Texto -->
+      <div>        
+        <div class="space-y-4 lg:py-6">
+          <p 
+            class="mx-auto sm:mx-0 text-[11px] sm:text-xs md:text-sm lg:text-base xl:text-lg lg:mb-16  text-justify max-w-[400px] sm:max-w-full lg:max-w-[600px] xl:max-w-none leading-relaxed text-white"
+            >
+            En Scanavini llevamos a cabo rigurosos ensayos de control de calidad con el objetivo de garantizar el funcionamiento óptimo y la durabilidad de todos los componentes internos y externos de nuestras cerraduras. Nuestros procedimientos se realizan en nuestro laboratorio bajo estándares técnicos y condiciones controladas, asegurando productos confiables, resistentes y de alto desempeño.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROW 2 -->
+    <div  data-animation="textOfQuality">
+      <div class="space-y-4 mb-16">
+        <h3 
+          class="text-sm md:text-base lg:text-2xl text-left mb-4 lg:mb-6 font-bold text-white lg:mb-1 title-section uppercase"
+        >
+        
+        Ensayos de Resistencia:
+        </h3>
+        <p 
+          class="mx-auto sm:mx-0 text-[11px] sm:text-xs md:text-sm lg:text-base xl:text-lg mb-16  text-justify w-full leading-relaxed text-white"
+        >
+          Pruebas destinadas a verificar la resistencia mecánica de los componentes internos y externos de las cerraduras, sometiéndolos a diferentes tipos de carga y esfuerzo. Se evalúan piezas como picaportes, cerrojos y pomos, replicando condiciones de uso continuo y exigente.
+        </p>
+      </div>
+
+      <div class="space-y-4 mb-16">
+        <h3 
+          class="text-sm md:text-base lg:text-2xl text-left mb-4 lg:mb-6 font-bold text-white lg:mb-1 title-section uppercase"
+        >
+        
+        Ensayos de Ciclos:
+        </h3>
+        <p 
+          class="mx-auto sm:mx-0 text-[11px] sm:text-xs md:text-sm lg:text-base xl:text-lg  text-justify w-full leading-relaxed text-white"
+        >
+          Evaluamos el desgaste y la durabilidad de los mecanismos ante un uso prolongado de tiempo.Un ejemplo es el ensayo cíclico del pomo, donde un ciclo equivale a la entrada y salida del picaporte mediante el giro del pomo. Nuestros productos son probados hasta 400.000 ciclos, garantizando una larga vida útil sin fallas.
+        </p>
+      </div>     
+
+      <div class="space-y-4 mt-16">
+        <h3 
+          class="text-sm md:text-base lg:text-2xl text-left mb-4 lg:mb-6 font-bold text-white lg:mb-1 title-section uppercase"
+        >
+        
+        Ensayos de Niebla Salina:
+        </h3>
+
+        <article class="mx-auto sm:mx-0 text-[11px] sm:text-xs md:text-sm lg:text-base xl:text-lg  text-justify max-w-[400px] sm:max-w-full lg:max-w-[600px] xl:max-w-none leading-relaxed mb-2 lg:mb-8 text-white"
+        >
+          <p>Prueba destinada a evaluar la resistencia a la corrosión de los revestimientos de las cerraduras frente a ambientes agresivos con alta salinidad.</p>
+          
+          <p>Se expone el producto a una cámara de niebla salina durante:</p>
+          <ul
+            class="text-[11px] sm:text-xs md:text-sm lg:text-base xl:text-lg text-white text-justify"
+          >
+            <li class="text-[11px] sm:text-xs md:text-sm lg:text-base xl:text-lg text-white list-disc ml-8 mt-3">96 horas para productos con certificación Grado 1.</li>
+            <li class="text-[11px] sm:text-xs md:text-sm lg:text-base xl:text-lg text-white list-disc ml-8 mb-3">48 horas para productos con certificación Grado 2.</li>
+          </ul>
+          <p>Este ensayo es clave para asegurar el rendimiento en zonas costeras o de alta humedad.</p>
+        </article>
+      </div>
+    </div>
+    
+  </div>
+</section>
+<script>
+  import ScrollReveal from "scrollreveal";
+
+	ScrollReveal().reveal('[data-animation="videoOfQuality"]', {
+		distance: "100px",          // se mueve un poco desde abajo
+		origin: "bottom",
+		opacity: 0,
+		duration: 1600,
+		easing: "cubic-bezier(0.4, 0, 0.2, 1)", // similar a tu transición global
+		interval: 80,              // stagger entre cada card
+		reset: false,              // solo se anima una vez
+		cleanup: false,             // limpia estilos inline cuando termina
+		delay: 600,
+	});
+
+  ScrollReveal().reveal('[data-animation="textOfQuality"]', {
+		distance: "100px",          // se mueve un poco desde abajo
+		origin: "bottom",
+		opacity: 0,
+		duration: 1600,
+		easing: "cubic-bezier(0.4, 0, 0.2, 1)", // similar a tu transición global
+		interval: 80,              // stagger entre cada card
+		reset: false,              // solo se anima una vez
+		cleanup: false,             // limpia estilos inline cuando termina
+		delay: 1000,
+	});
+
+</script>

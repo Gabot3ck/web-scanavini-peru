@@ -1,0 +1,91 @@
+---
+export interface Props {
+  class?: string;
+  lightSrc?: string; // variante clara
+  darkSrc?: string; // variante oscura
+  baseVariant?: "light" | "dark"; // variante base por página/layout
+  swapOnScroll?: boolean; // alternar con navStateChange (default: true)
+  swapOnHoverAtTop?: boolean; //Permitir cambiar variante por hover cuando estás en top (sin scroll)
+  alt?: string;
+  href?: string;
+}
+
+const {
+  class: className = "",
+  lightSrc = "/images/logos/logo-scanavini-light.svg",
+  darkSrc = "/images/logos/logo-scanavini-dark.svg",
+  baseVariant = "light",
+  swapOnScroll = true,
+  swapOnHoverAtTop = false, // Actualmente no implementado
+  href = "/",
+} = Astro.props;
+
+const initialSrc = baseVariant === "dark" ? darkSrc : lightSrc;
+---
+
+<!-- Wrapper sin ancho fijo: no más w-52 -->
+<div class={`flex items-center min-w-0 ${className}`}>
+  <a href={href} class=" block shrink-0">
+    <span class="sr-only">Logo Scanavini</span>
+    <img
+      id="navbar-logo"
+      class="h-10 xl:h-12 2xl:h-14 w-auto transition-all duration-300 ease-in-out block"
+      src={initialSrc}
+      alt="Logo de empresa"
+      loading="eager"
+      decoding="async"
+      data-light-src={lightSrc}
+      data-dark-src={darkSrc}
+      data-swap={swapOnScroll ? "1" : "0"}
+      data-base-variant={baseVariant} 
+      data-swap-hover-top={swapOnHoverAtTop ? "1" : "0"}
+    />
+  </a>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const logo = document.getElementById("navbar-logo");
+    if (!logo) return;
+
+    const canSwap = logo.dataset.swap === '1';
+    if (!canSwap) return;
+
+    const light = logo.dataset.lightSrc;
+    const dark = logo.dataset.darkSrc;
+    const allowHoverTop = logo.dataset.swapHoverTop === '1';
+    const baseVariant = (logo.dataset.baseVariant || 'light');
+
+    // Solo swap de imagen. No tocar clases/tamaño para evitar “salto”.
+    document.addEventListener("navStateChange", (event) => {
+      const {
+        isDark = false,
+        navHasHover = false,
+        isScrolled = false,
+      } = (event as CustomEvent).detail ?? {};
+
+      //En TOP y con hover, respeta preferencia
+      if (!isScrolled && navHasHover && !allowHoverTop)  return;
+
+      //En TOP y sin hover, fuerza variante base de la página
+      if (!isScrolled && !navHasHover) {
+        const baseSrc = baseVariant === 'dark' ? dark : light;
+        if (baseSrc && logo.getAttribute('src') !== baseSrc) logo.setAttribute('src', baseSrc);
+        return;
+      }
+
+      //El resto de casos, sigue el estado global (isDark)
+      const nextSrc = (isDark ? dark : light) ?? "";
+      if (logo.getAttribute("src") !== nextSrc) logo.setAttribute("src", nextSrc);
+      
+    });
+  });
+</script>
+
+<style>
+  /* Estabiliza el ancho al alternar PNG/SVG; evita CLS */
+  #navbar-logo {
+    aspect-ratio: 208 / 72;
+    display: block;
+  }
+</style>

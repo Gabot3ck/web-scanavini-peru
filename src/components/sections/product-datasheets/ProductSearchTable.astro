@@ -1,0 +1,234 @@
+---
+
+---
+<section class="py-10 mx-auto ">
+  <!-- 1) Buscador -->
+  <div class="mb-6 mx-auto w-full max-w-[630px]" >
+    <label for="q" class="sr-only">Buscar producto o código</label>
+    <div class="flex items-center overflow-hidden rounded-xl border border-background-muted focus-within:ring-2 focus-within:ring-brand transition-shadow">
+      <input
+        id="q"
+        type="search"
+        placeholder="Buscar producto o código..."
+        class="flex-1 px-4 py-3 text-neutral-dark placeholder-neutral-grey/70 focus:outline-none"
+        aria-label="Buscar producto o código"
+      />
+      <button
+        id="searchBtn"
+        type="button"
+        class="flex items-center justify-center w-12 h-12 bg-brand text-white hover:bg-brand-dark transition-colors"
+        aria-label="Buscar"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="w-full flex justify-end mb-12" >
+    <!-- 2) Ordenar por -->
+    <div class="flex flex-col gap-2 w-[280px]">
+      <label for="sort" class="text-sm font-medium text-neutral-dark">Ordenar por:</label>
+      <div class="relative w-full">
+        <select
+          id="sort"
+          aria-label="Ordenar por"
+          class="appearance-none w-full rounded-md border border-background-muted bg-white px-4 py-2 pr-8 text-sm text-neutral-dark focus:outline-none focus:ring-2 focus:ring-brand transition-shadow cursor-pointer"
+        >
+          <option value="sku">SKU (A-Z)</option>
+          <option value="name">DESCRIPCION (A-Z)</option>
+        </select>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-grey">
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- GRID PRINCIPAL: Sidebar + Contenido -->
+  <div class="grid gap-10 lg:grid-cols-[280px,1fr]">
+    <!-- SIDEBAR (izquierda) -->
+    <aside class="lg:sticky lg:top-header self-start">
+      <div class="flex flex-col gap-4">
+        <!-- 3) Filtros activos (enlace para limpiar) -->
+        <div class="flex flex-col gap-2">
+          <div class="flex items-center justify-between">
+            <span class="text-lg font-medium text-neutral-dark">Filtros activos</span>
+              <button
+                id="clearFilters"
+                type="button"
+                class="btn btn-outline text-sm px-3 py-1.5 hover:bg-brand-extralight"
+              >
+                Limpiar filtros
+              </button>
+          </div>
+          <div id="active-filters" class="flex flex-wrap gap-2 text-sm rounded-md border border-background-muted bg-white px-3 py-2 min-h-10">
+            <span class="text-neutral-grey text-sm">Sin filtros activos</span>
+          </div>
+        </div>
+
+        <!-- 4) Familia -->
+        <details 
+          class="facet-details group border border-background-muted bg-white rounded-lg"
+          
+        >
+          <summary
+            class="flex items-center justify-between cursor-pointer select-none px-4 py-3 text-base font-medium text-neutral-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+          >
+            <span>Familia</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                 fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round"
+                 class="w-4 h-4 text-neutral-grey transition-transform duration-200 group-open:rotate-180">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </summary>
+          <div class="px-4 pb-4 pt-1">
+            <div id="facet-fams" class="grid grid-cols-1 gap-2"></div>
+          </div>
+        </details>
+
+        <!-- 5) Categoría -->
+        <details 
+          class=" facet-details group border border-background-muted bg-white rounded-lg"
+          
+        >
+          <summary
+            class="flex items-center justify-between cursor-pointer select-none px-4 py-3 text-base font-medium text-neutral-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+          >
+            <span>Categoría</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                 fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round"
+                 class="w-4 h-4 text-neutral-grey transition-transform duration-200 group-open:rotate-180">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </summary>
+          <div class="px-4 pb-4 pt-1">
+            <div id="facet-cats" class="grid grid-cols-1 gap-2"></div>
+          </div>
+        </details>
+
+      </div>
+    </aside>
+
+    <!-- CONTENIDO (derecha) -->
+    <main class="min-w-0">
+      <!-- TABLA con scroll horizontal mejorado -->
+      <div id="tableWrap" class="relative border border-background-muted rounded-lg overflow-hidden">
+        <!-- Sombras laterales (aparecen al tener más contenido que ancho) -->
+        <div id="scrollShadowLeft"
+             class="pointer-events-none absolute inset-y-0 left-0 w-6 bg-gradient-to-r from-background-DEFAULT to-transparent opacity-0 transition-opacity duration-200 rounded-l-lg"></div>
+        <div id="scrollShadowRight"
+             class="pointer-events-none absolute inset-y-0 right-0 w-6 bg-gradient-to-l from-background-DEFAULT to-transparent opacity-0 transition-opacity duration-200 rounded-r-lg"></div>
+
+          <div id="tableScroller"
+              class="overflow-x-auto  overscroll-x-contain rounded-lg max-w-full"
+              style="scrollbar-gutter: stable both-inline;">
+            <table class="w-max min-w-max table-auto text-left align-middle  min-w-[1400px] lg:min-w-[1600px]">
+              <thead class="bg-brand text-background-light sticky top-0 z-10">
+                <tr>
+                  <th class="px-4 py-3 font-semibold text-center ">Imagen</th>
+                  <th class="px-4 py-3 font-semibold text-center ">Ficha Técnica</th>
+                  <th class="px-4 py-3 font-semibold text-center ">Familia</th>
+                  <th class="px-4 py-3 font-semibold text-center ">Categoría</th>
+                  <th class="px-4 py-3 font-semibold">Código / SKU</th>
+                  <th class="px-4 py-3 font-semibold">Descripción</th>
+                  <th class="px-4 py-3 font-semibold text-center ">Cod. barra (EAN13) <br> Envase </th>
+                  <th class="px-4 py-3 font-semibold text-center ">Longitud (cm) <br> Envase </th>
+                  <th class="px-4 py-3 font-semibold text-center ">Ancho (cm) <br> Envase </th>
+                  <th class="px-4 py-3 font-semibold text-center ">Altura (cm) <br> Envase </th>
+                  <th class="px-4 py-3 font-semibold text-center ">Volumen (cc) <br> Envase </th>
+                  <th class="px-4 py-3 font-semibold text-center ">Peso (g) <br> Envase </th>
+                  <th class="px-4 py-3 font-semibold text-center ">Cant. Min. <br> Envase</th>
+                </tr>
+              </thead>
+              <tbody 
+                id="rows" 
+                class="[&>tr:nth-child(odd)]:bg-white [&>tr:nth-child(even)]:bg-background-light">
+              </tbody>
+            </table>
+          </div>
+      </div>
+      <p class="mt-3 text-xs text-neutral-grey text-center">Desliza horizontalmente para ver todas las columnas.</p>
+
+      <!-- Meta + paginación -->
+      <div class="mt-4 flex flex-col gap-3">
+        <div class="flex items-center justify-between flex-wrap gap-3">
+          <div class="text-sm text-neutral-grey" id="meta" aria-live="polite"></div>
+          <div class="flex items-center gap-3">
+            <label for="pageSize" class="text-sm text-neutral-dark">Resultados por página</label>
+            <select id="pageSize"
+                    class="appearance-none rounded-md border border-background-muted bg-white px-3 py-1 text-sm text-neutral-dark focus:outline-none focus:ring-2 focus:ring-brand">
+              <option value="10">10</option>
+              <option value="15" selected>15</option>
+              <option value="20" >20</option>
+              <option value="30">30</option>
+            </select>
+          </div>
+        </div>
+        <nav id="pager" class="flex items-center justify-center gap-2" role="navigation" aria-label="Paginación"></nav>
+      </div>
+    </main>
+  </div>
+</section>
+
+<!-- Script externo (servido estáticamente desde /public) -->
+<script type="module" src="/js/render.js"></script>
+
+<!-- Sombras laterales: activar/actualizar visibilidad -->
+<script type="module">
+  document.addEventListener('DOMContentLoaded', () => {
+  const scroller = document.getElementById('tableScroller');
+  const shL = document.getElementById('scrollShadowLeft');
+  const shR = document.getElementById('scrollShadowRight');
+  function updateShadows() {
+    if (!scroller) return;
+    const { scrollLeft, scrollWidth, clientWidth } = scroller;
+    const atStart = scrollLeft <= 1;
+    const atEnd = scrollLeft + clientWidth >= scrollWidth - 1;
+    if (shL) shL.style.opacity = atStart ? '0' : '1';
+    if (shR) shR.style.opacity = atEnd ? '0' : '1';
+  }
+  scroller?.addEventListener('scroll', updateShadows);
+  window.addEventListener('resize', updateShadows);
+  
+  // Primer cálculo tras paint
+  requestAnimationFrame(updateShadows);
+
+
+  //Select de Filtros Familia y Categoría solo se activa en Desktop
+  const mq = window.matchMedia('(min-width: 768px)'); // md
+
+  const setFacetOpenByBP = () => {
+    document.querySelectorAll('.facet-details').forEach((d) => {
+      if (mq.matches) {
+        // Desktop y arriba: abiertas
+        d.setAttribute('open', '');
+      } else {
+        // Mobile: cerradas
+        d.removeAttribute('open');
+      }
+    });
+  };
+
+  // Al cargar
+  setFacetOpenByBP();
+
+  // Cuando cambie el breakpoint md
+  if (typeof mq.addEventListener === 'function') {
+    mq.addEventListener('change', setFacetOpenByBP);
+  } else {
+    // fallback para navegadores antiguos
+    mq.addListener(setFacetOpenByBP);
+  }
+
+  })
+</script>
+  
+  

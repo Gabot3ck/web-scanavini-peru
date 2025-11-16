@@ -1,0 +1,180 @@
+---
+import { brandsLogos } from "../../../data/brandsRepresentedData";
+import TitleOfSection from "../../layout/TitleOfSection.astro";
+
+
+
+const logos = brandsLogos.map((p) => ({
+  ...p,
+  description: p.description ?? `Partner tecnológico de ${p.id}`,
+}));
+
+// Pista duplicada para loop continuo
+const track = [...logos, ...logos];
+---
+
+<section
+  id="partners-section"
+  class="container-custom py-10 md:py-12 xl:py-28"
+  aria-labelledby="brands-heading"
+>
+  <TitleOfSection 
+    titleOfSection="REPRESENTADAS" 
+    subtitle="MARCAS"
+  />
+
+  <div class="partners-mask relative overflow-hidden group">
+    <div
+      class="partners-track flex items-stretch gap-8 will-change-transform"
+      style="--scroll-duration: 24s" 
+    >
+      {
+        track.map((partner) => (
+          <article
+            class="flex-shrink-0 basis-[75%] sm:basis-1/2 md:basis-1/3 lg:basis-1/5 xl:basis-1/6"
+          >
+            <div class="h-full rounded-2xl  md:p-6 transition-all duration-300">
+              <figure class="flex flex-col items-center text-center">
+                <div class="h-20 flex items-center justify-center">
+                  <img
+                  src={partner.image}
+                  alt={`${partner.id} logo`}
+                  loading="lazy"
+                  class={`h-${partner.imageHeightMobile} md:h-${partner.imageHeight} w-auto object-contain mx-auto transition-all duration-300`}
+                />
+                </div>
+                <figcaption class="mt-4">
+                  <img
+                    src={partner.flag}
+                    alt={`${partner.id} logo`}
+                    loading="lazy"
+                    class="h-6 md:h-6 w-auto object-contain mx-auto mb-2 md:mb-0 transition-all duration-300"
+                  />
+                  <p class="text-sm md:[15px]">
+                    {partner.description}
+                  </p>
+                </figcaption>
+              </figure>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Loop continuo: al finalizar el 50% de la pista (primer clon), reinicia sin salto */
+  @keyframes partners-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-partners-scroll {
+    animation: partners-scroll var(--scroll-duration, 24s) linear infinite;
+  }
+
+  /* Pausa cuando el usuario interactúa */
+  .group:hover .partners-track,
+  .partners-track:focus-within {
+    animation-play-state: paused;
+  }
+
+  /* Borde con fade para estética */
+  .partners-mask {
+    /* Safari/WebKit */
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 6%,
+      black 94%,
+      transparent
+    );
+    -webkit-mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    /* Estándar */
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 6%,
+      black 94%,
+      transparent
+    );
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+  }
+
+  /* Respeta accesibilidad: reduce motion */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-partners-scroll {
+      animation: none !important;
+      transform: none !important;
+    }
+  }
+</style>
+
+<script type="module">
+  const track = document.querySelector(".partners-track");
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (track && !prefersReduced) {
+    let rafId;
+    let x = 0;           
+    let paused = false;  // estado de pausa por hover/focus
+    let last = 0;
+
+    // Lee "--scroll-duration" del inline style (fallback 24s)
+    const getDurationSeconds = () => {
+      const raw = track.style.getPropertyValue("--scroll-duration") || "24s";
+      const n = parseFloat(raw);
+      return Number.isFinite(n) ? n : 24;
+    };
+
+    // El ancho de "un set" es la mitad (has duplicado el array)
+    const halfWidth = () => track.scrollWidth / 2;
+
+    // Velocidad: queremos recorrer "un set" en "duration" segundos
+    const speedPxPerSec = () => halfWidth() / getDurationSeconds();
+
+    const step = (ts) => {
+      if (!last) last = ts;
+      const dt = (ts - last) / 1000;
+      last = ts;
+
+      if (!paused) {
+        x -= speedPxPerSec() * dt;
+        // Cuando superamos un set a la izquierda, recolocamos
+        const hw = halfWidth();
+        if (-x >= hw) x += hw;
+        track.style.transform = `translate3d(${x}px, 0, 0)`;
+      }
+
+      rafId = requestAnimationFrame(step);
+    };
+
+    // Pausa/Resume por accesibilidad/UX
+    const pause = () => { paused = true; };
+    const resume = () => { paused = false; };
+
+    // Listeners para hover y focus dentro
+    track.addEventListener("mouseenter", pause);
+    track.addEventListener("mouseleave", resume);
+    track.addEventListener("focusin",  pause);
+    track.addEventListener("focusout", resume);
+
+    // En resize, mantenemos proporción y medimos de nuevo
+    const onResize = () => {
+      const oldHalf = halfWidth();
+      // Pequeño truco: re‐proyecta el offset a la nueva medida
+      x = ((x % oldHalf) / oldHalf) * halfWidth();
+    };
+    window.addEventListener("resize", onResize);
+
+    rafId = requestAnimationFrame(step);
+  }
+</script>
+

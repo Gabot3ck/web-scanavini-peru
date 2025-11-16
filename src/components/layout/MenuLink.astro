@@ -1,0 +1,215 @@
+---
+import type { NavItem } from "../../data/navigation";
+
+export interface Props {
+  item: NavItem;
+  baseTextClass?: string;     // color base cuando nav es transparente/no oscuro
+  darkTextClass?: string;     // color cuando nav tiene fondo claro (isDark=true)
+  baseHoverClass?: string;    // hover cuando nav NO es dark
+  darkHoverClass?: string;    // hover cuando nav SÍ es dark
+  btnClass?: string;          // Clases para botón Andeslock
+}
+
+const {
+  item,
+  baseTextClass = "text-white",
+  darkTextClass = "text-gray-700",
+  baseHoverClass = "hover:text-gray-700",
+  darkHoverClass = "hover:text-brand",
+  btnClass = "bg-accent-dark hover:bg-accent text-white rounded-xl w-lg hover:text-white",
+} = Astro.props;
+
+const hasChildren = item.children && item.children.length > 0;
+---
+
+<li class={`relative menu-link-container `} data-has-submenu={hasChildren}>
+  <a
+    href={item.href || "#"}
+    id={`menu-link-${item.text.toLowerCase().replace(/\s+/g, "-")}`}
+    class={
+      `menu-link h-14 lg:h-11 w-auto text-base lg:text-sm xl:text-base font-medium 
+      transition-all duration-300 flex items-center 
+      gap-1 px-3 lg:px-3 py-2 xl:px-3
+      border-b-3 border-transparent 
+      ${ baseTextClass } ${ baseHoverClass } 
+      ${ item.isBtn && btnClass }`
+    }
+    aria-label={item.text}
+    aria-expanded={hasChildren ? "false" : undefined}
+    aria-haspopup={hasChildren ? "true" : undefined}
+    aria-controls={hasChildren
+      ? `submenu-${item.text.toLowerCase().replace(/\s+/g, "-")}`
+      : undefined}
+    target={ item.href?.startsWith("https") ? "_blank" : "_self" }
+    data-menu-link
+    data-base-text-class={baseTextClass}
+    data-dark-text-class={darkTextClass}
+    data-base-hover-class={baseHoverClass}
+    data-dark-hover-class={darkHoverClass}
+  >
+    {item.text}
+
+    {
+      hasChildren && (
+        <span class="chevron-icon transition-transform duration-200">
+          <svg
+            class="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </span>
+      )
+    }
+  </a>
+</li>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuLinks = document.querySelectorAll("[data-menu-link]");
+    const isDesktop = () => window.matchMedia("(min-width: 960px)").matches; // lg
+
+    // Sincroniza colores del texto según estado del nav (ya lo tenías)
+    document.addEventListener("navStateChange", (event) => {
+      const { isDark = false } = event.detail ?? {};
+
+      menuLinks.forEach((link) => {
+        const baseText = link.dataset.baseTextClass || "text-white";
+        const darkText = link.dataset.darkTextClass || "text-gray-700";
+        const baseHover = link.dataset.baseHoverClass || "hover:text-gray-700";
+        const darkHover = link.dataset.darkHoverClass || "hover:text-brand";
+
+        if ( !link.classList.contains('bg-accent-dark')  ) {
+          link.classList.toggle(baseText,  !isDark);
+          link.classList.toggle(darkText,   isDark);
+          link.classList.toggle(baseHover, !isDark);
+          link.classList.toggle(darkHover,  isDark);
+        }
+      });
+    });
+
+    // Cerrar estados (dropdown local + aria) cuando el overlay se oculta
+    document.addEventListener("submenuEnter", (event) => {
+      const { triggerId } = event.detail ?? {};
+      menuLinks.forEach((link) => {
+        const isMine = link.id === triggerId;
+        link.setAttribute("aria-expanded", isMine ? "true" : "false");
+        link
+          .querySelector(".chevron-icon")
+          ?.classList.toggle("rotate-180", isMine);
+      });
+    });
+
+    // Al cerrar el overlay, limpiar TODOS los estados activos
+    document.addEventListener("submenuLeave", () => {
+      menuLinks.forEach((link) => {
+        link.setAttribute("aria-expanded", "false");
+        link.querySelector(".chevron-icon")?.classList.remove("rotate-180");
+      });
+    });
+
+    //Si alguien dispara hideAllSubmenus (click fuera), cierra overlay y resetea
+    document.addEventListener("hideAllSubmenus", () => {
+      document.dispatchEvent(new CustomEvent("hideSubmenu"));
+      menuLinks.forEach((link) => {
+        link.setAttribute("aria-expanded", "false");
+        link.querySelector(".chevron-icon")?.classList.remove("rotate-180");
+      });
+    });
+
+
+
+    menuLinks.forEach((link) => {
+      const container = link.closest(".menu-link-container");
+      const hasSubmenu = container?.dataset.hasSubmenu === "true";
+      const chevron = link.querySelector(".chevron-icon");
+      const submenu = container?.querySelector("[data-submenu]");
+      const text = link.textContent?.trim() || "";
+      const key = text
+        .toLowerCase()
+        .replace(/[^\w]+/g, "-")
+        .replace(/(^-|-$)/g, "");
+
+      // Hover mostrar mega-submenu en desktop
+      link.addEventListener("mouseenter", () => {
+        if (hasSubmenu && isDesktop()) {
+          document.dispatchEvent(
+            new CustomEvent("showSubmenu", {
+              detail: { key, triggerId: link.id },
+            })
+          );
+          link.setAttribute("aria-expanded", "true");
+          chevron?.classList.add("rotate-180");
+        }
+      });
+
+      // Pequeño margen de tolerancia al salir
+      link.addEventListener("mouseleave", () => {
+        if (isDesktop()) {
+          document.dispatchEvent(new CustomEvent("hideSubmenu"));
+        }
+      });
+
+      // Click:
+      link.addEventListener("click", (event) => {
+        if (!hasSubmenu) return;
+
+        if (isDesktop()) {
+          // overlay en desktop
+          event.preventDefault();
+          document.dispatchEvent(
+            new CustomEvent("showSubmenu", {
+              detail: { key, triggerId: link.id },
+            })
+          );
+          link.setAttribute("aria-expanded", "true");
+          chevron?.classList.add("rotate-180");
+        } else {
+          // dropdown local en mobile (tu comportamiento actual)
+          event.preventDefault();
+          const isExpanded = link.getAttribute("aria-expanded") === "true";
+          if (isExpanded) {
+            link.setAttribute("aria-expanded", "false");
+            chevron?.classList.remove("rotate-180");
+            submenu?.classList.add("hidden");
+          } else {
+            document.dispatchEvent(new CustomEvent("hideAllSubmenus"));
+            link.setAttribute("aria-expanded", "true");
+            chevron?.classList.add("rotate-180");
+            submenu?.classList.remove("hidden");
+          }
+        }
+      });
+    });
+
+    //El overlay se cierra con sus propios eventos.
+    document.addEventListener("click", (event) => {
+      if (!event.target.closest(".menu-link-container")) {
+        document.dispatchEvent(new CustomEvent("hideAllSubmenus"));
+      }
+    });
+  });
+</script>
+
+<style is:global>
+  .chevron-icon.rotate-180 {
+    transform: rotate(180deg);
+  }
+  .menu-link-container[data-has-submenu="true"]::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: transparent;
+    z-index: 35;
+  }
+</style>

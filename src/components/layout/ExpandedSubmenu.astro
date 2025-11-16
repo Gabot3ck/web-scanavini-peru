@@ -1,0 +1,150 @@
+---
+import type { NavItem } from '../../data/navigation';
+import { navigationData } from '../../data/navigation';
+
+const slugify = (s: string) =>
+  s.toLowerCase().replace(/[^\w]+/g, '-').replace(/(^-|-$)/g, '');
+
+type SubmenuMap = Record<string, { title: string; items: NavItem[] }>;
+
+const submenuMap: SubmenuMap = navigationData.mainNav.reduce((acc: SubmenuMap, item: NavItem) => {
+  if (item?.children?.length) {
+    acc[slugify(item.text)] = { title: item.text, items: item.children };
+  }
+  return acc;
+}, {});
+
+const btnClass = "bg-accent-dark hover:bg-accent text-white rounded-xl w-lg hover:text-white";
+---
+
+<div 
+  id="unified-submenu"
+  class="expanded-submenu fixed top-[68px] left-0 right-0 z-40 px-4 xl:px-8 py-6 bg-background-light backdrop-blur-md shadow-xl transition-all duration-300 ease-out opacity-0 invisible transform -translate-y-4 scale-y-95"
+  role="menu"
+  aria-hidden="true"
+  aria-label="Submenú de navegación"
+>
+  <div class="max-w-[1920px] mx-auto">
+    <div id="submenu-content" class="flex justify-around items-start gap-8"></div>
+  </div>
+</div>
+
+<script define:vars={{ submenuMap }}>
+(function(submenuMap) {
+  let lastInputByKeyboard = false;
+
+  // Detecta si la última interacción fue teclado vs puntero
+  window.addEventListener('keydown', () => { lastInputByKeyboard = true; }, {capture:true});
+  window.addEventListener('pointerdown', () => { lastInputByKeyboard = false; }, {capture:true});
+
+  function ready(fn){ 
+    if(document.readyState==='loading'){
+      document.addEventListener('DOMContentLoaded',fn)
+    } else {fn()} 
+  }
+
+  ready(function init(){
+    const submenu = document.getElementById('unified-submenu');
+    const submenuContent = document.getElementById('submenu-content');
+
+    let currentKey = null;
+    let triggerId = null;
+    let hoverTimeout = null;
+
+    function sectionHTML(node){
+      // Si el nodo tiene hijos, lo tratamos como "columna" con título
+      if (node?.children?.length){
+        return `
+          <section class="px-2 min-w-[220px]">
+            <h3 class="px-2 py-1 text-lg font-semibold text-gray-800">
+              ${node.href ? `<a href="${node.href}" class="hover:text-brand hover:underline">${node.text}</a>` : node.text}
+            </h3>
+            <ul class="mt-2">
+              ${node.children.map(ch => `
+                <li 
+                  class=" px-2 py-1 text-sm text-gray-700 hover:text-brand 
+                          ${ ch.isBtn && 'bg-brand hover:bg-brand-dark text-white text-center rounded-xl w-40 hover:text-white mt-2' } "
+                >
+                  <a 
+                    href="${ch.href || '#'}" aria-label="Link de ${ch.text}" 
+                    target="${ ( ch.href?.startsWith("https") || ch.href?.includes("/download") ) ? "_blank" : "_self" }">
+                    ${ch.text}${ch.children ? ' →' : ''}
+                  </a>
+                </li>`).join('')}
+            </ul>
+          </section>
+        `;
+      }
+      // Si no tiene hijos, lo ponemos como lista simple (columna básica)
+      return `
+        <section class="px-2 min-w-[220px]">
+          <ul>
+            <li class="px-2 py-1 text-base font-medium text-gray-800">
+              <a href="${node.href || '#'}" class="hover:text-brand">${node.text}</a>
+            </li>
+          </ul>
+        </section>
+      `;
+    }
+
+    function renderByKey(key){
+      const tpl = submenuMap[key];
+      if(!tpl) return '';
+      // items puede ser una mezcla de "categorías" y enlaces simples
+      return tpl.items.map(sectionHTML).join('');
+    }
+
+    function show(key, openerId){
+      clearTimeout(hoverTimeout);
+      triggerId = openerId || null;
+
+      if(currentKey !== key){
+        submenuContent.innerHTML = renderByKey(key);
+        currentKey = key;
+        submenu.setAttribute('aria-label', `Submenú de ${submenuMap[key]?.title ?? ''}`);
+      }
+      submenu.classList.remove('opacity-0','invisible','-translate-y-4','scale-y-95');
+      submenu.classList.add('opacity-100','visible','translate-y-0','scale-y-100');
+      submenu.setAttribute('aria-hidden','false');
+      document.dispatchEvent(new CustomEvent('submenuEnter', { detail: { triggerId } }));
+
+      // Solo mueve el foco si venías con teclado; evita “borde” al abrir con mouse
+      if (lastInputByKeyboard) {
+        submenu.querySelector('a')?.focus({ preventScroll: true });
+      }
+    }
+
+    function hideNow(){
+      submenu.classList.remove('opacity-100','visible','translate-y-0','scale-y-100');
+      submenu.classList.add('opacity-0','invisible','-translate-y-4','scale-y-95');
+      submenu.setAttribute('aria-hidden','true');
+      const id = triggerId;
+      currentKey = null;
+      triggerId = null;
+      document.dispatchEvent(new CustomEvent('submenuLeave', { detail: { triggerId: id } }));
+    }
+    function hide(delay=120){ clearTimeout(hoverTimeout); hoverTimeout = setTimeout(hideNow, delay); }
+
+    // Puente de eventos
+    document.addEventListener('showSubmenu', (ev) => {
+      const { key, triggerId } = ev.detail || {};
+      if (key && submenuMap[key]) show(key, triggerId);
+    });
+    document.addEventListener('hideSubmenu', () => hide(80));
+    document.addEventListener('keepSubmenu', () => clearTimeout(hoverTimeout));
+    document.addEventListener('hideAllSubmenus', () => hideNow());
+
+    submenu.addEventListener('mouseenter', () => clearTimeout(hoverTimeout));
+    submenu.addEventListener('mouseleave', () => hide());
+
+    submenu.addEventListener('keydown', (e) => {
+      const focusable = submenu.querySelectorAll('a, button, [tabindex="0"]');
+      const items = Array.from(focusable);
+      const i = items.indexOf(document.activeElement);
+      if(e.key==='Escape'){ e.preventDefault(); hideNow(); document.getElementById(triggerId)?.focus(); }
+      if(e.key==='ArrowDown'){ e.preventDefault(); items[(i+1)%items.length]?.focus(); }
+      if(e.key==='ArrowUp'){ e.preventDefault(); items[(i-1+items.length)%items.length]?.focus(); }
+    });
+  });
+})(submenuMap);
+</script>

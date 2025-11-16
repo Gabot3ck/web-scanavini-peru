@@ -1,0 +1,41 @@
+---
+import ProductSearchTable from "../components/sections/product-datasheets/ProductSearchTable.astro";
+import Layout from "../layouts/Layout.astro";
+
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Comercial Scanavini Ltda.",
+  "url": "https://www.scanavini.com/fichas-tecnicas",
+  "description": "Fichas técnicas de productos cerraduras, manillas, bisagras, topes, barras antipánico marca Scanavini.",
+  "logo": "https://www.scanavini.com/iso_scanavini.svg"
+};
+
+---
+
+<Layout
+  title="Fichas Técnicas | Productos"
+  description="Descarga las fichas técnicas de los productos Scanavini"
+  menuTextClass="text-gray-700"
+  logoBaseVariant="dark"
+  logoSwapOnHoverAtTop={false}
+  logoSwapOnScroll={ true }
+  robots="index,follow"
+  jsonLd={ jsonLd }
+>
+  <section class="py-12 sm:py-16 lg:py-28 bg-background-light relative ">
+    <div class="w-full max-w-[1920px] mx-auto px-10 flex items-center justify-center flex-col ">
+      <!-- Main Title -->
+      <header class="xl:mb-8 text-center">
+        <h1 class="products-title mb-0">
+          FICHAS TÉCNICAS DE PRODUCTOS
+        </h1>
+      </header>
+
+      <ProductSearchTable />
+
+    </div>
+  </section>
+
+</Layout>

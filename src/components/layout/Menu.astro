@@ -1,0 +1,40 @@
+---
+import { navigationData } from "../../data/navigation.js";
+import MenuLink from "./MenuLink.astro";
+import ExpandedSubmenu from "./ExpandedSubmenu.astro";
+
+export interface Props {
+  baseTextClass?: string;
+  darkTextClass?: string;
+  baseHoverClass?: string;
+  darkHoverClass?: string;
+}
+
+const { mainNav } = navigationData;
+
+const {
+  baseTextClass = "text-white",
+  darkTextClass = "text-gray-700",
+  baseHoverClass = "hover:text-gray-700",
+  darkHoverClass = "hover:text-brand",
+} = Astro.props;
+---
+
+<ul
+  id="navbar-menu"
+  class="hidden w-full lg:flex lg:justify-evenly relative"
+>
+  {
+    mainNav.map((item) => (
+      <MenuLink
+        item={item}
+        baseTextClass={baseTextClass}
+        darkTextClass={darkTextClass}
+        baseHoverClass={baseHoverClass}
+        darkHoverClass={darkHoverClass}
+      />
+    ))
+  }
+</ul>
+
+<ExpandedSubmenu />

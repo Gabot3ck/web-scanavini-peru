@@ -1,0 +1,353 @@
+---
+import { navigationData } from "../../data/navigation";
+
+interface NavItem {
+  text: string;
+  href?: string;
+  children?: NavItem[];
+}
+
+const ROOT_ITEMS: NavItem[] = (navigationData?.mainNav ??
+  navigationData ??
+  []) as NavItem[];
+const LOGO = "/images/logos/logo-scanavini-dark.svg";
+---
+
+<!-- Overlay -->
+<div
+  id="mobile-menu-overlay"
+  class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[80] opacity-0 pointer-events-none transition-opacity duration-300 ease-out lg:hidden"
+>
+</div>
+
+<!-- Panel -->
+<aside
+  id="mobile-menu"
+  class="fixed top-0 right-0 h-[100dvh] max-h-[830px] w-96 max-w-[90vw] bg-white shadow-2xl z-[85] translate-x-full transition-transform duration-300 ease-out lg:hidden"
+  role="dialog"
+  aria-modal="true"
+  aria-hidden="true"
+  aria-labelledby="mobile-menu-title"
+>
+  <!-- Header (varía por profundidad) -->
+  <div
+    id="mobile-menu-header"
+    class="shrink-0 h-[var(--header-height)] flex items-center justify-between px-4 border-b border-background-muted"
+  >
+    <!-- Nivel raíz: logo centrado + cerrar -->
+    <div data-depth="0" class="flex items-center justify-between w-full">
+      <div class="w-6"></div>
+      <div class="flex-1 flex items-center justify-start">
+        <img id="mobile-logo" src={LOGO} alt="Logo" class="h-10" />
+      </div>
+      <button
+        id="mobile-menu-close"
+        class="p-2 rounded-full hover:bg-background-DEFAULT"
+        aria-label="Cerrar menú"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Subniveles: atrás + título + cerrar (sin logo) -->
+    <div data-depth="n" class="hidden flex items-center justify-between w-full">
+      <div class="flex justify-start items-center">
+        <button id="mobile-menu-back" class="" aria-label="Volver">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <h2
+          id="mobile-menu-title"
+          class="text-base font-semibold text-neutral-dark truncate px-2"
+        >
+        </h2>
+      </div>
+
+      <button
+        id="mobile-menu-close-2"
+        class="p-2 rounded-full hover:bg-background-DEFAULT"
+        aria-label="Cerrar menú"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Contenido scrollable -->
+  <div class="grow overflow-y-auto will-change-transform">
+    <nav class="py-2" aria-label="Menú móvil">
+      <ul id="mobile-menu-list" class="px-2 divide-y divide-background-muted">
+      </ul>
+    </nav>
+  </div>
+</aside>
+
+<script is:inline define:vars={{ ROOT_ITEMS, LOGO }}>
+  (() => {
+    /** @typedef {{ text: string, href?: string, children?: any[] }} Item */
+
+    // Nodos base
+    const overlay = document.getElementById("mobile-menu-overlay");
+    const panel = document.getElementById("mobile-menu");
+    const header = document.getElementById("mobile-menu-header");
+    const listEl = document.getElementById("mobile-menu-list");
+
+    // Header: raíz vs subniveles
+    const headerRoot = header?.querySelector('[data-depth="0"]');
+    const headerSub = header?.querySelector('[data-depth="n"]');
+    const backBtn = document.getElementById("mobile-menu-back");
+    const closeBtn1 = document.getElementById("mobile-menu-close");
+    const closeBtn2 = document.getElementById("mobile-menu-close-2");
+    const titleEl = document.getElementById("mobile-menu-title");
+
+    // Pila de navegación: cada nivel guarda título, href del padre e items
+    /** @type {{ title: string, href?: string, items: Item[] }[]} */
+    const stack = [{ title: "Menú", items: ROOT_ITEMS ?? [] }];
+
+    let lastFocused = null;
+
+    function focusFirst() {
+      const first = panel?.querySelector(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      first?.focus?.({ preventScroll: true });
+    }
+
+    function open() {
+      lastFocused = document.activeElement;
+      panel?.classList.remove("translate-x-full");
+      overlay?.classList.remove("opacity-0", "invisible");
+      panel?.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      // Notificar al NavBar que el menú móvil está abierto
+      document.dispatchEvent(
+        new CustomEvent("mobileMenuOpenState", { detail: { open: true } })
+      );
+      // Cerrar cualquier mega-submenú de desktop abierto
+      document.dispatchEvent(new CustomEvent("hideAllSubmenus"));
+      requestAnimationFrame(() => focusFirst());
+    }
+
+    function close() {
+      panel?.classList.add("translate-x-full");
+      overlay?.classList.add("opacity-0", "invisible");
+      panel?.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      stack.splice(1); // vuelve a raíz
+      render();
+      lastFocused?.focus?.({ preventScroll: true });
+      //Notificar al NavBar que el menú móvil se cerró
+      document.dispatchEvent(
+        new CustomEvent("mobileMenuOpenState", { detail: { open: false } })
+      );
+    }
+
+    function push(crumb) {
+      stack.push(crumb);
+      render(true);
+    }
+
+    function pop() {
+      if (stack.length > 1) {
+        stack.pop();
+        render(true);
+      } else {
+        close();
+      }
+    }
+
+    function setHeaderDepth(depth) {
+      if (!headerRoot || !headerSub) return;
+      if (depth === 0) {
+        headerRoot.classList.remove("hidden");
+        headerSub.classList.add("hidden");
+      } else {
+        headerRoot.classList.add("hidden");
+        headerSub.classList.remove("hidden");
+      }
+    }
+
+    function createRow(item) {
+      const li = document.createElement("li");
+      li.className = "py-2";
+
+      const hasChildren =
+Array.isArray(item.children) && item.children.length > 0;
+
+      const btn = document.createElement("button");
+      btn.className =
+        "w-full flex items-center justify-between gap-4 px-3 py-3 rounded-lg hover:bg-background-DEFAULT transition-colors text-neutral-dark";
+      btn.type = "button";
+      btn.setAttribute("aria-expanded", "false");
+
+      const left = document.createElement("span");
+      if ( item.isBtn ) {
+        left.className = "text-base font-medium text-left bg-accent-dark hover:bg-accent rounded-xl py-2 px-4  text-white hover:text-white";
+      } else {
+        left.className = "text-base font-medium text-left";
+      }
+      
+      left.textContent = item.text;
+
+      btn.appendChild(left);
+
+      if (hasChildren) {
+        const icon = document.createElement("span");
+        icon.setAttribute("aria-hidden", "true");
+        icon.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+             class="w-5 h-5" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>`;
+        btn.appendChild(icon);
+
+        btn.addEventListener("click", () => {
+          push({
+            title: item.text,
+            href: item.href,
+            items: item.children || [],
+          });
+        });
+      } else {
+        btn.addEventListener("click", () => {
+          if (item.href) window.location.href = item.href;
+          close();
+        });
+      }
+
+      li.appendChild(btn);
+      return li;
+    }
+
+    function render(animate = false) {
+      const depth = stack.length - 1;
+      const { title, items, href, isBtn } = stack[depth];
+
+      setHeaderDepth(depth);
+      if (titleEl) {
+        titleEl.textContent = title;
+        titleEl.setAttribute("title", title);
+      }
+
+      if (!listEl) return;
+      
+      listEl.innerHTML = "";
+
+      // Render de ítems del nivel actual
+      items.forEach((it) => listEl.appendChild(createRow(it)));
+
+
+      // CTA "Visitar {título}" al final si es subnivel y el padre tiene href
+      if (depth > 0 && href) {
+        const li = document.createElement("li");
+        li.className = "py-4";
+
+        const a = document.createElement("a");
+        a.href = href;
+
+        a.className = "min-w-[174px]  text-center px-3 py-3 ml-3 font-medium bg-brand rounded-xl text-white hover:bg-brand-dark hover:text-white";
+        a.textContent = `Visitar ${title}`;
+        a.addEventListener("click", () => close());
+
+        li.appendChild(a);
+        listEl.appendChild(li);
+      }
+    }
+
+    function focusFirst() {
+      const first = panel?.querySelector(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      first?.focus?.({ preventScroll: true });
+    }
+
+    // Focus trap + accesibilidad
+    panel?.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        close();
+        return;
+      }
+      if (e.key === "Backspace" && stack.length > 1) {
+        e.preventDefault();
+        pop();
+        return;
+      }
+      if (e.key !== "Tab") return;
+
+      const focusables = Array.from(
+        panel.querySelectorAll(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        )
+      ).filter((el) => !el.hasAttribute("disabled"));
+
+      if (focusables.length === 0) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+
+      if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      }
+    });
+
+    // Cerrar: overlay, botones, y enlaces dentro del panel
+    overlay?.addEventListener("click", close);
+    closeBtn1?.addEventListener("click", close);
+    closeBtn2?.addEventListener("click", close);
+    backBtn?.addEventListener("click", pop);
+
+    listEl?.addEventListener("click", (e) => {
+      const a = e.target && /** @type {HTMLElement} */ (e.target).closest("a");
+      if (a) close();
+    });
+
+    // Eventos globales para abrir/cerrar desde el hamburger
+    document.addEventListener("openMobileMenu", open);
+    document.addEventListener("closeMobileMenu", close);
+
+    // Render inicial en raíz
+    render();
+  })();
+</script>
+
+

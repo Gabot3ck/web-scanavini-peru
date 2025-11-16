@@ -1,0 +1,86 @@
+---
+import VideoLazy from "../../layout/VideoLazy.astro";
+
+---
+<section class="container-custom py-10 md:py-12 lg:py-28">
+	<!-- Grid responsiva: texto primero en mobile, video abajo; en desktop, video izq / texto der -->
+	<div class="grid gap-8 lg:gap-20 lg:grid-cols-2 items-start">
+		<!-- Columna TEXTO (derecha en desktop) -->
+		<div class="order-1 lg:order-2">
+			<h2 
+        class="text-sm md:text-base lg:text-2xl xl:text-3xl xl:mb-2 text-center xl:text-left font-medium max-w-2xl text-gray-600 mx-auto description-section uppercase"
+				data-animation="title"
+				>
+        Cada proyecto es 
+      </h2>
+      <h2
+				class="text-[22px]  md:text-2xl lg:text-5xl xl:text-4xl 2xl:text-5xl text-center xl:text-left mb-4 lg:mb-6 font-bold text-brand lg:mb-1 title-section uppercase"
+				data-animation="title"
+			>
+        un nuevo desafío 
+      </h2>
+			
+			
+			<p 
+				class="mx-auto text-sm lg:text-lg  text-center lg:text-justify max-w-[400px] sm:max-w-[480px] lg:max-w-none leading-relaxed"
+				data-animation="text"
+				>
+				<strong>Scanavini</strong> cuenta con un área de <strong>Especificaciones Técnicas</strong> el cual tiene como objetivo principal definir, desarrollar y gestionar los atributos técnicos de los productos y servicios que ofrece la empresa. Su labor es fundamental para garantizar que cada producto cumpla con los <strong>estándares de calidad</strong>, las <strong>normativas vigentes</strong> y las <strong>expectativas de cada cliente</strong>, asegurando una alineación precisa entre diseño, funcionalidad y necesidades de cada proyecto. 
+			</p>
+			
+		</div>
+
+		<!-- Columna VIDEO (izquierda en desktop) -->
+		<div class="order-2 lg:order-1" data-animation="videoShowrrom">
+			<VideoLazy
+				title="Video Showroom Scanavini, Vitacura"
+				poster="/images/poster-showroom.webp"
+				srcMp4="https://storage.scanavini.cl/videos/showroom-scanavini.mp4"  
+				capMaxHeight
+			/>
+		</div>
+	</div>
+</section>
+
+
+
+<script>
+  import ScrollReveal from "scrollreveal";
+
+	ScrollReveal().reveal('[data-animation="title"]', {
+		distance: "30px",          // se mueve un poco desde abajo
+		origin: "top",
+		opacity: 0,
+		duration: 700,
+		easing: "cubic-bezier(0.4, 0, 0.2, 1)", // similar a tu transición global
+		interval: 80,              // stagger entre cada card
+		reset: true,              // solo se anima una vez
+		cleanup: false,             // limpia estilos inline cuando termina
+		delay: 100,
+	});
+
+	ScrollReveal().reveal('[data-animation="text"]', {
+		distance: "120px",          // se mueve un poco desde abajo
+		origin: "right",
+		opacity: 0,
+		duration: 1400,
+		easing: "cubic-bezier(0.4, 0, 0.2, 1)", // similar a tu transición global
+		interval: 80,              // stagger entre cada card
+		reset: true,              // solo se anima una vez
+		cleanup: false,             // limpia estilos inline cuando termina
+		delay: 250,
+	});
+
+	ScrollReveal().reveal('[data-animation="videoShowrrom"]', {
+		distance: "100px",          // se mueve un poco desde abajo
+		origin: "left",
+		opacity: 0,
+		duration: 1600,
+		easing: "cubic-bezier(0.4, 0, 0.2, 1)", // similar a tu transición global
+		interval: 80,              // stagger entre cada card
+		reset: true,              // solo se anima una vez
+		cleanup: false,             // limpia estilos inline cuando termina
+		delay: 400,
+	});
+
+</script>

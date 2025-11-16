@@ -1,0 +1,139 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// Datos para la página
+const pageData = {
+  title: "Página en mantenimiento",
+  description: "La página que visitas está en mantenimiento",
+};
+---
+
+<!-- logoSwapOnHoverAtTop={true} Activa el cambio del logo en hover cuando se está “arriba” -->
+<Layout
+  title={pageData.title}
+  description={pageData.description}
+  menuTextClass="text-gray-700"
+  logoBaseVariant="dark"
+  logoSwapOnHoverAtTop={false}
+  logoSwapOnScroll={true}
+  robots="noindex,nofollow"
+>
+  <section class=" sm:px-3 md:px-5 lg:px-10 xl:px-0 min-h-[650px] lg:min-h-[60dvh]  py-20 xl:mt-16 bg-background-muted"
+  >
+    <main class="max-w-3/4 mx-auto px-4 xl:px-3 flex flex-col items-center text-center justify-start xl:gap-3">
+      <img
+        src="/images/backgrounds/construccion.webp"
+        alt="sitio en mantenimiento"
+        class="w-40 sm:w-48 lg:w-64 xl:w-80 mx-auto mb-3"
+        data-animation="image-mantenimiento"
+      />
+
+      <h1 
+        class="text-lg lg:text-3xl font-semibold text-gray-800"
+        data-animation="title-mantenimiento"
+      >
+        Esta página está en
+      </h1>
+
+      <h2 
+        class="text-brand text-4xl lg:text-6xl xl:text-7xl font-extrabold mb-5" 
+        data-animation="subtitle-mantenimiento"
+      >Construcción</h2>
+
+      <p 
+        class="text-sm lg:text-lg max-w-3xl text-gray-700"
+        data-animation="text-mantenimiento"
+      >
+        Estamos realizando mejoras y muy pronto esta sección estará disponible
+        para todos nuestros usuarios. Gracias por tu paciencia y comprensión.
+      </p>
+
+      <h3  
+        class="text-xl lg:text-3xl font-bold text-gray-700 mt-10 mb-4"
+        data-animation="links-mantenimiento"
+        >
+        Puedes intentar:
+      </h3>
+
+      <ul 
+        class="list-none p-0 m-0 text-center xl:w-full xl:flex xl:justify-center xl:items-center xl:gap-10"
+        data-animation="links-mantenimiento"
+        >
+          <li class="text-sm lg:text-lg mb-3">
+            • Conocer nuestros <a class="text-brand underline hover:text-brand-dark" href="https://www.scanavini.com/productos" >productos</a>.
+          </li>
+          <li class="text-sm lg:text-lg mb-3">
+            • Visitar nuestra <a class="text-brand underline hover:text-brand-dark" href="https://tiendascanavini.cl/home" >tienda online</a>.
+          </li>
+          <li class="text-sm lg:text-lg mb-3">
+            • Regresar a la <a class="text-brand underline hover:text-brand-dark" href="https://www.scanavini.com/" >página de inicio</a>.
+          </li>
+      </ul>
+
+    </main>
+  </section>
+</Layout>
+
+<script>
+  import ScrollReveal from "scrollreveal";
+
+	ScrollReveal().reveal('[data-animation="image-mantenimiento"]', {
+		distance: "180px",          // se mueve un poco desde abajo
+		origin: "bottom",
+		opacity: 0,
+		duration: 800,
+		easing: "cubic-bezier(0.4, 0, 0.2, 1)", // similar a tu transición global
+		interval: 80,              // stagger entre cada card
+		reset: false,              // solo se anima una vez
+		cleanup: false,             // limpia estilos inline cuando termina
+		delay: 250,
+	});
+
+  ScrollReveal().reveal('[data-animation="title-mantenimiento"]', {
+		distance: "120px",          
+		origin: "bottom",
+		opacity: 0,
+		duration: 800,
+		easing: "cubic-bezier(0.4, 0, 0.2, 1)", 
+		interval: 80,              
+		reset: false,              
+		cleanup: false,             
+		delay: 450,
+	});
+
+  ScrollReveal().reveal('[data-animation="subtitle-mantenimiento"]', {
+		distance: "120px",          
+		origin: "bottom",
+		opacity: 0,
+		duration: 800,
+		easing: "cubic-bezier(0.4, 0, 0.2, 1)", 
+		interval: 80,              
+		reset: false,              
+		cleanup: false,             
+		delay: 650,
+	});
+
+  ScrollReveal().reveal('[data-animation="text-mantenimiento"]', {
+		distance: "120px",          
+		origin: "bottom",
+		opacity: 0,
+		duration: 800,
+		easing: "cubic-bezier(0.4, 0, 0.2, 1)", 
+		interval: 80,              
+		reset: false,              
+		cleanup: false,             
+		delay: 950,
+	});
+
+  ScrollReveal().reveal('[data-animation="links-mantenimiento"]', {
+		distance: "130px",          
+		origin: "bottom",
+		opacity: 0,
+		duration: 800,
+		easing: "cubic-bezier(0.4, 0, 0.2, 1)", 
+		interval: 80,              
+		reset: false,              
+		cleanup: false,             
+		delay: 1200,
+	});
+</script>

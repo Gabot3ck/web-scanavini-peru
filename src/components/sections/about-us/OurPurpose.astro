@@ -1,0 +1,93 @@
+---
+import TitleOfSection from "../../layout/TitleOfSection.astro"
+
+interface Item {
+  title: string
+  description: string
+  iconUrl?: string
+}
+
+const {
+  items = [
+    {
+      title: "MISIÓN",
+      description:
+        "En Scanavini, a través de nuestro proceso productivo hecho en Chile y el talento de nuestro equipo regional, queremos brindar la mejor solución y el mejor servicio de la industria de cerraduras y herrajes de Sudamérica.",
+      iconUrl: "/images/icons/mision.svg"
+    },
+    {
+      title: "VISIÓN",
+      description:
+        "Convertirnos en la empresa líder en cerraduras y herrajes de Sudamérica, superando las expectativas de nuestros clientes con soluciones seguras, estéticas y un servicio de excelencia.",
+      iconUrl: "/images/icons/vision.svg"
+    }
+  ],
+} = Astro.props as {
+  kicker?: string
+  heading?: string
+  items?: Item[]
+}
+
+---
+<section class="container-custom mx-auto pb-12 md:pb-16 xl:pb-24">
+  <!-- Header -->
+  <TitleOfSection 
+    subtitle="NUESTRO" 
+    titleOfSection="PROPÓSITO" 
+  />
+
+
+  <!-- Content -->
+  <div 
+    class="flex flex-col px-4 py-2 xl:px-12 lg:py-10 max-w-[450px] lg:max-w-[700px] sm:w-3/4 mx-auto gap-14 md:gap-24 xl:gap-32"
+    
+    >
+    {items.map((item, idx) => (
+      <article 
+        class="grid grid-cols-[72px_1fr] md:grid-cols-[96px_1fr] items-start gap-4 lg:gap-10 xl:gap-16"
+        data-animation="mision"
+      >
+        <!-- Icono circular -->
+        <div
+          class="relative inline-flex items-center justify-center rounded-full bg-brand text-white shadow-soft w-14 h-14  md:w-16 md:h-16 lg:w-20 lg:h-20 xl:w-24 xl:h-24"
+          aria-hidden="true"
+        >
+          <div class="w-8 h-8 md:w-12 md:h-12 flex items-center justify-center">
+            <img
+              src={item.iconUrl}
+              alt=""
+              class="w-full h-full object-contain"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <!-- Texto -->
+        <div>
+          <h3 class="text-neutral-dark font-extrabold tracking-tight text-sm md:text-base lg:text-lg">
+            {item.title}:
+          </h3>
+          <p class=" mt-2 text-neutral-grey leading-relaxed text-[11px] sm:text-xs md:text-sm lg:text-base xl:text-lg text-justify">
+            {item.description}
+          </p>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
+
+<script>
+  import ScrollReveal from "scrollreveal";
+
+	ScrollReveal().reveal('[data-animation="mision"]', {
+		distance: "120px",          // se mueve un poco desde abajo
+		origin: "bottom",
+		opacity: 0,
+		duration: 700,
+		easing: "cubic-bezier(0.4, 0, 0.2, 1)", // similar a tu transición global
+		interval: 80,              // stagger entre cada card
+		reset: false,              // solo se anima una vez
+		cleanup: true,           // limpia estilos inline cuando termina
+		delay: 1100,
+	});
+</script>

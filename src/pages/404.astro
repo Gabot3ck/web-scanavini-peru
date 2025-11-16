@@ -1,0 +1,144 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Datos para la página
+const pageData = {
+  title: 'Página no encontrada',
+  description: 'La URL que visitaste no existe o fue movida.',
+};
+---
+<!-- logoSwapOnHoverAtTop={true} Activa el cambio del logo en hover cuando se está “arriba” -->
+<Layout 
+  title={pageData.title}
+  description={pageData.description}
+  menuTextClass="text-gray-700"
+  logoBaseVariant="dark"
+  logoSwapOnHoverAtTop={false}
+  logoSwapOnScroll={true}
+  robots="noindex,nofollow"
+>
+  <section class=" sm:px-3 md:px-5 lg:px-10 xl:px-0 min-h-[650px] lg:min-h-[60dvh]  py-20 xl:mt-16 bg-background-muted">
+    <main class="max-w-3/4 mx-auto px-3 flex flex-col items-center text-center justify-start xl:gap-3">
+      <img 
+        src="https://www.tiendascanavini.pe/wp-content/uploads/2025/04/icon-cerradura-digital.png" 
+        alt="Error 404- Scanavini"  
+        class="w-28 xl:w-44 mx-auto mb-3"
+        data-animation="image-404"
+      />
+
+      <h1 
+        class="text-7xl xl:text-9xl text-brand font-bold mb-6"
+        data-animation="404"
+      >404
+      </h1>
+
+      <h2 
+        class="text-xl lg:text-3xl font-bold text-gray-700 mb-6"
+        data-animation="title-404"
+      >
+        ¡Oops! No pudimos encontrar esta página
+      </h2>
+          
+      <p 
+        class="text-sm lg:text-lg mb-12 max-w-3xl"
+        data-animation="text-404"
+      >
+        Parece que la página que estás buscando ya no existe o ha sido movida.
+        No te preocupes, te ayudamos a encontrar lo que necesitas.
+      </p>
+      
+      <h3 
+        class="text-xl lg:text-3xl font-bold text-gray-700 mb-3 xl:mb-6"
+        data-animation="subtitle-404"
+      >
+        Puedes intentar:</h3>
+      <ul 
+        class="list-none p-0 m-0 text-center"
+        data-animation="links-404"
+      >
+          <li class="text-sm lg:text-lg mb-3">• Verificar la URL para asegurarte de que esté escrita correctamente.</li>
+          <li class="text-sm lg:text-lg mb-3">• Regresar a la <a class="text-brand underline hover:text-brand-dark" href="https://www.scanavini.com/" >página de inicio</a>.</li>
+          <li class="text-sm lg:text-lg mb-3">• Usar el menú para encontrar lo que necesitas.</li>
+      </ul>
+    </main>
+  </section>
+
+<script>
+  import ScrollReveal from "scrollreveal";
+
+	ScrollReveal().reveal('[data-animation="image-404"]', {
+		distance: "180px",          // se mueve un poco desde abajo
+		origin: "bottom",
+		opacity: 0,
+		duration: 800,
+		easing: "cubic-bezier(0.4, 0, 0.2, 1)", // similar a tu transición global
+		interval: 80,              // stagger entre cada card
+		reset: false,              // solo se anima una vez
+		cleanup: false,             // limpia estilos inline cuando termina
+		delay: 250,
+	});
+
+  	ScrollReveal().reveal('[data-animation="404"]', {
+		distance: "180px",          // se mueve un poco desde abajo
+		origin: "bottom",
+		opacity: 0,
+		duration: 800,
+		easing: "cubic-bezier(0.4, 0, 0.2, 1)", // similar a tu transición global
+		interval: 80,              // stagger entre cada card
+		reset: false,              // solo se anima una vez
+		cleanup: false,             // limpia estilos inline cuando termina
+		delay: 320,
+	});
+
+  ScrollReveal().reveal('[data-animation="title-404"]', {
+		distance: "120px",          
+		origin: "bottom",
+		opacity: 0,
+		duration: 800,
+		easing: "cubic-bezier(0.4, 0, 0.2, 1)", 
+		interval: 80,              
+		reset: false,              
+		cleanup: false,             
+		delay: 450,
+	});
+
+  ScrollReveal().reveal('[data-animation="text-404"]', {
+		distance: "120px",          
+		origin: "bottom",
+		opacity: 0,
+		duration: 800,
+		easing: "cubic-bezier(0.4, 0, 0.2, 1)", 
+		interval: 80,              
+		reset: false,              
+		cleanup: false,             
+		delay: 950,
+	});
+
+  ScrollReveal().reveal('[data-animation="subtitle-404"]', {
+		distance: "120px",          
+		origin: "bottom",
+		opacity: 0,
+		duration: 800,
+		easing: "cubic-bezier(0.4, 0, 0.2, 1)", 
+		interval: 80,              
+		reset: false,              
+		cleanup: false,             
+		delay: 1100,
+	});
+
+  ScrollReveal().reveal('[data-animation="links-404"]', {
+		distance: "130px",          
+		origin: "bottom",
+		opacity: 0,
+		duration: 800,
+		easing: "cubic-bezier(0.4, 0, 0.2, 1)", 
+		interval: 80,              
+		reset: false,              
+		cleanup: false,             
+		delay: 1200,
+	});
+</script>
+
+</Layout>
+
+

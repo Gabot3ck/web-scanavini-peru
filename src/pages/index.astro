@@ -1,0 +1,46 @@
+---
+import Hero from '../components/sections/home/Hero.astro';
+import ValueProposition from '../components/sections/home/ValueProposition.astro';
+import Layout from '../layouts/Layout.astro';
+import Testimonials from '../components/sections/home/Testimonials.astro';
+import MarketsSlider from '../components/sections/home/MarketsSlider.astro';
+import BrandsRepresented from '../components/sections/home/BrandsRepresented.astro';
+import CallToAction from '../components/sections/home/CallToAction.astro';
+import Showroom from '../components/sections/home/Showroom.astro';
+import KeyFeatures from '../components/sections/home/KeyFeatures.astro';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Comercial Scanavini Ltda.",
+  "url": "https://www.scanavini.com",
+  "logo": "https://www.scanavini.com/iso_scanavini.svg",
+  "sameAs": [
+    "https://www.facebook.com/scanaviniCL/", 
+    "https://www.instagram.com/scanavini_cerraduras/",
+		"https://www.linkedin.com/company/comercial-scanavini-limitada/about/",
+		"https://www.youtube.com/@ScanaviniCerraduras"
+  ]
+};
+
+---
+<!-- logoSwapOnHoverAtTop={true} Activa el cambio del logo en hover cuando se está “arriba” -->
+<Layout
+	title="Scanavini - Cerraduras protegiendo tu hogar por 75 años"
+  description="Somos una empresa chilena con más de 75 años de experiencia, fabricando cerraduras con calidad garantizada de por vida, como compromiso con tu seguridad y la de tu familia."
+	image='/iso_scanavini.svg'
+	menuTextClass="text-white"
+  logoBaseVariant="light"
+	logoSwapOnHoverAtTop={ true }
+	robots="index,follow"
+	jsonLd={ jsonLd }
+>
+	<Hero />
+	<KeyFeatures />
+	<ValueProposition />
+	<Showroom />
+	<MarketsSlider />
+	<CallToAction />
+	<BrandsRepresented />
+	<Testimonials />
+</Layout>

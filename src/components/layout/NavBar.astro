@@ -1,0 +1,181 @@
+---
+import Logo from "./Logo.astro";
+import Menu from "./Menu.astro";
+import MobileMenu from "./MobileMenu.astro";
+
+export interface Props {
+  menuTextClass?: string;   // "text-white" | "text-gray-700"
+  menuDarkTextClass?: string;
+  menuBaseHoverClass?: string;
+  menuDarkHoverClass?: string;
+  logoLightSrc?: string;
+  logoDarkSrc?: string;
+  logoBaseVariant?: 'light' | 'dark';
+  logoSwapOnScroll?: boolean;
+  logoSwapOnHoverAtTop?: boolean;
+}
+
+const {
+  menuTextClass = "text-white",
+  menuDarkTextClass = "text-gray-700",
+  menuBaseHoverClass = "hover:text-gray-700",
+  menuDarkHoverClass = "hover:text-brand",
+  logoLightSrc = '/images/logos/logo-scanavini-light.svg',
+  logoDarkSrc  = '/images/logos/logo-scanavini-dark.svg',
+  logoBaseVariant = 'light',
+  logoSwapOnScroll = true,
+  logoSwapOnHoverAtTop = false,
+} = Astro.props;
+
+// Determinar el color inicial de las líneas del botón según logoBaseVariant
+const initialLineColor = logoBaseVariant === 'light' ? 'bg-white' : 'bg-gray-800';
+---
+
+<nav
+  id="main-navbar"
+  class="navbar fixed top-0 left-0 right-0 flex items-center justify-between py-3 px-4 lg:px-2 xl:px-8 w-full max-w-[1920px] mx-auto ease-out bg-transparent translate-y-0 opacity-100"
+  aria-label="Navegación principal"
+>
+  <Logo
+    class=""
+    lightSrc={logoLightSrc}
+    darkSrc={logoDarkSrc}
+    baseVariant={logoBaseVariant}
+    swapOnScroll={logoSwapOnScroll}
+    swapOnHoverAtTop={logoSwapOnHoverAtTop}
+  />
+
+  <!-- Desktop Menu -->
+  <Menu
+    baseTextClass={menuTextClass}
+    darkTextClass={menuDarkTextClass}
+    baseHoverClass={menuBaseHoverClass}
+    darkHoverClass={menuDarkHoverClass}
+  />
+
+  <!-- Mobile Menu Button - Solo visible en mobile -->
+  <button
+    id="mobile-menu-button"
+    class="lg:hidden relative z-[70] flex flex-col justify-center items-center w-8 h-8 bg-transparent border-none cursor-pointer"
+    aria-label="Abrir menú móvil"
+    aria-expanded="false"
+  >
+    <span class={`hamburger-line block w-6 h-0.5 ${initialLineColor} transition-all duration-300 ease-out`}></span>
+    <span class={`hamburger-line block w-6 h-0.5 ${initialLineColor} mt-1.5 transition-all duration-300 ease-out`}></span>
+    <span class={`hamburger-line block w-6 h-0.5 ${initialLineColor} mt-1.5 transition-all duration-300 ease-out`}></span>
+  </button>
+</nav>
+
+<!-- Importar el componente MobileMenu -->
+<MobileMenu />
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", function () {
+    const navbar = document.getElementById("main-navbar");
+    const mobileMenuButton = document.getElementById("mobile-menu-button");
+    const hamburgerLines = document.querySelectorAll(".hamburger-line");
+
+    // 1. LEER EL COLOR INICIAL DIRECTAMENTE DESDE EL DOM
+    let initialBurgerColor = 'bg-white'; // Valor por defecto
+    if (hamburgerLines.length > 0) {
+      const firstLineClasses = hamburgerLines[0].classList;
+      if (firstLineClasses.contains('bg-gray-800')) {
+        initialBurgerColor = 'bg-gray-800';
+      }
+    }
+
+    let isVisible = true;
+    let lastScrollY = 0;
+    let isNavHovered = false;
+    let isScrolled = false;
+    let isMobileMenuOpen = false;
+
+    function handleNavMouseEnter() {
+      isNavHovered = true;
+      updateNavbarState();
+    }
+    function handleNavMouseLeave() {
+      isNavHovered = false;
+      updateNavbarState();
+      document.dispatchEvent(new CustomEvent("hideSubmenu"));
+    }
+
+    navbar?.addEventListener("mouseenter", handleNavMouseEnter);
+    navbar?.addEventListener("mouseleave", handleNavMouseLeave);
+
+    // 2. Función para establecer el color de forma explícita
+    function setBurgerColor(colorClass) {
+      hamburgerLines.forEach((line) => {
+        line.classList.remove("bg-white", "bg-gray-800");
+        line.classList.add(colorClass);
+      });
+    }
+
+    function updateNavbarState() {
+      const hasWhiteBg = isNavHovered || (isScrolled && isVisible) || isMobileMenuOpen;
+
+      if (isVisible) {
+        navbar?.classList.remove("-translate-y-full", "opacity-0");
+        navbar?.classList.add("translate-y-0", "opacity-100");
+      } else {
+        navbar?.classList.add("-translate-y-full", "opacity-0");
+        navbar?.classList.remove("translate-y-0", "opacity-100");
+      }
+
+      if (hasWhiteBg) {
+        navbar?.classList.add("bg-background-light", "backdrop-blur-md", "shadow-lg");
+        navbar?.classList.remove("bg-transparent");
+        setBurgerColor("bg-gray-800");
+      } else {
+        navbar?.classList.remove("bg-background-light", "backdrop-blur-md", "shadow-lg");
+        navbar?.classList.add("bg-transparent");
+        // 3. USAR EL COLOR INICIAL LEÍDO DEL DOM
+        setBurgerColor(initialBurgerColor);
+      }
+
+      document.dispatchEvent(
+        new CustomEvent("navStateChange", {
+          detail: {
+            isDark: hasWhiteBg,
+            navHasHover: isNavHovered,
+            isScrolled: isScrolled,
+          },
+        })
+      );
+    }
+
+    function handleScroll() {
+      const scrollY = window.scrollY;
+      isScrolled = scrollY > 150;
+      if (scrollY < 100) {
+        isVisible = true;
+      } else {
+        const scrollingDown = scrollY > lastScrollY;
+        const scrollDiff = Math.abs(scrollY - lastScrollY);
+        if (scrollDiff > 10) {
+          isVisible = !scrollingDown;
+          lastScrollY = scrollY;
+        }
+      }
+      updateNavbarState();
+    }
+
+    mobileMenuButton?.addEventListener("click", () => {
+      document.dispatchEvent(new CustomEvent("openMobileMenu"));
+    });
+
+    document.addEventListener("mobileMenuOpenState", (ev) => {
+      isMobileMenuOpen = !!(ev.detail && ev.detail.open);
+      mobileMenuButton?.setAttribute("aria-expanded", String(isMobileMenuOpen));
+      updateNavbarState();
+    });
+
+    window.addEventListener("scroll", handleScroll);
+    // Se llama a handleScroll al inicio para establecer el estado correcto si la página se recarga a mitad de camino
+    handleScroll();
+  });
+</script>
+
+<style>
+  .hamburger-line { transform-origin: center; }
+</style>

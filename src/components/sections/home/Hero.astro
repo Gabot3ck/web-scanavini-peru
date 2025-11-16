@@ -1,0 +1,140 @@
+---
+import { slidesHeroHome } from '../../../data/slides-hero-home';
+
+export interface Props {
+  autoplay?: boolean;
+  interval?: number; 
+  showArrows?: boolean;
+}
+
+const { 
+  autoplay = true, 
+  interval = 5000,
+  showArrows = true 
+} = Astro.props;
+
+// === Grid placement mapping (X por placement, Y centrado con grid) ===
+type Placement = 'left' | 'center' | 'right';
+const gridMap: Record<Placement, string> = {
+  left: 'justify-items-center text-center md:justify-items-start md:text-left md:pl-24',
+  center: 'justify-items-center text-center',
+  right: 'justify-items-center text-center md:justify-items-end md:text-right md:pr-24',
+};
+---
+
+<section 
+  class="relative w-full min-h-[100dvh] min-h-[100svh] overflow-hidden flex items-center justify-center bg-black hero-carousel"
+  data-autoplay={autoplay} 
+  data-interval={interval}
+>
+  {slidesHeroHome.map((slide, index) => (
+    <div 
+      class={`absolute inset-0 flex items-center  justify-center transition-opacity duration-700 ease-in-out opacity-0 z-[1] carousel-slide ${index === 0 ? 'active opacity-100 z-[2]' : ''}`} 
+      data-slide={index}
+    >
+      <!-- Video Background -->
+      <video 
+        class="absolute top-0 left-0 w-full h-full object-cover z-[1] carousel-video" 
+        autoplay={index === 0}
+        loop 
+        muted 
+        playsinline
+        preload={index === 0 ? 'auto' : 'metadata'}
+      >
+        <source src={slide.videoMobile} media="(max-width: 640px)" />
+        <source src={slide.videoDesktop} media="(min-width: 641px)" />
+      </video>
+
+      <!-- Overlay gradiente superior (solo desktop) -->
+      <div
+        class="absolute inset-x-0 top-0 z-[2] pointer-events-none hidden xl:block
+              h-16 xl:h-20 2xl:h-24
+              bg-gradient-to-b from-black/80 via-black/30 to-transparent">
+      </div>
+
+      <!-- Overlay gradiente -->
+      <div class="absolute inset-0 z-[2] pointer-events-none bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+
+      <!-- Content Overlay (Grid: Y centrado, X según slide.placement) -->
+      <div class={`absolute inset-0 z-[3] grid place-items-center ${gridMap[slide.placement] ?? 'justify-items-center'}`}>
+        <!-- Wrapper de contenido: conserva tus anchos/gutters -->
+        <div class="carousel-content text-white max-w-[90%] sm:max-w-[550px] px-4 mt-36 sm:mt-0  md:mb-48 lg:mb-72">
+          <h1 class="wave-title text-[26px] sm:text-3xl md:text-4xl xl:text-5xl font-bold sm:mb-4 leading-tight">
+            {
+              (() => {
+                const words = slide.title.trim().split(/\s+/);
+                const [first, ...rest] = words;
+                return (
+                  <>
+                    {/* Línea 1: primera palabra */}
+                    <span
+                      class="wave-word inline"
+                      style={`animation-delay:${0}s`}
+                    >
+                      {first}
+                    </span>
+                    {/* Línea 2: resto de palabras como bloque (equivalente a <br>) */}
+                    <span class="block">
+                      {rest.map((word, i) => (
+                        <span
+                          class="wave-word"
+                          style={`animation-delay:${(i + 1) * 0.25}s`}
+                        >
+                          {word}{i < rest.length - 1 ? '\u00A0' : ''}
+                        </span>
+                      ))}
+                    </span>
+                  </>
+                );
+              })()
+            }
+          </h1>
+          <p 
+            class="fade-subtitle text-base  lg:text-lg xl:text-2xl opacity-90 leading-relaxed"
+            style={`animation-delay:${slide.title.split(" ").length * 0.25 + 0.3}s`}
+          >
+            {slide.subtitle}
+          </p>
+        </div>
+      </div>
+    </div>
+  ))}
+
+  <!-- Arrows -->
+  {showArrows && slidesHeroHome.length > 1 && (
+    <>
+      <button class="carousel-nav-btn left-2 md:left-4 carousel-prev" aria-label="Slide anterior">
+        <svg width="20" height="20" class="sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      <button class="carousel-nav-btn right-2 md:right-4 carousel-next" aria-label="Siguiente slide">
+        <svg width="20" height="20" class="sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </>
+  )}
+
+  <!-- Dots -->
+  {slidesHeroHome.length > 1 && (
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-[4] w-3/4 flex justify-center gap-4 lg:gap-6">
+      {slidesHeroHome.map((_, index) => (
+        <button 
+          class={`carousel-dot ${index === 0 ? 'active' : ''}`}
+          data-slide={index}
+          aria-label={`Ir al slide ${index + 1}`}
+        ></button>
+      ))}
+    </div>
+  )}
+
+  <!-- Progress Bar -->
+  {autoplay && slidesHeroHome.length > 1 && (
+    <div class="carousel-progress">
+      <div class="carousel-progress-bar"></div>
+    </div>
+  )}
+</section>
+
+<script src='../../../scripts/interactions/hero-carousel.ts'></script>

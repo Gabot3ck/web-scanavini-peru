@@ -1,0 +1,66 @@
+---
+interface Props {
+  poster: string;        
+  srcMp4: string;        
+  srcWebm?: string;      // opcional
+  title?: string;        // accesible
+  ratio?: `${number}/${number}` | "16/9";
+  capMaxHeight?: boolean;
+  class?: string;
+}
+const {
+  poster,
+  srcMp4,
+  srcWebm,
+  title = "Video",
+  ratio = "16/9",
+  capMaxHeight = false,
+} = Astro.props;
+
+function ratioPadding(r: string) {
+  const [w, h] = r.split("/").map(Number);
+  return !w || !h ? "56.25%" : `${(h / w) * 100}%`;
+}
+const paddingTop = ratioPadding(ratio);
+const maxHStyle = capMaxHeight ? "max-height:830px;" : "";
+
+// id para el script mínimo
+const id = `vid-${Math.random().toString(36).slice(2)}`;
+---
+
+<section
+  id={id}
+  class={`relative w-full rounded-lg overflow-hidden border border-background-muted shadow-soft hover:cursor-pointer`}
+  style={`padding-top:${paddingTop};${maxHStyle}`}
+>
+  
+  <video
+    class="absolute inset-0 w-full h-full object-cover"
+    poster={poster}
+    controls
+    preload="metadata"
+    playsinline
+    aria-label={title}
+  >
+    {srcWebm ? <source src={srcWebm} type="video/webm" /> : null}
+    <source src={srcMp4} type="video/mp4" />
+    Tu navegador no soporta la reproducción de video HTML5.
+  </video>
+</section>
+
+<script is:inline>
+(function () {
+  const script = document.currentScript;
+  const root = script?.previousElementSibling; // el <section> anterior
+
+  const v = root?.querySelector('video');
+  if (!v) return;
+
+  v.addEventListener("ended", () => {
+    const wasFocused = document.activeElement === v;
+    const clone = v.cloneNode(true); // conserva <source>, poster, attrs
+    v.parentNode.replaceChild(clone, v);
+    if (wasFocused) clone.focus();
+  });
+})();
+</script>

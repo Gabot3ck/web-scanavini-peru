@@ -1,0 +1,271 @@
+---
+import { Image } from 'astro:assets';
+
+import { defaultSlides as slides } from "../../../data/valuePropositionData";
+import TitleOfSection from "../../layout/TitleOfSection.astro";
+
+
+
+const initialActive = 0;
+---
+
+<!-- ====== MÓVIL (≤1023px): vertical, ancho completo ====== -->
+<div class="hidden max-[1023px]:block mx-auto w-full max-w-[min(100vw,1920px)] py-6"  >
+  <TitleOfSection 
+    subtitle="NUESTRO"
+    titleOfSection="PROPÓSITO"
+  />
+  <div
+    class="js-markets-mobile flex w-full flex-col gap-2"
+    role="tablist"
+    aria-label="Pilares de Scanavini"
+    data-animation="block"
+  >
+    {slides.map((slide, index) => (
+      <button
+        type="button"
+        class="js-slideM group relative w-full overflow-hidden shadow-soft transform-gpu will-change-transform
+               transition-[height,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]
+               data-[active=false]:h-28 data-[active=true]:h-[60svh] max-h-[330px]"
+        data-index={index}
+        data-active={index === initialActive ? "true" : "false"}
+        aria-selected={index === initialActive ? "true" : "false"}
+        role="tab"
+        tabindex="0"
+        aria-label={`Ver detalles de ${slide?.title ?? "pilar"}`}
+      >
+        <!-- Imagen de fondo -->
+        <Image
+          src={slide.mobileImage}
+          alt={slide.title}
+          class="absolute inset-0 h-full w-full object-cover transform-gpu will-change-transform transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+          loading="lazy"
+          layout='fixed' 
+          width={550} 
+          height={330}
+        />
+
+        <!-- Overlays SOLO en activo (evita ver el fade-out con invisible) -->
+        <div
+          data-overlay
+          class="absolute inset-0 z-[1] pointer-events-none opacity-0 invisible
+                 transition-opacity duration-400
+                 group-data-[active=true]:opacity-100 group-data-[active=true]:visible bg-black/30"
+        ></div>
+        <div
+          data-overlay
+          class="absolute inset-0 z-[2] pointer-events-none opacity-0 invisible
+                 transition-opacity duration-400
+                 group-data-[active=true]:opacity-100 group-data-[active=true]:visible
+                 bg-gradient-to-t from-black/70 via-transparent to-transparent"
+        ></div>
+
+        <!-- Contenido centrado al fondo SOLO en activo -->
+        <div
+          data-content
+          class="pointer-events-none absolute inset-x-3 bottom-3 sm:inset-x-4 sm:bottom-4 z-[3] max-w-[70ch] mx-auto text-center
+                 opacity-0 invisible translate-y-1
+                 transition-[opacity,transform] duration-400 delay-100
+                 group-data-[active=true]:opacity-100 group-data-[active=true]:visible group-data-[active=true]:translate-y-0"
+          aria-hidden="true"
+        >
+          {slide.title && (
+            <h3 class="font-jost text-white text-sm sm:text-base font-bold uppercase leading-tight">
+              {slide.title}
+            </h3>
+          )}
+          {slide.description && (
+            <p class="mt-1 font-jost text-white text-xs sm:text-sm leading-snug">
+              {slide.description}
+            </p>
+          )}
+        </div>
+      </button>
+    ))}
+  </div>
+</div>
+
+<!-- ====== ESCRITORIO (>1023px) ====== -->
+<div class="max-[1023px]:hidden mx-auto w-full max-w-[min(100vw,1920px)] py-12" >
+  <TitleOfSection 
+    subtitle="NUESTRO"
+    titleOfSection="PROPÓSITO"
+  />
+  <div
+    class="js-markets-three w-full items-center gap-1 h-[min(88svh,720px)] xl:h-[min(90svh,736px)] flex"
+    role="tablist"
+    aria-label="Pilares de Scanavini"
+  >
+    {slides.map((slide, index) => (
+      <button
+        type="button"
+        class="js-slide3 group relative flex h-full min-w-0 items-center overflow-visible transform-gpu will-change-transform
+               transition-[flex-grow,flex-basis,transform,opacity] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]
+               focus:outline-none data-[active=false]:flex-[0_0_230px] data-[active=true]:flex-[7_1_0%]"
+        data-index={index}
+        data-active={index === initialActive ? "true" : "false"}
+        aria-selected={index === initialActive ? "true" : "false"}
+        role="tab"
+        tabindex="0"
+        aria-label={`Ver detalles de ${slide?.title ?? "pilar"}`}
+      >
+        <div class="relative flex w-full h-full items-end justify-center overflow-hidden shadow-soft bg-card/10 transform-gpu motion-safe:transition-[transform,filter] motion-safe:duration-900 motion-safe:ease-[cubic-bezier(.22,.61,.36,1)] group-data-[active=false]:scale-[.995] group-data-[active=true]:scale-100">
+          <Image
+            src={slide.image}
+            alt={slide.title}
+            class="h-full w-full object-cover"
+            loading="lazy"
+            decoding="async"
+            layout='fixed' 
+            width={1200} 
+            height={736}
+        />
+          <div data-overlay class="absolute inset-0 z-[1] pointer-events-none transition-opacity duration-500 opacity-0 invisible group-data-[active=true]:opacity-100 group-data-[active=true]:visible bg-black/30"></div>
+          <div data-overlay class="absolute inset-0 z-[2] pointer-events-none transition-opacity duration-500 opacity-0 invisible group-data-[active=true]:opacity-100 group-data-[active=true]:visible bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+          <div data-content class="pointer-events-none absolute bottom-4 left-4 md:bottom-6 md:left-6 xl:bottom-8 xl:left-8 z-[3] max-w-[68ch] opacity-0 invisible translate-y-2 transition-[opacity,transform] duration-500 delay-150 group-data-[active=true]:opacity-100 group-data-[active=true]:visible group-data-[active=true]:translate-y-0" aria-hidden="true">
+            {slide.title && (
+              <h3 class="font-jost text-start text-white text-base md:text-xl xl:text-2xl font-bold uppercase leading-tight">
+                {slide.title}
+              </h3>
+            )}
+            {slide.description && (
+              <p class="mt-2 font-jost text-start text-white text-sm md:text-base xl:text-lg leading-snug">
+                {slide.description}
+              </p>
+            )}
+          </div>
+        </div>
+      </button>
+    ))}
+  </div>
+</div>
+
+<script is:inline>
+  const initMarketsMobile = () => {
+    const root = document.querySelector('.js-markets-mobile');
+    if (!root) return;
+    const slides = Array.from(root.querySelectorAll('.js-slideM'));
+    if (!slides.length) return;
+
+    let currentIdx = slides.findIndex((s) => s.dataset.active === 'true');
+    if (currentIdx === -1) currentIdx = 0;
+    let userInteracted = false;
+
+
+    const setA11y = (el, isActive) => {
+      el.setAttribute('aria-selected', String(isActive));
+      const content = el.querySelector('[data-content]');
+      const overlays = el.querySelectorAll('[data-overlay]');
+      if (content) content.setAttribute('aria-hidden', String(!isActive));
+      overlays.forEach(o => o.setAttribute('aria-hidden', String(!isActive)));
+    };
+
+    const activate = (idx, { scroll = false } = {}) => {
+      slides.forEach((s, i) => {
+        const isActive = i === idx;
+        s.dataset.active = String(isActive);
+        setA11y(s, isActive);
+        if (isActive) {
+          s.focus({ preventScroll: true });
+          // Asegura que la card activa quede a la vista
+          if (scroll) {
+            // Solo si lo pidió el usuario y está fuera de vista
+            const r = s.getBoundingClientRect();
+            const vh = window.innerHeight || document.documentElement.clientHeight;
+            if (r.top < 0 || r.bottom > vh) {
+              s.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+            }
+          }
+        }
+      });
+    };
+
+    // Activa la primera
+    activate(currentIdx, { scroll: false });
+
+    slides.forEach((s, i) => {
+      s.addEventListener('click', () => {
+        userInteracted = true;
+        activate(i, { scroll: true });
+      });
+      s.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); 
+          userInteracted = true; 
+          activate(i, { scroll: true });
+        }
+
+        if (e.key === 'ArrowDown') { 
+          e.preventDefault(); 
+          userInteracted = true; 
+          activate((i + 1) % slides.length, { scroll: true });
+        }
+
+        if (e.key === 'ArrowUp') { 
+          e.preventDefault(); 
+          userInteracted = true; 
+          activate((i - 1 + slides.length) % slides.length, { scroll: true });
+        }
+      });
+    });
+  };
+
+  const initMarketsDesktop = () => {
+    const root = document.querySelector('.js-markets-three');
+    if (!root) return;
+    const slides = Array.from(root.querySelectorAll('.js-slide3'));
+    if (!slides.length) return;
+
+    let currentIdx = slides.findIndex((s) => s.dataset.active === 'true');
+    if (currentIdx === -1) currentIdx = 0;
+
+    const setA11y = (el, isActive) => {
+      el.setAttribute('aria-selected', String(isActive));
+      const content = el.querySelector('[data-content]');
+      const overlays = el.querySelectorAll('[data-overlay]');
+      if (content) content.setAttribute('aria-hidden', String(!isActive));
+      overlays.forEach(o => o.setAttribute('aria-hidden', String(!isActive)));
+    };
+
+    const activate = (idx) => {
+      slides.forEach((s, i) => {
+        const isActive = i === idx;
+        s.dataset.active = String(isActive);
+        setA11y(s, isActive);
+        if (isActive) s.focus({ preventScroll: true });
+      });
+    };
+
+    // activa inicial
+    activate(currentIdx);
+
+    // Activar por hover/focus (sin desactivar al salir)
+    slides.forEach((s, i) => {
+      // Hover / pointer (cubre mouse, lápiz)
+      s.addEventListener('pointerenter', () => activate(i));
+      // Accesibilidad: activar al recibir foco por teclado
+      s.addEventListener('focusin', () => activate(i));
+
+      // Navegación por teclado sigue igual
+      s.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(i); }
+        if (e.key === 'ArrowRight') { e.preventDefault(); activate((i + 1) % slides.length); }
+        if (e.key === 'ArrowLeft') { e.preventDefault(); activate((i - 1 + slides.length) % slides.length); }
+      });
+    });
+  };
+
+  const boot = () => {
+    initMarketsMobile();
+    initMarketsDesktop();
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot);
+  } else {
+    boot();
+  }
+
+  // Re-init en navegación cliente de Astro
+  document.addEventListener('astro:page-load', boot);
+</script>
+

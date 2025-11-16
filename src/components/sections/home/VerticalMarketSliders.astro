@@ -1,0 +1,128 @@
+---
+import { defaultSlides } from "../../../data/marketsData";
+const initialActive = Math.floor(defaultSlides.length / 2);
+---
+
+<div class="relative max-[1023px]:hidden mx-auto w-full max-w-[min(100vw,1920px)] px-6">
+  <div
+    class="js-markets-slider w-full items-center gap-3 xl:gap-4 h-[min(88svh,720px)] xl:h-[min(90svh,736px)]  flex"
+    role="tablist"
+    aria-label="Mercados de negocio"
+  >
+    {defaultSlides.map((slide, index) => (
+      <button
+        type="button"
+        class="js-slide group relative flex h-full min-w-0 items-center overflow-visible rounded-2xl transform-gpu will-change-transform transition-[flex-grow,flex-basis,transform,opacity] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] focus:outline-none data-[active=false]:flex-[0_0_110px] data-[active=false]:basis-[110px] data-[active=true]:flex-[7_1_0%]"
+        data-index={index}
+        data-active={index === initialActive ? "true" : "false"}
+        data-tier={Math.min(Math.abs(index - initialActive), 4)}
+        aria-selected={index === initialActive ? "true" : "false"}
+        role="tab"
+        tabindex="0"
+        aria-label={`Ver detalles de ${slide?.title ?? 'mercado'}`}
+      >
+        <!-- FRAME que define las alturas/anchos -->
+        <div
+          class="slide-frame relative flex w-full h-full items-end justify-center overflow-hidden rounded-2xl shadow-soft bg-card/10 transform-gpu will-change-transform motion-safe:transition-[height,width,transform,filter] motion-safe:duration-900 motion-safe:ease-[cubic-bezier(.22,.61,.36,1)] group-data-[active=false]:w-[110px] group-data-[active=true]:h-full group-data-[tier='1']:h-[600px] group-data-[tier='2']:h-[520px] group-data-[tier='3']:h-[440px] group-data-[tier='4']:h-[440px] group-data-[active=false]:scale-[.995] group-data-[active=true]:scale-100"
+        >
+          
+          <!-- Imagen de fondo -->
+          <img
+            src={slide.image}
+            alt={slide.title}
+            class="absolute inset-0 h-full w-full object-cover brightness-[.7] transform-gpu will-change-transform transition-[filter,transform] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-data-[active=false]:scale-[.995] group-data-[active=true]:scale-100 group-data-[active=true]:brightness-100"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <!-- Overlay gradiente inferior (z-index: 1) -->
+          <div class="absolute inset-0 z-[1] pointer-events-none bg-black/30"></div>
+          <!-- Gradiente inferior adicional -->
+          <div class="absolute inset-0 z-[2] pointer-events-none bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+
+
+          <!-- Título rotado cuando está colapsado -->
+          <h3
+            data-slide-title
+            class="pointer-events-none absolute z-[3] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-90 font-jost text-white font-bold uppercase whitespace-nowrap opacity-100 transition-opacity duration-75 text-lg md:text-xl xl:text-2xl group-data-[active=true]:opacity-0"
+          >
+            {slide.title}
+          </h3>
+
+          <!-- Detalles visibles sólo cuando está activo -->
+          <div class="pointer-events-none absolute bottom-4 left-4 md:bottom-6 md:left-6 xl:bottom-8 xl:left-8 max-w-[62ch] opacity-0 translate-y-2 transition-all duration-500 delay-150 group-data-[active=true]:opacity-100 group-data-[active=true]:translate-y-0 z-[3]">
+            <h4 class="font-jost text-white text-base md:text-xl text-start xl:text-2xl font-bold uppercase leading-tight">
+              {slide.subtitle}
+            </h4>
+            <p class="mt-1 font-jost text-white text-sm md:text-base text-start xl:text-lg font-semibold uppercase leading-snug">
+              {slide.description}
+            </p>
+          </div>
+        </div>
+      </button>
+    ))}
+  </div>
+</div>
+
+<script is:inline>
+  const initMarketsSlider = () => {
+    const root = document.querySelector('.js-markets-slider');
+    if (!root) return;
+
+    const slides = Array.from(root.querySelectorAll('.js-slide'));
+    if (!slides.length) return;
+
+    const recalcTiers = (activeIdx) => {
+      slides.forEach((s, i) => {
+        const d = Math.abs(i - activeIdx);
+        s.dataset.tier = String(Math.min(d, 4));
+      });
+    };
+
+    let currentIdx = slides.findIndex((s) => s.dataset.active === 'true');
+    if (currentIdx === -1) currentIdx = Math.floor(slides.length / 2);
+    recalcTiers(currentIdx);
+
+    const activate = (idx) => {
+      slides.forEach((s, i) => {
+        const isActive = i === idx;
+        s.dataset.active = String(isActive);
+        s.setAttribute('aria-selected', String(isActive));
+        if (isActive) s.focus({ preventScroll: true });
+      });
+      recalcTiers(idx);
+    };
+
+    slides.forEach((slide, i) => {
+      slide.addEventListener('click', () => activate(i));
+      slide.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          activate(i);
+        }
+      });
+    });
+
+    const onKey = (e) => {
+      if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+      const current = slides.findIndex((s) => s.dataset.active === 'true');
+      if (current === -1) return;
+      const next = e.key === 'ArrowRight'
+        ? (current + 1) % slides.length
+        : (current - 1 + slides.length) % slides.length;
+      activate(next);
+    };
+
+    document.addEventListener('keydown', onKey);
+    document.addEventListener('astro:page-load', () => {
+      document.removeEventListener('keydown', onKey);
+      initMarketsSlider();
+    }, { once: true });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMarketsSlider);
+  } else {
+    initMarketsSlider();
+  }
+</script>

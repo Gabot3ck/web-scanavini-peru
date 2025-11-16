@@ -1,0 +1,80 @@
+---
+export interface Props {
+  subtitle?: string;
+  subtitleColor?: string;
+  titleOfSection: string;
+  description?: string;
+  
+}
+
+const { 
+  subtitle,
+  subtitleColor = "text-gray-600", 
+  titleOfSection, 
+  description 
+  } = Astro.props as Props;
+---
+
+<div class="text-center mb-6 text-section lg:mb-12 ">
+  <h2
+    class=`text-sm md:text-base lg:text-2xl xl:text-3xl xl:mb-2 font-medium max-w-2xl mx-auto description-section ${subtitleColor} uppercase`
+    data-animation="subtitle"
+  >
+    { subtitle }
+  </h2>
+  <h2
+    class="text-[22px] md:text-3xl lg:text-5xl xl:text-6xl font-bold text-brand lg:mb-1 title-section uppercase"
+    data-animation="titleOfSection"
+  >
+    { titleOfSection }
+  </h2>
+  <p
+    class="mt-4 lg:mt-8 text-sm md:text-lg lg:text-2xl font-medium max-w-2xl  text-gray-600 mx-auto description-section"
+    data-animation="description"
+  >
+    {description}
+  </p>
+</div>
+
+<script>
+  import ScrollReveal from "scrollreveal";
+
+  ScrollReveal().reveal('[data-animation="subtitle"]',
+    {
+      distance: "80px",          // se mueve un poco desde abajo
+      origin: "bottom",
+      opacity: 0,
+      duration: 600,
+      easing: "cubic-bezier(0.4, 0, 0.2, 1)", // similar a tu transición global
+      interval: 80,              // stagger entre cada card
+      reset: true,              // solo se anima una vez
+      cleanup: false,             // limpia estilos inline cuando termina
+      delay: 300,
+    });
+
+  ScrollReveal().reveal('[data-animation="titleOfSection"]',
+    {
+      distance: "70px",          // se mueve un poco desde abajo
+      origin: "bottom",
+      opacity: 0,
+      duration: 600,
+      easing: "cubic-bezier(0.4, 0, 0.2, 1)", // similar a tu transición global
+      interval: 80,              // stagger entre cada card
+      reset: true,              // solo se anima una vez
+      cleanup: false,             // limpia estilos inline cuando termina
+      delay: 500,
+    });
+
+  ScrollReveal().reveal('[data-animation="description"]',
+    {
+      distance: "60px",          // se mueve un poco desde abajo
+      origin: "bottom",
+      opacity: 0,
+      duration: 600,
+      easing: "cubic-bezier(0.4, 0, 0.2, 1)", // similar a tu transición global
+      interval: 80,              // stagger entre cada card
+      reset: true,              // solo se anima una vez
+      cleanup: false,             // limpia estilos inline cuando termina
+      delay: 1100,
+    });
+</script>

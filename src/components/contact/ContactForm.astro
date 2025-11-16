@@ -1,0 +1,485 @@
+---
+const API_BASE = import.meta.env.PUBLIC_API_BASE;
+const SITE_KEY = import.meta.env.SITE_KEY;
+
+---
+<form
+  id="contactForm"
+  class="grid gap-4 md:gap-8 xl:gap-0 lg:px-0 mx-auto w-full sm:w-3/4 md:w-full  px-2 sm:px-0" 
+  action={`${API_BASE}/contact`}
+  method="post" 
+  novalidate 
+  aria-labelledby="form-title"
+  data-site-key={`${SITE_KEY}`}
+  data-action='contact'
+>
+  <!-- Honeypot (anti-bots) -->
+  <input type="text" name="hp_field" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;" aria-hidden="true" />
+
+  <h2 id="form-title" class="sr-only">Formulario de contacto</h2>
+
+
+
+  <div class="flex flex-col md:flex-row md:gap-10 xl:gap-6 xl:mb-6 xl:flex-col w-full h-auto  justify-between">
+    <!-- Nombre -->
+    <div class="block">
+      <label for="name" class="form-label">
+        Nombre y Apellido <span class="text-red-500" aria-hidden="true">*</span>
+      </label>
+
+      <div class="form-field">
+        <!-- Ícono absolute -->
+        <span class="form-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/>
+          </svg>
+        </span>
+
+        <input
+          id="name" name="name" type="text" autocomplete="name" required aria-required="true"
+          placeholder="Ingresa tu nombre y apellido"
+          class="form-control resize-y"
+        />
+      </div>
+      <span id="errorOfName" class="form-error" aria-live="polite"></span>
+    </div>
+
+    <!-- Email -->
+    <div class="block">
+      <label for="email" class="form-label">
+        Correo electrónico <span class="text-red-500" aria-hidden="true">*</span>
+      </label>
+
+      <div class="form-field">
+        <span class="form-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/>
+          </svg>
+        </span>
+
+        <input
+          id="email" name="email" type="email" inputmode="email" autocomplete="email"
+          placeholder="tucorreo@dominio.com" required aria-required="true"
+          class="form-control resize-y"
+        />
+      </div>
+
+      <span id="errorOfEmail" class="form-error" aria-live="polite"></span>
+    </div>
+  </div>
+
+  <div class="flex flex-col md:flex-row md:gap-10 xl:gap-6 xl:mb-6 xl:flex-col w-full h-auto  justify-between">
+    <!-- Teléfono -->
+    <div class="block">
+      <label for="phone" class="form-label">
+        Número de contacto <span class="text-red-500" aria-hidden="true">*</span>
+      </label>
+
+      <div class="form-field">
+        <span class="form-icon">
+          <!-- Icono de teléfono -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone-call-icon lucide-phone-call"><path d="M13 2a9 9 0 0 1 9 9"/><path d="M13 6a5 5 0 0 1 5 5"/><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/>
+          </svg>
+        </span>
+        <span class="absolute left-10 mr-10 top-3 text-neutral-dark select-none px-1">+56</span>
+        <input
+          id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" inputmode="numeric"
+          placeholder="9 8765 4321 ó 2 2202 2200" pattern="[0-9\s]*" required aria-required="true"
+          class="form-control pl-20 resize-y" maxlength="9"
+        />
+      </div>
+
+      <span id="errorOfPhone" class="form-error" aria-live="polite"></span>
+    </div>
+
+    <!-- Asunto -->
+    <div class="block">
+      <label for="subject" class="form-label">
+        Asunto <span class="text-red-500" aria-hidden="true">*</span>
+      </label>
+
+      <div class="form-field">    
+        <span class="form-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M16 5H3"/><path d="M16 12H3"/><path d="M11 19H3"/><path d="m15 18 2 2 4-4"/>
+          </svg>
+        </span>
+
+        <select
+          id="subject" name="subject" required aria-required="true"
+          class="appearance-none form-control"
+        >
+          <option value="" disabled selected hidden>Seleccione motivo</option>
+          <option value="Cotización">Cotización</option>
+          <option value="Instalación">Instalación</option>
+          <option value="Servicio técnico">Servicio técnico</option>
+          <option value="Sugerencias">Sugerencias</option>
+          <option value="Otras consultas">Otras consultas</option>
+        </select>
+
+        <span class="pointer-events-none absolute right-3 inset-y-0 my-auto flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m6 9 6 6 6-6"/>
+          </svg>
+        </span>
+      </div>
+
+      <span id="errorOfSubject" class="form-error" aria-live="polite"></span>
+    </div>
+  </div>
+
+
+
+  <!-- Mensaje -->
+  <div class="block mx-auto ">
+    <label for="message" class="form-label">
+      Mensaje <span class="text-red-500" aria-hidden="true">*</span>
+    </label>
+
+    <div class="form-field">
+      <span class="pointer-events-none absolute left-3 top-3 flex items-start text-neutral-grey/80">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/>
+        </svg>
+      </span>
+
+      <textarea
+        id="message" name="message" rows="5" required aria-required="true"
+        placeholder="Cuéntanos los detalles…"
+        class="form-control resize-y"
+      ></textarea>
+    </div>
+    <span id="errorOfMessage" class="form-error" aria-live="polite"></span>
+  </div>
+
+
+  <!-- Checkbox de Términos y condiciones -->
+  <div class="xl:mt-3 block mx-auto" >
+    <input type="checkbox" id="policyCheck" name="policy-check" value="value1">
+    <label class="text-sm" for="policyCheck">
+      He leído y acepto los <a href="/terminos-y-condiciones"  class="underline hover:opacity-80 hover:text-brand-dark">Términos y Condiciones</a> y la 
+      <a href="/politica-de-privacidad"  class="underline hover:opacity-80 hover:text-brand-dark">Política de Privacidad</a> de Comercial Scanavini Ltda.
+    </label><br>
+    <span id="errorOfCheckbox" class="form-error" aria-live="polite"></span>
+  </div>
+
+  <!-- reCAPTCHA v3 token -->
+  <input type="hidden" name="token" id="recaptchaToken" />
+
+  <!-- Botón -->
+  <div class="mt-4 flex justify-center align-center">
+    <button 
+      type="submit"
+      class="btn btn-primary w-full md:w-1/2 xl:w-full text-center"
+      id="submitBtn"
+    >
+      Enviar Mensaje
+    </button>
+  </div>
+
+  <!-- Estado del envío JS inyecta aquí el mensaje de éxito o error-->
+  <div id="formStatus" role="status" aria-live="polite" class="hidden mt-4"></div>
+</form>
+
+
+
+
+<!-- Carga reCAPTCHA v3 -->
+<script src={`https://www.google.com/recaptcha/api.js?render=${SITE_KEY}`} async defer></script>
+
+<script type="module">
+  const d = document;
+  const form = d.getElementById("contactForm");
+  const tokenEl = document.getElementById('recaptchaToken');
+  const submitBtn = document.getElementById('submitBtn');
+  const statusBox = document.getElementById('formStatus');
+
+  let isSubmitting = false;
+
+
+  // Campos
+  const nameEl    = d.getElementById("name");
+  const emailEl   = d.getElementById("email");
+  const phoneEl   = d.getElementById("phone");
+  const subjectEl = d.getElementById("subject");
+  const messageEl = d.getElementById("message");
+  const checkboxEl   = d.getElementById("policyCheck");
+
+  // Spans de error
+  const errName    = d.getElementById("errorOfName");
+  const errEmail   = d.getElementById("errorOfEmail");
+  const errPhone   = d.getElementById("errorOfPhone");
+  const errSubject = d.getElementById("errorOfSubject");
+  const errMessage = d.getElementById("errorOfMessage");
+  const errCheckbox = d.getElementById("errorOfCheckbox");
+
+  // Contenedores (div que envuelve icono + control)
+  const wrapName    = nameEl?.parentElement || null;
+  const wrapEmail   = emailEl?.parentElement || null;
+  const wrapPhone   = phoneEl?.parentElement || null;
+  const wrapSubject = subjectEl?.parentElement || null;
+  const wrapMessage = messageEl?.parentElement || null;
+  const wrapCheckbox = checkboxEl?.parentElement || null;
+
+
+
+  function setLoading(on) {
+    if (!submitBtn) return;
+
+    submitBtn.disabled = !!on;
+    // data-loading ayuda a evitar dobles envíos por teclado/clics rápidos
+    submitBtn.toggleAttribute('data-loading', !!on);
+    submitBtn.innerHTML = on
+      ? `<span>Enviando…</span><span class="ml-2 inline-block animate-spin border-2 border-t-transparent border-white rounded-full w-4 h-4"></span>`
+      : 'Enviar Mensaje';
+  }
+
+
+  function showStatus({ ok, message }) {
+    // a11y: status para éxito, alert para error
+    statusBox.setAttribute('role', ok ? 'status' : 'alert');
+    statusBox.setAttribute('aria-live', ok ? 'polite' : 'assertive');
+
+    statusBox.classList.remove('hidden');
+    statusBox.innerHTML = ok
+    // markup con utilidades Tailwind (usa tu .card + sombras)
+    statusBox.innerHTML = ok
+      ? `
+        <div class="card shadow-soft border border-green-300 bg-green-50 animate-fade-in">
+          <div class="flex items-start gap-3">
+            <svg aria-hidden="true" class="mt-0.5" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <path d="M22 4 12 14.01l-3-3"/>
+            </svg>
+            <p class="text-green-800"><strong>¡Listo!</strong> ${message}</p>
+          </div>
+        </div>`
+      : `
+        <div class="card shadow-soft border border-red-300 bg-red-50 animate-fade-in">
+          <div class="flex items-start gap-3">
+            <svg aria-hidden="true" class="mt-0.5" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+            <p class="text-red-800"><strong>Ups…</strong> ${message}</p>
+          </div>
+        </div>`;
+
+    // foco para lectores de pantalla
+    statusBox.setAttribute('tabindex', '-1');
+    statusBox.focus();
+  }
+
+
+  // Helpers
+  function setFieldValidity(field, errorEl, container, isValid, message = "") {
+    if (!field || !errorEl || !container) return;
+
+    // Mensaje visible
+    errorEl.textContent = isValid ? "" : message;
+
+    // Accesibilidad + validez real
+    field.setAttribute("aria-invalid", String(!isValid));
+    field.setCustomValidity(isValid ? "" : message);
+
+    // Estado visual (gris por defecto, rojo en error)
+    (isValid) 
+      ? container.removeAttribute("data-invalid")
+      : container.setAttribute("data-invalid", "true");
+
+    // Vincular campo con su error para a11y
+    if (!errorEl.id) errorEl.id = `${field.id || "field"}-error`;
+    field.setAttribute("aria-describedby", errorEl.id);
+  }
+
+  // Reglas
+  const NAME_RE = /^[a-zA-ZÀ-ÿ]{1,40}(?:\s+[a-zA-ZÀ-ÿ]{1,40})+$/; 
+  const EMAIL_RE = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}(?:\.[0-9]{1,3}){3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const PHONE_RE = /^[29][0-9]{8}$/;
+  const MIN_MSG_LEN = 10;
+
+
+  // Validadores
+  function validateName() {
+    const v = nameEl.value.trim();
+    if (!v)                 return setFieldValidity(nameEl, errName, wrapName, false, "Debe ingresar su nombre y apellido"), false;
+    if (!NAME_RE.test(v))   return setFieldValidity(nameEl, errName, wrapName, false, "Solo letras (nombre y apellido)"), false;
+    return setFieldValidity(nameEl, errName, wrapName, true), true;
+  }
+
+
+  function validateEmail() {
+    const v = emailEl.value.trim();
+    if (!v)                 return setFieldValidity(emailEl, errEmail, wrapEmail, false, "Debe ingresar un email"), false;
+    if (!EMAIL_RE.test(v))  return setFieldValidity(emailEl, errEmail, wrapEmail, false, "Debe ingresar un email válido"), false;
+    return setFieldValidity(emailEl, errEmail, wrapEmail, true), true;
+  }
+
+
+  function validateSubject() {
+    const v = subjectEl.value;
+    if (!v) return setFieldValidity(subjectEl, errSubject, wrapSubject, false, "Seleccione un motivo"), false;
+    return setFieldValidity(subjectEl, errSubject, wrapSubject, true), true;
+  }
+
+
+  function validatePhone() {
+    const v = phoneEl.value.trim();
+    if (!v) {
+      return setFieldValidity(phoneEl, errPhone, wrapPhone, false, "Debe ingresar un número de contacto"), false;
+    }
+    if (v.length < 9) {
+      return setFieldValidity(phoneEl, errPhone, wrapPhone, false, "El número debe tener 9 dígitos"), false;
+    }
+    if (!PHONE_RE.test(v)) {
+      return setFieldValidity(phoneEl, errPhone, wrapPhone, false, "Número inválido. Debe empezar con 2 o 9"), false;
+    }
+    return setFieldValidity(phoneEl, errPhone, wrapPhone, true), true;
+  }
+
+
+  function validateMessage() {
+    const v = messageEl.value.trim();
+    if (!v) return setFieldValidity(messageEl, errMessage, wrapMessage, false, "Debe ingresar un mensaje"), false;
+    if (v.length < MIN_MSG_LEN) return setFieldValidity(messageEl, errMessage, wrapMessage, false, "El mensaje debe tener mínimo 10 caracteres"), false;
+    return setFieldValidity(messageEl, errMessage, wrapMessage, true), true;
+  }
+
+
+  function validateCheckbox() {
+    if (!checkboxEl.checked) return setFieldValidity(checkboxEl, errCheckbox, wrapCheckbox, false, "Debe aceptar los Términos y Condiciones y Política de Privacidad antes de continuar"), false;
+    return setFieldValidity(checkboxEl, errCheckbox, wrapCheckbox, true), true;
+    
+  }
+
+  // Eventos de validación
+  nameEl?.addEventListener("blur",  validateName);
+  nameEl?.addEventListener("input", validateName);
+  emailEl?.addEventListener("blur",  validateEmail);
+  emailEl?.addEventListener("input", validateEmail);
+  phoneEl?.addEventListener("blur",  validatePhone);
+  phoneEl?.addEventListener("input", (e) => { e.target.value = e.target.value.replace(/[^0-9]/g, "");});
+  subjectEl?.addEventListener("blur",  validateSubject);
+  subjectEl?.addEventListener("change", validateSubject);
+  messageEl?.addEventListener("blur",  validateMessage);
+  messageEl?.addEventListener("input", validateMessage);
+  checkboxEl?.addEventListener("input", validateCheckbox);
+
+
+  // ====== SUBMIT con reCAPTCHA v3 + fetch ======
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    // Si ya se está enviando, ignorar eventos subsecuentes
+    if (isSubmitting || submitBtn?.hasAttribute('data-loading')) return;
+
+
+    // Ejecutando las  validaciones
+    const okName    = validateName();
+    const okEmail   = validateEmail();
+    const okPhone   = validatePhone();
+    const okSubject = validateSubject();
+    const okMsg     = validateMessage();
+    const okCheckbox = validateCheckbox();
+
+
+    if (!(okName && okEmail && okPhone  && okSubject && okMsg && okCheckbox)) {
+      // Asegura que el botón NO quede en estado de carga si hay errores
+      setLoading(false);
+
+      const firstInvalid = d.querySelector("[aria-invalid='true']");
+      if (firstInvalid && "focus" in firstInvalid) firstInvalid.focus();
+      return;
+    }
+
+    setLoading(true);
+    isSubmitting = true;
+
+
+  try {
+    // Espera a reCAPTCHA y ejecuta v3
+    await new Promise((r) => window.grecaptcha.ready(r));
+    const siteKey = (form.dataset.siteKey || '').trim();
+    const action  = (form.dataset.action || 'contact').trim();
+
+
+    const token   = await window.grecaptcha.execute(siteKey, { action });
+
+    //Coloca el token en el hidden (el backend lo espera como `token`)
+    if (tokenEl) tokenEl.value = token;
+
+    //Se envía al backend externo con FormData (mantienes tu UX)
+    const formData = new FormData(form);
+    const body = new URLSearchParams();
+
+    for (const [k, v] of formData.entries()) body.append(k, String(v));
+    
+    const res  = await fetch(form.action, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Accept': 'application/json'
+      },
+      body
+    });
+
+
+    // Manejo robusto: evita fallo si el server devolvió HTML (p.ej., 404)
+    const contentType = res.headers.get('content-type') || '';
+    const raw = await res.text();
+    let data = null;
+    if (contentType.includes('application/json')) {
+      try { data = JSON.parse(raw); } catch {}
+    }
+    if (!res.ok || !data?.ok) {
+      const msg = (data && data.error) ? data.error : `HTTP ${res.status}: ${raw.slice(0, 180)}`;
+      throw new Error(msg);
+    }
+
+    if (data.ok) {
+      showStatus({ ok: true, message: 'Tu mensaje fue enviado correctamente.' });
+      form.reset();
+
+      // Oculta el status luego de 5s sólo en éxito
+      window.setTimeout(() => {
+        statusBox.classList.add('hidden');
+        statusBox.innerHTML = '';
+        statusBox.removeAttribute('tabindex');
+      }, 5000);
+    } else {
+      showStatus({ ok: false, message: data.error || 'No se pudo enviar el mensaje.' });
+    }
+
+    } catch (err) {
+      console.error(err);
+      showStatus({ ok: false, message: err?.message || 'Error al verificar reCAPTCHA / enviar. Intenta nuevamente.' });
+    } finally {
+      setLoading(false);
+      isSubmitting = false;
+    }
+  });
+</script>
+
+
+<style>
+  /* Quita el “fondo” que Chrome/Edge meten dentro del input autocompletado */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+            box-shadow: 0 0 0 1000px transparent inset !important;
+    -webkit-text-fill-color: inherit !important;
+  }
+</style>

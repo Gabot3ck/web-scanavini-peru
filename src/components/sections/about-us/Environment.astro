@@ -1,0 +1,159 @@
+---
+interface IconItem {
+  iconUrl: string;    
+  caption: string; 
+}
+
+const {
+  icons = [
+    { iconUrl: "/images/icons/residuos.svg", caption: "Implementamos una política activa de reducción y manejo responsable de residuos en todos nuestros procesos productivos." },
+    { iconUrl: "/images/icons/agua.svg", caption: "Promovemos el uso eficiente de energía y agua, optimizando su consumo durante la fabricación." },
+    { iconUrl: "/images/icons/reciclaje.svg", caption: "Diseñamos productos para una larga vida útil, junto con recibir cerraduras del mercado para su reciclaje." },
+  ] as IconItem[],
+} = Astro.props as { icons?: IconItem[]; };
+---
+
+<section class="container-custom mx-auto pb-12 md:pb-16 lg:pt-16 xl:pb-24">
+  <!-- ROW 1: Texto (izq) + Imagen (der). En mobile: texto arriba, imagen abajo -->
+  <div class="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 xl:gap-28  items-start">
+    <!-- Texto -->
+    <div>
+      <header class="mb-5 md:mb-6">
+        <h2 
+          class="text-sm md:text-base lg:text-2xl xl:text-3xl xl:mb-2 text-center xl:text-left font-medium max-w-2xl text-gray-600 mx-auto description-section"
+          data-animation="title-environment"
+        >
+          NUESTRO COMPROMISO CON LA
+        </h2>
+        <h2 
+          class="text-[22px]  md:text-2xl lg:text-5xl xl:text-4xl 2xl:text-5xl text-center xl:text-left mb-4 lg:mb-6 font-bold text-brand lg:mb-1 title-section"
+          data-animation="subtitle-environment"
+        >
+          SUSTENTABILIDAD
+        </h2>
+      </header>
+
+      
+      <div class="space-y-4">
+        <p 
+          class="mx-auto text-[11px] sm:text-xs md:text-sm lg:text-base xl:text-lg text-justify max-w-[400px] sm:max-w-[480px] lg:max-w-[600px] xl:max-w-none leading-relaxed mb-6 lg:mb-10 mt-5 lg:mt-10"
+          data-animation="text-environment"
+        >
+          Nos enfocamos en el desarrollo de productos de alta calidad, alineados con los principios de sustentabilidad y orientados a satisfacer las necesidades de nuestros clientes. Este compromiso se extiende a toda nuestra cadena de valor, promoviendo un proceso de fabricación responsable y consciente. Esto nos permite ofrecer información clara, transparente y comprobable sobre nuestro desempeño ambiental. Este nivel de transparencia refuerza la confianza de nuestros clientes y nos permite contribuir activamente a sus propios objetivos de sustenibilidad.
+        </p>
+      </div>
+      
+    </div>
+
+    <!-- Imagen -->
+    <figure 
+      class="w-full mx-auto  max-w-[280px] md:max-w-[720px] md:justify-self-end"
+      data-animation="image-environment"
+    >
+      <picture>
+        <!-- Imagen para desktop -->
+        <source
+          srcset="/images/about-us/sustentabilidad.webp"
+          media="(min-width: 768px)"
+        />
+        <!-- Imagen para mobile -->
+        <img
+          src="/images/about-us/sustentabilidad-mobile.webp"
+          alt="Scanavini comprometido con el medio ambiente"
+          class="w-full h-[220px] md:h-auto rounded-lg border border-background-muted shadow-soft object-cover"
+          loading="lazy"
+          decoding="async"
+        />
+      </picture>
+    </figure>
+
+  </div>
+
+  <!-- Separación entre filas -->
+  <div class="mt-10 md:mt-14 lg:my-20"></div>
+
+  <!-- ROW 2: 3 íconos (siempre 3 columnas: mobile/desktop) -->
+  <div 
+    class="grid grid-cols-3 gap-x-6 gap-y-8 md:gap-x-10 md:gap-y-10 lg:gap-x-16 place-items-start"
+    data-animation="icons-environment"
+  >
+    {icons.map((item) => (
+      <article class="text-center px-1">
+        <!-- Ícono dentro de círculo delgado -->
+        <div class="mx-auto w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24  xl:w-28 xl:h-28 rounded-full flex items-center justify-center">
+          <img src={item.iconUrl} alt="" class="w-[66%] h-[66%] object-contain" loading="lazy" />
+        </div>
+        <p class="mt-3 md:mt-4 text-[11px] sm:text-xs md:text-sm lg:text-base xl:text-lg leading-relaxed text-neutral-grey">
+          {item.caption}
+        </p>
+      </article>
+    ))}
+  </div>
+</section>
+
+<script>
+  import ScrollReveal from "scrollreveal";
+
+	ScrollReveal().reveal('[data-animation="title-environment"]', {
+		distance: "80px",          // se mueve un poco desde abajo
+		origin: "top",
+		opacity: 0,
+		duration: 700,
+		easing: "cubic-bezier(0.4, 0, 0.2, 1)", // similar a tu transición global
+		interval: 80,              // stagger entre cada card
+		reset: false,              // solo se anima una vez
+		cleanup: false,             // limpia estilos inline cuando termina
+		delay: 100,
+	});
+
+	ScrollReveal().reveal('[data-animation="subtitle-environment"]', {
+		distance: "50px",          
+		origin: "top",
+		opacity: 0,
+		duration: 700,
+		easing: "cubic-bezier(0.4, 0, 0.2, 1)", 
+		interval: 80,              
+		reset: false,              
+		cleanup: false,             
+		delay: 350,
+	});
+
+  ScrollReveal().reveal('[data-animation="text-environment"]', {
+		distance: "100px",          
+		origin: "left",
+		opacity: 0,
+		duration: 1600,
+		easing: "cubic-bezier(0.4, 0, 0.2, 1)", 
+		interval: 80,             
+		reset: false,              
+		cleanup: false,             
+		delay: 400,
+	});
+
+	ScrollReveal().reveal('[data-animation="image-environment"]', {
+		distance: "100px",          
+		origin: "right",
+		opacity: 0,
+		duration: 1600,
+		easing: "cubic-bezier(0.4, 0, 0.2, 1)", 
+		interval: 80,              
+		reset: false,              
+		cleanup: false,             
+		delay: 600,
+	});
+
+
+
+  ScrollReveal().reveal('[data-animation="icons-environment"]', {
+		distance: "250px",          
+		origin: "bottom",
+		opacity: 0,
+		duration: 1600,
+		easing: "cubic-bezier(0.4, 0, 0.2, 1)", 
+		interval: 80,              
+		reset: false,              
+		cleanup: false,             
+		delay: 620,
+	});
+
+</script>

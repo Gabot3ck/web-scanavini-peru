@@ -1,0 +1,151 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Datos para la página
+const pageData = {
+  title: 'Política de Reembolso y Devoluciones',
+  description: 'Política reembolso y devoluciones sitio web Scanavini',
+};
+---
+
+<!-- logoSwapOnHoverAtTop={true} Activa el cambio del logo en hover cuando se está “arriba” -->
+<Layout 
+  title={pageData.title}
+  description={pageData.description}
+  menuTextClass="text-gray-700"
+  logoBaseVariant="dark"
+  logoSwapOnHoverAtTop={false}
+  logoSwapOnScroll={true}
+  robots="index,follow"
+>
+    <section class="container-custom sm:px-3 md:px-5 lg:px-10 xl:px-0 min-h-[60vh] py-20 xl:mt-16">
+    <header class="border-b border-neutral-grey/20">
+      <div class="container-custom py-8">
+        <h1 class=" text-xl  xl:text-3xl 2xl:text-4xl font-semibold text-neutral-dark">
+          Política de Reembolso y Devoluciones - Ventas Presenciales
+        </h1>
+        <p class="mt-2 text-sm md:text-base text-neutral-grey">
+          Última actualización: <time datetime="2025-10-01">01 de octubre de 2025</time>
+        </p>
+      </div>
+    </header>
+
+    <main  class="container-custom py-8 md:py-12">
+      <article 
+        class="card shadow-soft border border-neutral-grey/20 bg-background-light p-6 md:p-10 rounded-2xl" 
+        role="article"
+      >
+
+        <ol class="space-y-8 list-decimal pl-6">
+          <li>
+            <h2 class="text-lg  lg:text-xl font-semibold mb-3">Ámbito de Aplicación</h2>
+            <p class="leading-relaxed text-sm lg:text-base text-justify text-justify">
+              Esta política aplica exclusivamente a las compras realizadas de manera presencial en las sucursales de <strong>Comercial Scanavini Ltda.</strong>, ya sea por consumidores finales o empresas que adquieran productos para su propio uso. No se aplica a compras efectuadas por medios electrónicos o a distancia (las cuales se rigen por la normativa del derecho a retracto del artículo 3° bis letra b de la Ley 19.496).
+            </p>
+          </li>
+
+          <li>
+            <h2 class="text-lg  lg:text-xl font-semibold mb-3">Garantía Legal</h2>
+            <p class="leading-relaxed text-sm lg:text-base text-justify">
+              Si el producto presenta una falla o defecto de fabricación, el consumidor podrá ejercer su garantía legal, conforme al artículo 21 de la Ley 19.496, dentro del plazo de seis meses contados desde la recepción del producto.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-2">
+              Durante ese plazo, el consumidor puede elegir una de las siguientes alternativas:
+            </p>
+            <ol class="xl:ml-8 list-decimal my-1 ml-6" >
+              <li class="leading-relaxed text-sm lg:text-base">Reparación gratuita del producto.</li>
+              <li class="leading-relaxed text-sm lg:text-base">Cambio del producto por uno nuevo.</li>
+              <li class="leading-relaxed text-sm lg:text-base">Devolución del dinero pagado.</li>
+            </ol>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-2">
+              El consumidor elige libremente entre estas tres opciones, sin que el proveedor pueda imponer una de ellas.
+            </p>
+
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-2">
+              <strong>Fuente legal:</strong>
+            </p>
+
+            <ul class="xl:ml-8 list-disc my-1 ml-6" >
+              <li class="leading-relaxed text-sm lg:text-base">Ley N° 19.496, artículo 21.</li>
+            </ul>
+          </li>
+
+          <li>
+            <h2 class="text-lg  lg:text-xl font-semibold mb-3">Garantía Voluntaria del Fabricante (Garantía Comercial Scanavini)</h2>
+            <p class="leading-relaxed text-sm lg:text-base text-justify">
+              Independientemente de la garantía legal, <strong>Comercial Scanavini Ltda.</strong>  Ofrece <strong>una garantía comercial adicional</strong> frente a defectos mecánicos de fabricación, conforme al siguiente detalle: 
+            </p>
+              <ul class="xl:ml-8 list-disc my-1 ml-6" >
+                <li class="leading-relaxed text-sm lg:text-base">
+                  Productos Scanavini (fabricación nacional): garantía de por vida.
+                </li>
+                <li class="leading-relaxed text-sm lg:text-base">
+                  Productos Scanavini (importados): garantía de 5 años.
+                </li>
+                <li class="leading-relaxed text-sm lg:text-base">
+                  Productos Andeslock: garantía de 5 años.
+                </li>
+                <li class="leading-relaxed text-sm lg:text-base">
+                  Cerraduras digitales: garantía de 1 año.
+                </li>
+            </ul>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-2">
+              Para hacer uso de esta garantía, el producto será verificado por el servicio técnico autorizado Scanavini. Si la evaluación confirma un defecto de fabricación, se procederá a la reparación o reemplazo gratuito del producto.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-2">
+              <strong>Sucursales de servicio técnico:</strong>
+            </p>
+            <ul class="xl:ml-8 list-disc my-1 ml-6" >
+              <li class="leading-relaxed text-sm lg:text-base">Av. Almirante Blanco Encalada 2545, Santiago.</li>
+              <li class="leading-relaxed text-sm lg:text-base">Av. Padre Hurtado Norte 1251, Vitacura.</li>
+              <li class="leading-relaxed text-sm lg:text-base">Camino a Melipilla 7525, Cerrillos.</li>
+            </ul>
+          </li>
+
+          <li>
+            <h2 class="text-lg  lg:text-xl font-semibold mb-3">Exclusiones de Garantía </h2>
+            <p class="leading-relaxed text-sm lg:text-base text-justify">
+              No se considerarán fallas de fabricación ni procederán devoluciones en los siguientes casos: 
+            </p>
+            <ul class="xl:ml-8 list-disc my-1 ml-6" >
+              <li class="leading-relaxed text-sm lg:text-base">Desgaste natural del producto o de sus acabados.</li>
+              <li class="leading-relaxed text-sm lg:text-base">Daños por uso inadecuado, instalación incorrecta o manipulación indebida.</li>
+              <li class="leading-relaxed text-sm lg:text-base">Productos intervenidos por personal no autorizado por Scanavini.</li>
+              <li class="leading-relaxed text-sm lg:text-base">Daños por golpes, cortes, soldaduras, pintura u otros factores externos.</li>
+            </ul>
+          </li>
+
+          <li>
+            <h2 class="text-lg  lg:text-xl font-semibold mb-3">Procedimiento para ejercer la garantía</h2>
+            <ol class="xl:ml-8 list-decimal my-1 ml-6" >
+              <li class="leading-relaxed text-sm lg:text-base">Presentar el producto en una sucursal Scanavini o centro técnico autorizado.</li>
+              <li class="leading-relaxed text-sm lg:text-base">El equipo técnico realizará una evaluación gratuita para determinar si la falla corresponde a un defecto de fabricación.</li>
+              <li class="leading-relaxed text-sm lg:text-base">Si corresponde, se gestionará el cambio, reparación o reembolso según la elección del consumidor.</li>
+            </ol>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-2">
+              No es necesario presentar boleta o factura para ejercer la garantía en nuestras sucursales, ya que la identificación del producto puede verificarse mediante su número de serie o características técnicas. 
+            </p>
+          </li>
+
+          <li>
+            <h2 class="text-lg  lg:text-xl font-semibold mb-3">Fuentes Legales y Normativas Aplicables</h2>
+            <ul class="xl:ml-8 list-disc my-1 ml-6" >
+              <li class="leading-relaxed text-sm lg:text-base">
+                <strong>Ley N° 19.496</strong> sobre Protección de los Derechos de los Consumidores (Chile).
+                <ul class="xl:ml-8 list-disc my-1 ml-6" >
+                  <li class="leading-relaxed text-sm lg:text-base">Artículo 3° bis: Derecho a retracto (sólo en ventas a distancia).</li>
+                  <li class="leading-relaxed text-sm lg:text-base">Artículo 20: Bienes con defectos o fallas.</li>
+                  <li class="leading-relaxed text-sm lg:text-base">Artículo 21: Garantía legal – derecho a reparación, cambio o devolución.</li>
+                </ul>
+              </li>
+              <li class="leading-relaxed text-sm lg:text-base mt-2">
+                <strong>Ley N° 21.398 (2021)</strong>, que moderniza la Ley 19.496 y refuerza la protección del consumidor.
+              </li>
+            </ul>
+          </li>
+        </ol>
+          
+      </article>
+    </main>
+  </section>
+</Layout>

@@ -1,0 +1,86 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Datos para la página
+const pageData = {
+  title: 'Uso de Cookies',
+  description: 'Política de uso de cookies del sitio web.',
+};
+---
+
+<!-- logoSwapOnHoverAtTop={true} Activa el cambio del logo en hover cuando se está “arriba” -->
+<Layout 
+  title={pageData.title}
+  description={pageData.description}
+  menuTextClass="text-gray-700"
+  logoBaseVariant="dark"
+  logoSwapOnHoverAtTop={false}
+  logoSwapOnScroll={true}
+  robots="index,follow"
+>
+  <section class="container-custom sm:px-3 md:px-5 lg:px-10 xl:px-0 min-h-[60vh] py-20 xl:mt-16">
+    <header class="border-b border-neutral-grey/20">
+      <div class="container-custom py-8">
+        <h1 class=" text-xl  xl:text-3xl 2xl:text-4xl font-semibold text-neutral-dark">
+          Política de Uso de Cookies
+        </h1>
+        <p class="mt-2 text-sm md:text-base text-neutral-grey">
+          Última actualización: <time datetime="2025-10-01">01 de octubre de 2025</time>
+        </p>
+      </div>
+    </header>
+
+    <main  class="container-custom py-8 md:py-12">
+      <article 
+        class="card shadow-soft border border-neutral-grey/20 bg-background-light p-6 md:p-10 rounded-2xl"
+        role="article"
+      >
+        <ol class="space-y-8 list-decimal pl-6">
+          <li id="informacion-general">
+            <h2 class="text-lg  lg:text-xl font-semibold mb-3">¿Qué son las cookies?</h2>
+            <p class="leading-relaxed text-sm lg:text-base">
+              Las cookies son pequeños archivos de texto que se almacenan en su navegador cuando visita sitios web. Permiten que el sitio web recuerde sus acciones y preferencias (como idioma o inicio de sesión) durante un período de tiempo.
+            </p>
+          </li>
+
+          <li>
+            <h2 class="text-lg  lg:text-xl font-semibold mb-3">Finalidad del uso de cookies</h2>
+            <p class="leading-relaxed text-sm lg:text-base">
+              Las cookies nos permiten mejorar la navegación, analizar el uso del sitio para optimizarlo y proporcionar contenido relevante según sus intereses.
+            </p>
+          </li>
+
+          <li>
+            <h2 class="text-lg  lg:text-xl font-semibold mb-3">Consentimiento y administración</h2>
+            <p class="leading-relaxed text-sm lg:text-base">
+              Al continuar navegando en este sitio, usted acepta el uso de cookies según esta política.
+            </p>
+            <p >Puede configurar su navegador para rechazar, bloquear o eliminar cookies en cualquier momento. Sin embargo, algunas funciones del sitio podrían no funcionar correctamente si las cookies están deshabilitadas.</p>
+          </li>
+
+          <li>
+            <h2 class="text-lg  lg:text-xl font-semibold mb-3">Tipos de cookies que utilizamos:</h2>
+            <ul class="list-disc ml-10 mt-3" >
+              <li><strong>Cookies necesarias:</strong> Son esenciales para el funcionamiento del sitio y no pueden ser desactivadas en nuestros sistemas.</li>
+              <li><strong>Cookies de rendimiento y analíticas:</strong> Nos ayudan a entender cómo interactúan los usuarios con el sitio y mejorar su experiencia.</li>
+              <li><strong>Cookies funcionales:</strong> Permiten recordar elecciones específicas para personalizar la experiencia del usuario.</li>
+              <li><strong>Cookies de terceros:</strong> Utilizadas por servicios externos que mejoran la funcionalidad del sitio, como análisis o publicidad.</li>
+            </ul>
+          </li>
+
+          <li>
+            <h2 class="text-lg  lg:text-xl font-semibold mb-3">Contacto</h2>
+            <p class="leading-relaxed text-sm lg:text-base">
+              Para dudas o consultas sobre nuestra política de cookies, puede contactarnos a través de nuestro a través del
+            <a href="/contacto"  class="underline hover:opacity-80 hover:text-brand-dark">formulario de contacto</a>
+            , al correo electrónico
+            <a href="mailto:info@scanavini.com" class="underline hover:opacity-80 hover:text-brand-dark">info@scanavini.com</a>
+            o llamar al 
+            <a href="tel:+56228290100" class="underline hover:opacity-80 hover:text-brand-dark">+56 2 2829 0100</a>.
+            </p>
+          </li>
+        </ol>
+      </article>
+    </main>
+  </section>
+</Layout>

@@ -1,0 +1,33 @@
+---
+import Services from '../components/sections/services/Services.astro';
+import Layout from '../layouts/Layout.astro';
+
+// Datos para la página About
+const pageData = {
+  title: 'Servicios | Nuestros servicios',
+  description: 'Conoce más sobre nuestros servicios como intalación de cerraduras, Amaestramiento e igualamiento, electropintado, tratamiento antibacterial entre otras soluciones.',
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Comercial Scanavini Ltda.",
+  "url": "https://www.scanavini.com/servicios",
+  "description": "Amaestramiento e igualamiento, electropintado, tratamiento antibacterial, certificaciones Scanavini",
+  "logo": "https://www.scanavini.com/iso_scanavini.svg"
+};
+---
+
+<!-- logoSwapOnHoverAtTop={true} Activa el cambio del logo en hover cuando se está “arriba” -->
+<Layout 
+  title={pageData.title}
+  description={pageData.description}
+  menuTextClass="text-gray-700"
+  logoBaseVariant="dark"
+  logoSwapOnHoverAtTop={false}
+  logoSwapOnScroll={true}
+  robots="index,follow"
+  jsonLd={ jsonLd }
+>
+  <Services />
+</Layout>

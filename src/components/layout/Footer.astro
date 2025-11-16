@@ -1,0 +1,240 @@
+---
+import BranchOfficeAccordion from './BranchOfficeAccordion.astro';
+
+// Enlaces del footer organizados por sección
+const footerLinks = {
+  solutions: [
+    { text: 'Viviendas', href: '/mantenimiento' },
+    { text: 'Condominios', href: '/mantenimiento' },
+    { text: 'Edificios Residenciales', href: '/mantenimiento' },
+    { text: 'Edificios de Oficinas', href: '/mantenimiento' },
+    { text: 'Hospitales', href: '/mantenimiento' },
+    { text: 'Hoteles', href: '/mantenimiento' },
+    { text: 'Educación', href: '/mantenimiento' },
+    { text: 'Proyectos Gubernamentales', href: '/mantenimiento' }
+  ],
+  support: [
+    { text: 'Contacto', href: '/contacto' },
+    { text: 'Catálogo', href: 'https://storage.scanavini.cl/catalogos/CatalogoScanavini_2024.pdf' },
+    { text: 'Fichas Técnicas', href: '/fichas-tecnicas' },
+    { text: 'Tutoriales', href: 'https://www.youtube.com/@ScanaviniCerraduras/videos' },
+    { text: 'Servicio de Instalación', href: 'https://tiendascanavini.cl/lineas/22/instalacion' },
+    
+    
+  ],
+  company: [
+    { text: 'Sobre Nosotros', href: '/nosotros' },
+    { text: 'Tienda Online', href: 'https://tiendascanavini.cl' },
+    { text: 'Blog', href: 'https://tiendascanavini.cl/blog' },
+  ],
+  legal: [
+    { text: 'Términos y Condiciones', href: '/terminos-y-condiciones' },
+    { text: 'Política de Privacidad', href: '/politica-de-privacidad' },
+    { text: 'Política de Reembolso y Devoluciones', href: '/politica-de-devoluciones' },
+    { text: 'Uso de Cookies', href: '/uso-de-cookies' }
+  ]
+};
+
+// Redes sociales
+const socialLinks = [
+  {
+    name: 'Facebook',
+    href: 'https://www.facebook.com/scanaviniCL/',
+    icon: 'M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z'
+  },
+  {
+    name: 'Instagram',
+    href: 'https://www.instagram.com/scanavini_cerraduras/',
+    icon: 'M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z'
+  },
+  {
+    name: 'LinkedIn',
+    href: 'https://www.linkedin.com/company/comercial-scanavini-limitada/about/',
+    icon: 'M20.447 20.452H17v-5.606c0-1.335-.027-3.056-1.863-3.056-1.863 0-2.15 1.454-2.15 2.957v5.705H9.438V9h3.308v1.561h.047c.462-.874 1.589-1.795 3.274-1.795 3.499 0 4.144 2.302 4.144 5.296v6.39zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm-1.782 13.019H7.12V9H3.555v11.452z'
+  },
+  {
+    name: 'YouTube',
+    href: 'https://www.youtube.com/@ScanaviniCerraduras',
+    icon: 'M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z'
+  }
+];
+
+
+
+// Obtener el año actual
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-gray-900 text-background-100">
+  <main 
+    class="max-w-[1920px] mx-auto px-4 lg:px-6 xl:px-8 pt-12 pb-6 lg:pt-16"
+    data-animation="footer"
+    >
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <!-- Logo y descripción -->
+      <div class="lg:col-span-3">
+        <div class="flex items-center mb-4">
+          <img
+            class="h-14 w-auto"
+            src="/images/logos/logo_scanavini_footer.webp"
+            alt="Logo de empresa"
+          />
+        </div>
+        <p class="text-background max-w-md">¡Scanavini, un mundo de soluciones en seguridad!</p>
+        <p class="text-gray-400 text-sm mt-5">
+          Desde 1950, Scanavini ha sido pionero en soluciones de seguridad para el hogar y la industria.
+          Descubre nuestra amplia gama de productos y servicios diseñados para proteger lo que más
+          valoras.
+        </p>
+
+        <div class="flex items-center justify-start lg:justify-between gap-8 lg:gap-0 mt-10">
+          <img
+            src="/images/logos/cesmec.svg"
+            alt="Certificación ISO"
+            class="h-16 lg:h-18 xl:h-24 w-auto"
+          />
+          <img
+            src="/images/logos/marca-chile.svg"
+            alt="Certificación ANSI"
+            class="h-16 xl:h-20 w-auto"
+          />
+          <img
+            src="/images/logos/idiem.svg"
+            alt="Certificación IDIEM"
+            class="h-8  w-auto"
+          />
+        </div>
+      </div>
+
+      <!-- Enlaces organizados en columnas -->
+      <div class="lg:col-span-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <!-- Solutions -->
+          <div>
+            <p class="text-sm md:text-base 2xl:text-lg font-semibold text-background uppercase tracking-wider mb-4">
+              Soluciones
+            </p>
+            <ul class="space-y-3">
+              {footerLinks.solutions.map(link => (
+                <li>
+                  <a
+                    href={link.href}
+                    class="text-gray-400 hover:text-gray-300 hover:underline text-sm 2xl:text-base transition-colors duration-200"
+                    target={ link.href?.startsWith("https") ? "_blank" : "_self" }
+                  >
+                    {link.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Support -->
+          <div>
+            <p class="text-sm md:text-base 2xl:text-lg font-semibold text-background uppercase tracking-wider mb-4">Ayuda</p>
+            <ul class="space-y-3">
+              {footerLinks.support.map(link => (
+                <li>
+                  <a
+                    href={link.href}
+                    class="text-gray-400 hover:text-gray-300 hover:underline text-sm 2xl:text-base transition-colors duration-200"
+                    target={ (link.href?.startsWith("https") || link.href?.includes("/download")) ? "_blank" : "_self" }
+                  >
+                    {link.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Company -->
+          <div>
+            <p class="text-sm md:text-base 2xl:text-lg font-semibold text-background uppercase tracking-wider mb-4">Empresa</p>
+            <ul class="space-y-3">
+              {footerLinks.company.map(link => (
+                <li>
+                  <a
+                    href={link.href}
+                    class="text-gray-400 hover:text-gray-300 hover:underline text-sm 2xl:text-base transition-colors duration-200"
+                    target={ link.href?.startsWith("https") ? "_blank" : "_self" }
+                  >
+                    {link.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Legal -->
+          <div>
+            <p class="text-sm md:text-base 2xl:text-lg font-semibold text-background uppercase tracking-wider mb-4">Políticas</p>
+            <ul class="space-y-3">
+              {footerLinks.legal.map(link => (
+                <li>
+                  <a
+                    href={link.href}
+                    class="text-gray-400 hover:text-gray-300 hover:underline text-sm 2xl:text-base transition-colors duration-200"
+                    target={ link.href?.startsWith("https") ? "_blank" : "_self" }
+                  >
+                    {link.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sucursales -->
+      <div class="lg:col-span-3">
+        <p class="text-sm md:text-base 22xl:text-lg font-semibold text-background uppercase tracking-wider mb-4">Sucursales</p>
+        <BranchOfficeAccordion />
+      </div>
+    </section>
+
+    <!-- Separador -->
+    <section class="border-t border-gray-800 mt-12 pt-8">
+      <!-- Redes sociales y copyright -->
+      <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        <!-- Redes sociales -->
+        <div class="flex space-x-6">
+          {socialLinks.map(social => (
+            <a
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-gray-400 hover:text-background transition-colors duration-200"
+              aria-label={social.name}
+            >
+              <span class="sr-only">{social.name}</span>
+              <svg class="h-5 w-5 " fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill-rule="evenodd" d={social.icon} clip-rule="evenodd"></path>
+              </svg>
+            </a>
+          ))}
+        </div>
+
+        <!-- Copyright -->
+        <p class="text-gray-400 text-sm">
+          © {currentYear} Comercial Scanavini Ltda. Todos los derechos reservados.
+        </p>
+      </div>
+    </section>
+  </main>
+</footer>
+
+<script>
+  import ScrollReveal from "scrollreveal";
+
+	ScrollReveal().reveal('[data-animation="footer"]', {
+		distance: "100px",          // se mueve un poco desde abajo
+		origin: "bottom",
+		opacity: 0,
+		duration: 1100,
+		easing: "cubic-bezier(0.4, 0, 0.2, 1)", // similar a tu transición global
+		interval: 80,              // stagger entre cada card
+		reset: false,              // solo se anima una vez
+		cleanup: false,             // limpia estilos inline cuando termina
+		delay: 680,
+	});
+</script>
