@@ -34,14 +34,13 @@ export const navigationData: NavigationData = {
           text: "Productos",
           href: "/productos",
           children: [
-            { text: "Cerrojos", href: "https://tiendascanavini.cl/lineas/7/cerrojo-de-seguridad" },
-            { text: "Cerraduras", href: "https://tiendascanavini.cl/lineas/5/cerraduras" },
-            { text: "Cerraduras Digitales", href: "https://tiendascanavini.cl/lineas/6/cerraduras-digitales" },
-            { text: "Candados", href: "https://tiendascanavini.cl/lineas/4/candados" },
-            { text: "Barras Antipánico, Brazos Hidráulicos y Quicios", href: "https://tiendascanavini.cl/lineas/2/barra-antipanico-y-brazos-hidraulicos" },
-            { text: "Bisagras", href: "https://tiendascanavini.cl/lineas/3/bisagras" },
-            { text: "Manillas", href: "https://tiendascanavini.cl/categorias/16/cerraduras-con-manillas" },
-            { text: "Tiradores, Topes y Españoletas", href: "https://tiendascanavini.cl/lineas/13/perillones-y-tiradores-de-puerta" },
+            { text: "Cerraduras", href: "https://www.tiendascanavini.pe/cerraduras/" },
+            { text: "Cerraduras Digitales", href: "https://www.tiendascanavini.pe/cerraduras-digitales" },
+            { text: "Candados", href: "https://www.tiendascanavini.pe/candados" },
+            { text: "Barras Antipánico, Brazos Hidráulicos y Frenos Hidráulicos", href: "https://www.tiendascanavini.pe/accesorios-uso-comercial" },
+            { text: "Bisagras", href: "https://www.tiendascanavini.pe/bisagras" },
+            { text: "Manijas", href: "https://www.tiendascanavini.pe/cerraduras/cerraduras-con-manija" },
+            { text: "Tiradores, Topes y Españoletas", href: "https://www.tiendascanavini.pe/tiradores" },
             { text: "Descargar Catálogo", href: "https://storage.scanavini.cl/catalogos/CatalogoScanavini_2024.pdf", isBtn: true }
           ]
         },
@@ -67,7 +66,7 @@ export const navigationData: NavigationData = {
         {
           text: "Destacados",
           children: [
-            { text: "Servicios de instalación", href: "https://tiendascanavini.cl/lineas/22/instalacion" },
+            { text: "Servicios de instalación", href: "https://www.tiendascanavini.pe/producto/servicio-instalacion-cerradura-digital" },
             { text: "Tutoriales", href: "https://www.youtube.com/@ScanaviniCerraduras/videos" },
             { text: "Blog", href: "https://tiendascanavini.cl/blog" }
           ]
@@ -82,14 +81,13 @@ export const navigationData: NavigationData = {
           text: "Productos",
           href: "/productos",
           children: [
-            { text: "Cerrojos", href: "https://tiendascanavini.cl/lineas/7/cerrojo-de-seguridad" },
-            { text: "Cerraduras", href: "https://tiendascanavini.cl/lineas/5/cerraduras" },
-            { text: "Cerraduras Digitales", href: "https://tiendascanavini.cl/lineas/6/cerraduras-digitales" },
-            { text: "Candados", href: "https://tiendascanavini.cl/lineas/4/candados" },
-            { text: "Barras Antipánico, Brazos Hidráulicos y Quicios", href: "https://tiendascanavini.cl/lineas/2/barra-antipanico-y-brazos-hidraulicos" },
-            { text: "Bisagras", href: "https://tiendascanavini.cl/lineas/3/bisagras" },
-            { text: "Manillas", href: "https://tiendascanavini.cl/categorias/16/cerraduras-con-manillas" },
-            { text: "Tiradores, Topes y Españoletas", href: "https://tiendascanavini.cl/lineas/13/perillones-y-tiradores-de-puerta" },
+            { text: "Cerraduras", href: "https://www.tiendascanavini.pe/cerraduras/" },
+            { text: "Cerraduras Digitales", href: "https://www.tiendascanavini.pe/cerraduras-digitales" },
+            { text: "Candados", href: "https://www.tiendascanavini.pe/candados" },
+            { text: "Barras Antipánico, Brazos Hidráulicos y Frenos Hidráulicos", href: "https://www.tiendascanavini.pe/accesorios-uso-comercial" },
+            { text: "Bisagras", href: "https://www.tiendascanavini.pe/bisagras" },
+            { text: "Manillas", href: "https://www.tiendascanavini.pe/cerraduras/cerraduras-con-manija" },
+            { text: "Tiradores, Topes y Españoletas", href: "https://www.tiendascanavini.pe/tiradores" },
             { text: "Descargar Catálogo", href: "https://storage.scanavini.cl/catalogos/CatalogoScanavini_2024.pdf", isBtn: true }
           ]
         },
@@ -117,7 +115,7 @@ export const navigationData: NavigationData = {
         {
           text: "Destacados",
           children: [
-            { text: "Servicios de instalación", href: "https://tiendascanavini.cl/lineas/22/instalacion" },
+            { text: "Servicios de instalación", href: "https://www.tiendascanavini.pe/producto/servicio-instalacion-cerradura-digital" },
             { text: "Tutoriales", href: "https://www.youtube.com/@ScanaviniCerraduras/videos" },
             { text: "Blog", href: "https://tiendascanavini.cl/blog" }
           ]
@@ -127,7 +125,7 @@ export const navigationData: NavigationData = {
     },
     {
       text: "Tienda online",
-      href: "https://tiendascanavini.cl/",
+      href: "https://www.tiendascanavini.pe/",
     },
     {
       text: "Contacto",

@@ -15,9 +15,9 @@ export const keyFeatures: KeyFeature[] = [
     alt: "Icono de innovación"
   },
   {
-    subtitle: "FABRICACIÓN",
-    title: "NACIONAL",
-    icon: withVersion("/images/icons/nacional.svg"),
+    subtitle: "GARANTÍA",
+    title: "DE POR VIDA",
+    icon: withVersion("/images/icons/madeinchile.svg"),
     alt: "Icono de innovación"
   },
   {

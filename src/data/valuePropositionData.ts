@@ -1,7 +1,7 @@
 import type { ImageMetadata } from 'astro';
 
-import equipoDesktop from '../assets/pillars/equipo.webp';
-import equipoMobile from '../assets/pillars/equipoMobil.webp';
+import equipoDesktop from '../assets/pillars/team-peru.webp';
+import equipoMobile from '../assets/pillars/team-peru-mobile.webp';
 import fabricacionDesktop from '../assets/pillars/fabricacion.avif';
 import fabricacionMobile from '../assets/pillars/fabricacion.webp';
 import productosDesktop from '../assets/pillars/productos.avif';
