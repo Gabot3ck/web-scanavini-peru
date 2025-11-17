@@ -11,31 +11,21 @@ interface LocationItem {
 const {
   locations = [
     {
-      title: "Casa Matriz & Showroom Santiago",
+      title: "Showroom Perú",
+      mapSrc: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d243.81606939360694!2d-77.0394825!3d-12.1082429!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c84754e64a2b%3A0xa57b8e327ec89a6b!2sScanavini!5e0!3m2!1ses!2scl!4v1763358595539!5m2!1ses!2scl",
+      adress: "Av. Emilio Cavenecia 337, San Isidro, Lima - Perú",
+      phone: "+51 983 487 908",
+      email: "info@scanavini.pe",
+      hours: ["Lunes a Jueves de 08:00 a 18:30 hrs.", "Viernes de 08:00 a 16:45 hrs"]
+    },
+    {
+      title: "Casa Matriz Santiago",
       mapSrc: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d208.0419820774311!2d-70.6707829532399!3d-33.45785848617297!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c4fd119c211f%3A0xf2225ff600a102fe!2sComercial%20Ltda%20Scanavini.!5e0!3m2!1sen!2scl!4v1762528885259!5m2!1sen!2scl",
       adress: "Av. Almirante Blanco Encalada 2543, Santiago, Chile.",
       phone: "+56 2 2829 0100",
       email: "info@scanavini.com",
       hours: ["Lunes a Jueves de 09:00 a 17:30 hrs.", "Viernes de 09:00 a 16:15 hrs"]
-    },
-    {
-      title: "Showroom Cerrillos",
-      mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3326.858462037699!2d-70.71338539999999!3d-33.5050594!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662db5685ca083f%3A0x1b8159c8ba309570!2sCmo.%20a%20Melipilla%207525%2C%20Cerrillos%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses!2scl!4v1762527776922!5m2!1ses!2scl",
-      adress: "Camino a Melipilla 7525, Cerrillos, Chile.",
-      phone: "+56 2 2829 0200",
-      email: "info@scanavini.com",
-      hours: ["Lunes a Jueves de 08:30 a 17:00 hrs.", "Viernes de 08:30 a 15:45 hrs"]
-    },
-    {
-      title: "Showroom Vitacura",
-      mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3331.395310720499!2d-70.55208102416705!3d-33.38684947341482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ceb551e1fb33%3A0xc6e7fe84954e8eff!2sShowroom%20Scanavini%20Padre%20Hurtado!5e0!3m2!1sen!2scl!4v1759147721815!5m2!1sen!2scl",
-      adress: "Av. Padre Hurtado Norte 1251, Vitacura, Chile.",
-      phone: "+56 2 2829 0300",
-      email: "info@scanavini.com",
-      hours: ["Lunes a Jueves de 08:30 a 18:45 hrs.", "Viernes de 08:30 a 17:15 hrs"]
-    },
-
-
+    }
   ] as LocationItem[],
 } = Astro.props as {
   locations?: LocationItem[];

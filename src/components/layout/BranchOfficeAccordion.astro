@@ -16,8 +16,20 @@ interface Sucursal {
 
 const sucursales: Sucursal[] = [
   {
+    id: 'peru',
+    nombre: 'Showroom Perú',
+    telefono: '+51 983 487 908',
+    direccion: 'Av. Emilio Cavenecia 337, San Isidro, Lima - Perú',
+    horario: {
+      semana: '08:00 - 18:30',
+      viernes: '08:00 - 16:45',
+      feriados: 'Cerrado'
+    },
+    gmaps: 'https://maps.app.goo.gl/KzRQx8N9k7p3zz7J6'
+  },
+  {
     id: 'matriz-be',
-    nombre: 'Casa Matriz - Santiago Centro',
+    nombre: 'Casa Matriz - Chile',
     telefono: '+56 2 2829 0100',
     direccion: 'Av. Almirante Blanco Encalada 2545, Santiago – Chile.',
     horario: {
@@ -26,30 +38,6 @@ const sucursales: Sucursal[] = [
       feriados: 'Cerrado'
     },
     gmaps: 'https://maps.app.goo.gl/6NCCv2N3Qnu7GDNd7'
-  },
-  {
-    id: 'vitacura-ph',
-    nombre: 'Showroom Vitacura',
-    telefono: '+56 2 2829 0300',
-    direccion: 'Av. Padre Hurtado Norte 1251, Vitacura, Santiago – Chile',
-    horario: {
-      semana: '08:30 - 18:45',
-      viernes: '08:30 - 17:15',
-      feriados: 'Cerrado'
-    },
-    gmaps: 'https://maps.app.goo.gl/1STyxFHsKGvvZL1w5'
-  },
-  {
-    id: 'cerrillos-im',
-    nombre: 'Showroom Cerrillos',
-    telefono: '+56 2 2829 0200',
-    direccion: 'Camino a Melipilla 7525, Cerrillos, Santiago – Chile',
-    horario: {
-      semana: '8:30 - 17:00',
-      viernes: '8:30 - 15:45',
-      feriados: 'Cerrado'
-    },
-    gmaps: 'https://maps.app.goo.gl/8eRHRJivft9ivWfXA'
   }
 ];
 ---
