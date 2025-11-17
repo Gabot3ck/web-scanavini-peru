@@ -4,11 +4,11 @@ import Layout from '../layouts/Layout.astro';
 // Datos para la página
 const pageData = {
   title: 'Términos y Condiciones',
-  description: 'Términos y condiciones de uso del sitio web.',
+  description: 'Términos y condiciones de acceso y uso del sitio wwww.scanavini.pe',
 };
 ---
 
-<!-- logoSwapOnHoverAtTop={true} Activa el cambio del logo en hover cuando se está “arriba” -->
+<!-- Basado en el mismo layout y estructura de politica-de-privacidad.astro -->
 <Layout 
   title={pageData.title}
   description={pageData.description}
@@ -21,106 +21,878 @@ const pageData = {
   <section class="container-custom sm:px-3 md:px-5 lg:px-10 xl:px-0 min-h-[60vh] py-20 xl:mt-16">
     <header class="border-b border-neutral-grey/20">
       <div class="container-custom py-8">
-        <h1 class=" text-xl  xl:text-3xl 2xl:text-4xl font-semibold text-neutral-dark">
-          Términos y Condiciones
+        <h1 class="text-xl xl:text-3xl 2xl:text-4xl font-semibold text-neutral-dark">
+          Términos y condiciones de acceso y uso del sitio
         </h1>
         <p class="mt-2 text-sm md:text-base text-neutral-grey">
-          Última actualización: <time datetime="2025-10-01">01 de octubre de 2025</time>
+          Última actualización:
+          <time datetime="2025-02-28">28 de febrero de 2025</time>
         </p>
       </div>
     </header>
 
-  <main  class="container-custom py-8 md:py-12">
-    <article 
-      class="card shadow-soft border border-neutral-grey/20 bg-background-light p-6 md:p-10 rounded-2xl"
-      role="article"
-    >
-      <ol class="space-y-8 list-decimal pl-6">
-        <li id="informacion-general">
-          <h2 class="text-lg  lg:text-xl font-semibold mb-3">Información General</h2>
-          <p class="leading-relaxed text-sm lg:text-base text-justify text-justify">
-            El presente sitio web es propiedad de <strong>Comercial Scanavini Ltda.</strong>, empresa chilena legalmente constituida y dedicada a la venta y distribución de cerraduras, candados, bisagras, manillas y otros productos afines. El sitio tiene carácter informativo y promocional, y su uso implica la aceptación de estos Términos y Condiciones.
-          </p>
-        </li>
+    <main class="container-custom py-8 md:py-12">
+      <article
+        class="card shadow-soft border border-neutral-grey/20 bg-background-light p-6 md:p-10 rounded-2xl"
+        role="article"
+      >
+        <ol class="space-y-8 list-decimal pl-6">
 
-        <li id="uso-del-sitio">
-          <h2 class="text-lg  lg:text-xl font-semibold mb-3">Uso del Sitio Web</h2>
-          <p class="leading-relaxed text-sm lg:text-base text-justify">
-            El usuario se compromete a utilizar este sitio de manera responsable, lícita y conforme a la legislación vigente en Chile, especialmente a lo dispuesto en la Ley N° 19.496 sobre Protección de los Derechos de los Consumidores. Queda estrictamente prohibido usar el sitio con fines ilícitos, fraudulentos o contrarios al orden público, realizar acciones que alteren la funcionalidad del sitio o acceder sin autorización a sistemas o datos.
-          </p>
-        </li>
+          <!-- ÍTEM 1 -->
+          <li>
+            <h2 class="text-lg lg:text-xl font-semibold mb-3">
+              ¿Qué es este documento?
+            </h2>
+            <p class="leading-relaxed text-sm lg:text-base text-justify">
+              Te damos la bienvenida a <strong>scanavini.pe</strong>, la plataforma en línea de
+              <strong> Scanavini Comercial S.A.C.</strong>, identificada con RUC N° 20523956401, con domicilio en
+              Av. Emilio Cavenecia N° 337, Distrito de San Isidro, Provincia y Departamento de Lima.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Estos términos y condiciones (en adelante, los “Términos y Condiciones” o “T&amp;C”) regulan el acceso
+              y uso de nuestro sitio web (en adelante, el “Sitio”), tanto en Perú como desde cualquier otro lugar
+              desde donde accedas y lo utilices.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              El acceso y uso de este Sitio se rige por los Términos y Condiciones descritos a continuación, así
+              como por la legislación aplicable en Perú para cualquier situación derivada o relacionada con la
+              interpretación o ejecución de estos T&amp;C. Por lo tanto, todas las visitas, contratos y transacciones
+              que realices en este Sitio, junto con sus efectos legales, estarán sujetos a estas reglas y a la
+              legislación correspondiente. Los Términos y Condiciones contenidos en este documento formarán parte de
+              todos los actos y contratos que se ejecuten o celebren a través de los sistemas de oferta y
+              comercialización disponibles en este Sitio, entre los usuarios de la plataforma y
+              <strong> Scanavini Comercial S.A.C.</strong>
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              La aceptación de estos Términos y Condiciones es un requisito indispensable para realizar cualquier
+              transacción en este Sitio. Al utilizar el Sitio, se entiende que has leído íntegramente y aceptado lo
+              estipulado en este documento. Si después de leerlos tienes alguna duda, no dudes en contactarnos para
+              que podamos ayudarte.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Atenderemos todas tus consultas relacionadas con tus solicitudes de compra a través del teléfono
+              <strong> (01) 204-5444</strong>. También puedes comunicarte con nosotros a través de la sección
+              <strong> “Contáctanos”</strong> disponible en <strong>scanavini.pe</strong>. Te recomendamos tener
+              a mano el número de pedido asignado para que podamos asistirte de manera más eficiente.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Si no estás de acuerdo con estos Términos y Condiciones, te recomendamos no utilizar nuestro Sitio, ya
+              que el simple hecho de usarlo implica que los conoces y los aceptas. Además, si tienes alguna sugerencia
+              para mejorar estos Términos y Condiciones, no dudes en hacérnosla saber. Estamos siempre abiertos a
+              escuchar tus ideas.
+            </p>
+          </li>
 
-        <li id="contenido">
-          <h2 class="text-lg  lg:text-xl font-semibold mb-3">Contenido</h2>
-          <p class="leading-relaxed text-sm lg:text-base text-justify">
-            La información publicada es verificada y actualizada periódicamente; sin embargo, <strong>Comercial Scanavini Ltda.</strong> No garantiza su exactitud absoluta ni la ausencia de errores. Nos reservamos el derecho de modificar, actualizar o eliminar contenido sin previo aviso, conforme al principio de mejora continua, norma ISO 9001-2015.
-          </p>
-        </li>
+          <!-- ÍTEM 2 -->
+          <li>
+            <h2 class="text-lg lg:text-xl font-semibold mb-3">
+              Autorización de Uso
+            </h2>
+            <p class="leading-relaxed text-sm lg:text-base text-justify">
+              <strong>scanavini.pe</strong> es un conjunto de aplicativos informáticos o softwares. Puedes usar
+              gratuitamente nuestro software y aplicaciones para equipos móviles con el fin de visitar, comparar y
+              adquirir, si lo deseas, los productos y servicios que te ofrecemos a través de cada uno de nuestros
+              canales, según resulte aplicable.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Lo que no puedes hacer con los aplicativos informáticos o softwares del Sitio o sus aplicaciones móviles
+              es intervenirlos, copiarlos ni distribuirlos.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              La sola visita del Sitio no te impone obligación alguna, a menos que hayas expresado en forma
+              inequívoca y mediante actos positivos tu voluntad de adquirir uno o más bienes o servicios, en la forma
+              indicada en estos T&amp;C, los cuales además deben ser aceptados de forma expresa.
+            </p>
+          </li>
 
-        <li id="formulario-de-contacto">
-          <h2 class="text-lg  lg:text-xl font-semibold mb-3">Formulario de Contacto y Protección de Datos</h2>
-          <p class="leading-relaxed text-sm lg:text-base text-justify">
-            El sitio dispone de un formulario destinado exclusivamente a consultas o solicitudes de información. Los datos personales proporcionados se utilizan únicamente para responder dichas consultas, conforme a la Ley N° 21.719 sobre Protección de Datos Personales de Chile y a nuestra Política de Privacidad. No se compartirán datos con terceros sin consentimiento expreso del titular.
-          </p>
-        </li>
+          <!-- ÍTEM 3 -->
+          <li>
+            <h2 class="text-lg lg:text-xl font-semibold mb-3">
+              ¿Qué es scanavini.pe, quién vende en él y qué leyes se aplican?
+            </h2>
+            <p class="leading-relaxed text-sm lg:text-base text-justify">
+              <strong>scanavini.pe</strong> es una plataforma de comercio electrónico operada por
+              <strong> Scanavini Comercial S.A.C.</strong>, empresa dedicada a la venta de productos y servicios
+              directamente al consumidor. A diferencia de un marketplace, en
+              <strong> scanavini.pe</strong> todos los productos y servicios son ofrecidos exclusivamente por
+              <strong> Scanavini Comercial S.A.C.</strong>, sin intermediarios ni terceros. Esto nos permite garantizar
+              la calidad, autenticidad y atención personalizada en cada compra.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              En <strong>scanavini.pe</strong>, nos esforzamos por brindarte una experiencia de compra segura,
+              transparente y eficiente. Toda la información sobre los productos, incluyendo descripciones, precios y
+              disponibilidad, es gestionada directamente por nuestro equipo. Nos comprometemos a ofrecerte productos de
+              alta calidad y a resolver cualquier inquietud que puedas tener antes, durante o después de tu compra.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Si necesitas asistencia, puedes contactarnos a través de nuestra sección de
+              <strong> Atención al Cliente</strong> o llamarnos al número <strong>(01) 204-5444</strong>. Estamos
+              disponibles para ayudarte con cualquier consulta relacionada con tus compras, entregas o garantías.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Las compras realizadas en <strong>scanavini.pe</strong> están sujetas a las leyes peruanas, en
+              especial a las normas que protegen los derechos de los consumidores, la protección de datos personales y
+              las regulaciones publicitarias. En caso de cualquier duda o conflicto en la interpretación de estos
+              Términos y Condiciones, prevalecerá aquella interpretación que sea más favorable para ti como consumidor.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              En <strong>Scanavini</strong>, nos comprometemos a ofrecerte una experiencia de compra excepcional, con
+              beneficios exclusivos y un servicio al cliente de primera. Te invitamos a explorar nuestra plataforma y
+              disfrutar de la calidad y confianza que nos caracteriza.
+            </p>
+          </li>
 
-        <li id="comercio-electronico">
-          <h2 class="text-lg  lg:text-xl font-semibold mb-3">Comercio Electrónico</h2>
-          <p class="leading-relaxed text-sm lg:text-base text-justify">
-            Las ventas y transacciones comerciales no se realizan en este sitio, sino en nuestra plataforma de ecommerce accesible en <a href="https://tiendascanavini.cl" target="_blank"  class="underline underline text-brand hover:text-brand-dark break-all hover:opacity-80" rel="noopener">Tienda Scanavini</a>. Para realizar compras, por favor visite dicha página, donde se aplican términos y condiciones específicos para la transacción.
-          </p>
-        </li>
+          <!-- ÍTEM 4 -->
+          <li>
+            <h2 class="text-lg lg:text-xl font-semibold mb-3">
+              Comunicaciones Electrónicas
+            </h2>
+            <p class="leading-relaxed text-sm lg:text-base text-justify">
+              Siempre que contemos con tu consentimiento, te enviaremos comunicaciones promocionales o publicitarias
+              identificándonos como remitente y detallando en el asunto a qué se refiere el mensaje. Conforme a nuestra
+              <a href="https://www.scanavini.pe/politicas-de-privacidad" class="underline hover:opacity-80 hover:text-brand-dark">
+                Política de Privacidad
+              </a>
+              podrás solicitar la cancelación de envíos futuros a ese correo o número de teléfono, según corresponda, y
+              guardar un comprobante de la solicitud. De esta forma, cesarán los mensajes al canal de contacto
+              solicitado.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              También los Vendedores Vinculados de quienes hayas adquirido un producto o servicio, con el objeto de
+              concretar la venta y/o coordinar lo que resulte necesario para ese fin, se podrán contactar contigo a
+              través del correo electrónico, SMS, WhatsApp, App y otros canales, para informarte sobre el estado de tu
+              pedido o cualquier incidente extraordinario relacionado al mismo.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Asimismo, si realizaste un pedido bajo la modalidad “despacho a domicilio”, es posible que el
+              transportista encargado del despacho te contacte con el fin de que tu pedido sea entregado en tu domicilio
+              de manera correcta y dentro del plazo establecido, según lo indicado en estos Términos y Condiciones.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Si tienes cualquier duda con respecto a tus pedidos, comunícate con nosotros llamando al
+              <strong> (01) 204-5444</strong>, donde atenderemos todas tus consultas.
+            </p>
+          </li>
 
-        <li id="propiedad-intelectual">
-          <h2 class="text-lg  lg:text-xl font-semibold mb-3">Propiedad Intelectual</h2>
-          <p class="leading-relaxed text-sm lg:text-base text-justify">
-            Todos los contenidos del sitio, incluyendo textos, logotipos, gráficos, imágenes e íconos, son propiedad de <strong>Comercial Scanavini Ltda.</strong> O cuentan con la debida autorización de uso. Queda prohibida su reproducción total o parcial sin consentimiento previo y por escrito. 
-          </p>
-        </li>
-
-        <li id="limitacion-de-responsabilidad">
-          <h2 class="text-lg  lg:text-xl font-semibold mb-3">Limitación de Responsabilidad</h2>
-          <p class="leading-relaxed text-sm lg:text-base text-justify">
-            <strong>Comercial Scanavini Ltda.</strong>  No será responsable por daños directos, indirectos o incidentales derivados del uso o imposibilidad de uso del sitio web, interrupciones técnicas o enlaces externos, los cuales son responsabilidad exclusiva de sus respectivos propietarios.
-          </p>
-        </li>
-
-        <li id="vigencia">
-          <h2 class="text-lg  lg:text-xl font-semibold mb-3">Modificaciones y Vigencia de los Términos</h2>
-          <p class="leading-relaxed text-sm lg:text-base text-justify">
-            <strong>Comercial Scanavini Ltda.</strong> Podrá modificar estos Términos y Condiciones para adaptarlos a cambios normativos o tecnológicos. Las modificaciones entrarán en vigor desde su publicación en esta página web. El usuario será notificado mediante un aviso emergente (pop-up) al momento de ingresar a nuestro sitio web y su aceptación expresa será requisito para continuar navegando o utilizando los servicios ofrecidos.
-          </p>
-        </li>
-
-        <li id="jurisdiccion">
-          <h2 class="text-lg  lg:text-xl font-semibold mb-3">Jurisdicción y Ley Aplicable</h2>
-          <p class="leading-relaxed text-sm lg:text-base text-justify">
-            Estos Términos y Condiciones se rigen por las leyes de la República de Chile, y cualquier controversia será sometida a los Tribunales Ordinarios de Justicia de Santiago.
-          </p>
-        </li>
-
-        <li id="contacto">
-          <h2 class="text-lg  lg:text-xl font-semibold mb-3">Contacto</h2>
-          <p class="leading-relaxed text-sm lg:text-base text-justify">
-            Para consultas o aclaraciones relacionadas con estos Términos y Condiciones, puede comunicarse a través de:
-            <ul class="xl:ml-6 list-disc mt-1" >
-              <li class="leading-relaxed text-sm lg:text-base text-justify" >
-                Formulario de contacto: <a href="/contacto"  class="underline hover:opacity-80 hover:text-brand-dark">www.scanavini.com/contacto</a>
+          <!-- ÍTEM 5 -->
+          <li>
+            <h2 class="text-lg lg:text-xl font-semibold mb-3">
+              ¿Cómo comprar o contratar servicios en este sitio?
+            </h2>
+            <p class="leading-relaxed text-sm lg:text-base text-justify">
+              La adquisición de productos y servicios ofrecidos en <strong>scanavini.pe</strong> está disponible
+              para personas naturales o jurídicas con capacidad legal para contratar. En el caso de personas jurídicas,
+              el registro y las compras deben ser realizadas por una persona autorizada con poder para obligar a la
+              empresa según los términos y condiciones establecidos.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Para realizar compras o contratar servicios en <strong>scanavini.pe</strong>, sigue los siguientes pasos:
+            </p>
+            <ol class="xl:ml-6 list-decimal my-2 space-y-1">
+              <li class="leading-relaxed text-sm lg:text-base text-justify">
+                <strong>Selecciona tus productos:</strong> Agrega los productos o servicios de tu interés al carrito de
+                compras. Antes de finalizar, verifica las dimensiones del producto y el espacio donde lo instalarás, si aplica.
               </li>
-              <li class="leading-relaxed text-sm lg:text-base text-justify" >
-                Correo electrónico: <a href="mailto:info@scanavini.com" class="underline hover:opacity-80 hover:text-brand-dark">info@scanavini.com</a>
+              <li class="leading-relaxed text-sm lg:text-base text-justify">
+                <strong>Selecciona el método de entrega y pago:</strong> Elige el tipo de despacho o entrega que prefieras
+                y selecciona uno de los medios de pago disponibles. Asegúrate de ingresar los datos de manera completa,
+                correcta y veraz para garantizar una entrega oportuna.
               </li>
-              <li class="leading-relaxed text-sm lg:text-base text-justify" >
-                Teléfono: <a href="tel:+56228290100" class="underline hover:opacity-80 hover:text-brand-dark">+56 2 2829 0100</a>.
+              <li class="leading-relaxed text-sm lg:text-base text-justify">
+                <strong>Revisa el costo de despacho:</strong> Al finalizar el proceso de compra, antes del pago, podrás
+                visualizar el costo de despacho de tu pedido.
+              </li>
+              <li class="leading-relaxed text-sm lg:text-base text-justify">
+                <strong>Confirma tu pedido:</strong> Una vez realizada la solicitud de compra, se mostrará en pantalla
+                un resumen con la descripción del producto, precio, fecha o rango de fechas de entrega, método de pago,
+                descuentos, costo de despacho y cualquier otro detalle relevante. Este resumen también se enviará al
+                correo electrónico que hayas registrado. Ten en cuenta que este correo no confirma la compra, sino que
+                es un resumen de tu solicitud.
+              </li>
+              <li class="leading-relaxed text-sm lg:text-base text-justify">
+                <strong>Validación de la compra:</strong> Por tu seguridad, tu solicitud de compra pasará por un proceso
+                de confirmación de identidad y validación del medio de pago. También se verificará la disponibilidad del
+                producto y que el número de compras sea acorde a un uso personal. En esta etapa, es posible que se debite
+                o retenga un monto temporalmente en tu medio de pago. Si la compra no se confirma, este monto será
+                reembolsado automáticamente.
+              </li>
+              <li class="leading-relaxed text-sm lg:text-base text-justify">
+                <strong>Confirmación de la compra:</strong> Una vez superada la validación, recibirás un correo electrónico
+                de confirmación de compra con el comprobante de pago y los detalles de entrega. Este correo confirma que
+                tu pedido ha sido procesado y que el producto será entregado en el plazo establecido según el método de
+                envío seleccionado.
+              </li>
+              <li class="leading-relaxed text-sm lg:text-base text-justify">
+                <strong>Comprobante de pago:</strong> El comprobante de pago correspondiente estará disponible en tu cuenta
+                dentro de la sección “Mis Compras”. Podrás descargar una copia en cualquier momento.
+              </li>
+            </ol>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              En <strong>Scanavini</strong>, nos esforzamos por ofrecerte un proceso de compra seguro, transparente y
+              eficiente. Si tienes alguna duda o necesitas asistencia, no dudes en contactarnos a través de nuestra
+              sección de <strong>Atención al Cliente</strong> o llamando al <strong>(01) 204-5444</strong>.
+            </p>
+          </li>
+
+          <!-- ÍTEM 6 -->
+          <li>
+            <h2 class="text-lg lg:text-xl font-semibold mb-3">
+              Despacho y entrega de los productos
+            </h2>
+            <p class="leading-relaxed text-sm lg:text-base text-justify">
+              6.1. Si prefieres que despachemos los productos a una dirección específica dentro de la zona de cobertura,
+              debes señalar el lugar de entrega y el tipo de despacho de entre aquellos que estén disponibles en
+              <strong>scanavini.pe</strong>. Infórmate sobre el costo del despacho y los lugares de entrega
+              disponibles, haciendo clic en “Envío a Domicilio o Retiro en tienda”. Podrás visualizar el costo total de
+              despacho de tu pedido al finalizar la compra y antes del pago. Es muy importante que ingreses la dirección
+              de envío de manera completa y exacta para que tu pedido sea entregado sin inconvenientes. Si no contamos
+              con cobertura de transporte o logística al lugar al que quieras despachar un producto, el Sitio no te
+              dejará finalizar la solicitud de compra y te informará que tu pedido no puede ser entregado en la dirección
+              solicitada.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              6.2. El despacho de tu pedido se realizará según el horario y condiciones establecidos al momento de la
+              compra. <strong>Ten en cuenta que:</strong><br />
+              – <strong>Ventas realizadas después de las 12:00 p.m., así como en días feriados, sábados o domingos, serán procesadas al siguiente día hábil.</strong><br />
+              – <strong>Antes de aceptar el pedido, verifica que los productos correspondan a tu compra y se encuentren en perfecto estado.</strong><br />
+              – Para garantizar una entrega correcta y oportuna, el transportista o nuestro Servicio al Cliente podrá
+              contactarte al número telefónico registrado.<br />
+              – <strong>Punto de entrega:</strong><br />
+              <strong>Domicilio particular:</strong> Entrega en la puerta.<br />
+              <strong>Edificio/Condominio:</strong> Entrega en la entrada o recepción principal.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              6.3. Recuerda que el lugar físico donde se realiza la entrega debe asegurar las condiciones mínimas para el
+              acceso del medio de transporte, esto es, disponibilidad de estacionamiento y horario. Ten en cuenta que,
+              en caso de existir dificultades de acceso, tales como trabajos de remodelación de pistas, falta de
+              infraestructura u otros que impidan la entrega del producto al domicilio elegido,
+              <strong>scanavini.pe</strong> realizará la anulación de la compra y se reembolsará según el medio de
+              pago que utilizaste.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              6.4. El transportista que entrega el pedido no realiza servicios de armado ni instalaciones. Asimismo, los
+              clientes no deben realizar ningún pago al transportista por ningún concepto. Sin embargo, algunos vendedores
+              pueden brindar el servicio de armado e instalación, por lo que deberás contactarte directamente con ellos.
+              Este servicio puede estar asociado a un pago adicional.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              6.5. <strong>scanavini.pe</strong> no realiza entrega de productos a agencias de transporte. En caso
+              hayas puesto la dirección de entrega de una agencia de transporte, te notificaremos a través de SMS, correo
+              electrónico o WhatsApp sobre la imposibilidad de entrega; se procederá con la anulación de la compra y se
+              reembolsará según el medio de pago que utilizaste.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              6.6. Es responsabilidad del cliente que una persona mayor de 18 años, debidamente identificada con DNI, se
+              encuentre en la dirección el día de la entrega. Si la entrega se realiza a terceros (familiares, asesor/a
+              del hogar, conserjes o similares), este también deberá identificarse y brindar conformidad en la entrega
+              del producto; entenderemos que el mismo fue recibido satisfactoriamente, bajo responsabilidad del cliente.
+              Asimismo, como medida de seguridad, el transportista realizará el registro fotográfico de la entrega de tu
+              pedido afuera del domicilio o en conserjería, según corresponda. En caso se requiera, el cliente o tercero
+              responsable deberá firmar la guía de remisión en señal de conformidad de la entrega, consignando su nombre
+              y DNI.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              6.7. <strong>scanavini.pe</strong> no puede garantizar el envío de productos a algunas zonas
+              geográficas que no cuenten con cobertura por parte de las empresas de transporte u operadores logísticos.
+              Cuando esto suceda, el Sitio no dejará finalizar la solicitud de compra e informará al usuario, a través de
+              SMS, correo electrónico o WhatsApp, que su pedido no puede ser entregado en la dirección informada.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              6.8. En caso de que no sea posible efectuar una entrega debido a errores o falta de información en la
+              dirección o en los datos de contacto proporcionados por el cliente, el pedido será anulado y notificado a
+              través de SMS, correo electrónico o WhatsApp. En caso de querer realizar una rectificación para poder
+              reactivar la entrega de tu producto, por favor contacta a nuestro Servicio al Cliente
+              <strong> (01) 204-5444</strong> para realizar la solicitud y obtener más información.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              6.9. En el caso de que el despacho no pueda ser concretado en la fecha seleccionada por el cliente, debido
+              a que no se encuentra ninguna persona para recibir el producto, <strong>scanavini.pe</strong>
+              reprogramará la entrega de forma automática para la siguiente fecha disponible y notificará al cliente por
+              cualquiera de estos medios: SMS, teléfono, correo electrónico o WhatsApp, siendo responsabilidad del
+              cliente estar atento a la nueva entrega. <strong>scanavini.pe</strong> sólo se compromete a hacer una
+              única reprogramación adicional al primer envío.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              6.10. En caso el cliente no se encuentre por segunda vez consecutiva, se procederá a anular la orden de
+              compra y los datos del cliente serán ingresados como “cliente ausente”. La devolución se realizará según el
+              medio de pago utilizado en la transacción de la compra original.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              6.11. En general, <strong>scanavini.pe</strong> no incurrirá en responsabilidad por caso fortuito o
+              fuerza mayor, o cualquier otra similar, en caso estos hechos le impidan cumplir algunas de las obligaciones
+              asumidas frente al cliente. En tal caso, podrá realizar la reprogramación de la entrega de la respectiva
+              compra o, en su defecto, dejarla sin efecto, extinguiéndose las obligaciones a cargo de
+              <strong> scanavini.pe</strong> y sus vendedores. Habiendo quedado sin efecto la compra o adquisición
+              de servicios, <strong>scanavini.pe</strong> procederá a efectuar la devolución al cliente de las
+              sumas pagadas para la compra de bienes o adquisición del servicio, mediante abono al mismo medio de pago
+              empleado por el cliente.
+            </p>
+          </li>
+
+          <!-- ÍTEM 7 -->
+          <li>
+            <h2 class="text-lg lg:text-xl font-semibold mb-3">
+              Compra online y retiro en tienda
+            </h2>
+            <p class="leading-relaxed text-sm lg:text-base text-justify">
+              Si prefieres que te entreguemos tu pedido en nuestra tienda física ubicada en Av. Emilio Cavenecia N° 337,
+              Distrito de San Isidro, Lima, solo tienes que seleccionar esta opción entre las disponibles en
+              <strong>scanavini.pe</strong> al momento de hacer tu solicitud de compra. Cuando tu pedido esté
+              disponible para retiro te enviaremos un mensaje o correo electrónico. Podrás retirar tu pedido a contar
+              desde el momento en que recibas dicho aviso.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Para retirar tu compra, debes indicar el número de pedido e identificarte con tu documento de identidad
+              para la validación correspondiente. Si autorizaste a otra persona para que retire tu compra, esa persona
+              deberá informar el número de pedido e identificarse con su documento de identidad. Por motivos de
+              seguridad, solo puedes autorizar a una persona para que retire tu compra, lo cual puedes realizar
+              exclusivamente al momento de ingresar tu solicitud de compra.
+            </p>
+          </li>
+
+          <!-- ÍTEM 8 -->
+          <li>
+            <h2 class="text-lg lg:text-xl font-semibold mb-3">
+              Derechos que tienes al comprar en scanavini.pe
+            </h2>
+            <p class="leading-relaxed text-sm lg:text-base text-justify">
+              En <strong>Scanavini</strong>, nuestra prioridad es que te sientas completamente satisfecho con tus
+              compras. Queremos que tengas la tranquilidad de contar con nuestro respaldo en todo momento. Por eso,
+              además de las garantías ofrecidas por los fabricantes, te brindamos beneficios adicionales para asegurarte
+              una experiencia de compra excepcional. En caso de que necesites realizar un cambio o devolución, siempre
+              buscaremos la mejor solución para ti, priorizando tu satisfacción.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              A continuación, te explicamos en qué consisten las garantías y beneficios a los que puedes acceder al
+              comprar en <strong>scanavini.pe</strong>.
+            </p>
+
+            <h3 class="text-base lg:text-lg font-semibold mt-4 mb-2">
+              A) Satisfacción Garantizada
+            </h3>
+            <p class="leading-relaxed text-sm lg:text-base text-justify">
+              En <strong>Scanavini</strong>, entendemos que a veces puedes cambiar de opinión. Si el producto que
+              compraste no cumple con tus expectativas, no es de tu talla o simplemente prefieres otro, nuestro
+              compromiso de <strong>Satisfacción Garantizada</strong> te permite solicitar la devolución del producto
+              hasta 30 días después de haberlo recibido, sin costo adicional.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Para realizar una devolución, el producto debe estar en perfecto estado, con todos sus accesorios,
+              embalajes originales y dentro de su empaque inicial. En caso de devolución por cambio de opinión, se
+              reembolsará el valor del producto, pero no el costo de envío.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Ten en cuenta que esta garantía no aplica para productos previamente instalados o aquellos que hayan sido
+              adquiridos en condiciones especiales. Para más detalles, consulta nuestra sección de
+              <strong> “Productos con Excepciones”</strong>.
+            </p>
+
+            <h3 class="text-base lg:text-lg font-semibold mt-4 mb-2">
+              B) Garantía de Productos
+            </h3>
+            <p class="leading-relaxed text-sm lg:text-base text-justify">
+              Si un producto adquirido en <strong>scanavini.pe</strong> presenta fallas o defectos de fabricación,
+              puedes contactarnos para acceder a la garantía correspondiente. El tiempo de garantía se especifica en la
+              descripción del producto o en la cartilla de garantía que recibirás junto con tu compra.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Para ejercer la garantía, es necesario que cuentes con el comprobante de compra. Nuestro equipo técnico
+              evaluará el producto para determinar el origen de la falla. Si el daño se debe a un mal uso, la garantía
+              no aplicará.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              La garantía cubre los siguientes casos:
+            </p>
+            <ul class="list-disc ml-6 my-2 space-y-1">
+              <li class="leading-relaxed text-sm lg:text-base text-justify">
+                Productos que no cumplen con las normas de seguridad o calidad obligatorias.
+              </li>
+              <li class="leading-relaxed text-sm lg:text-base text-justify">
+                Materiales o componentes que no corresponden a las especificaciones del producto.
+              </li>
+              <li class="leading-relaxed text-sm lg:text-base text-justify">
+                Defectos de fabricación que impiden el uso normal del producto.
+              </li>
+              <li class="leading-relaxed text-sm lg:text-base text-justify">
+                Productos que no cumplen con las especificaciones acordadas al momento de la compra.
+              </li>
+              <li class="leading-relaxed text-sm lg:text-base text-justify">
+                Defectos recurrentes después de una reparación previa.
               </li>
             </ul>
-          </p>
-        </li>
-      </ol>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Si tienes alguna duda sobre nuestras garantías o beneficios, no dudes en contactarnos a través de la
+              sección <strong>“Atención al Cliente”</strong> o llamando al <strong>(01) 204-5444</strong>. Estamos aquí
+              para ayudarte.
+            </p>
+          </li>
 
-    </article>
-  </main>
+          <!-- ÍTEM 9 -->
+          <li>
+            <h2 class="text-lg lg:text-xl font-semibold mb-3">
+              Plazos de devolución de dinero
+            </h2>
+            <p class="leading-relaxed text-sm lg:text-base text-justify">
+              En <strong>Scanavini</strong>, nos comprometemos a garantizar que cualquier reembolso que corresponda sea
+              procesado de manera rápida y eficiente. Cuando sea necesario devolverte el dinero por algún motivo, este
+              será reembolsado utilizando el mismo método de pago que empleaste al realizar tu compra. Los plazos para
+              procesar tu solicitud de reembolso comenzarán a contar a partir de la emisión de la nota de crédito o del
+              documento legal correspondiente, y pueden variar según el medio de pago que hayas utilizado.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              A continuación, te detallamos los plazos estimados para cada método de pago:
+            </p>
+            <ul class="list-disc ml-6 my-2 space-y-1">
+              <li class="leading-relaxed text-sm lg:text-base text-justify">
+                <strong>Tarjeta de crédito/débito:</strong> El reembolso se procesará en un plazo de 24 a 48 horas. Sin
+                embargo, el tiempo que tarde en reflejarse en tu cuenta dependerá de la entidad bancaria emisora de tu
+                tarjeta, con un plazo promedio de 30 días calendario.
+              </li>
+              <li class="leading-relaxed text-sm lg:text-base text-justify">
+                <strong>Transferencia bancaria:</strong> Si realizaste el pago mediante transferencia bancaria, el
+                reembolso se efectuará en un plazo de 5 a 7 días hábiles, siempre que nos hayas proporcionado los datos
+                correctos de tu cuenta interbancaria.
+              </li>
+              <li class="leading-relaxed text-sm lg:text-base text-justify">
+                <strong>Pago en efectivo:</strong> En caso de que hayas pagado en efectivo, el reembolso se realizará
+                mediante transferencia bancaria a la cuenta que nos indiques, con un plazo de 5 a 7 días hábiles.
+              </li>
+            </ul>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Para agilizar el proceso de reembolso, te recomendamos asegurarte de proporcionar los datos correctos de tu
+              cuenta bancaria o tarjeta al momento de solicitar la devolución. Si tienes alguna duda o necesitas
+              asistencia, no dudes en contactarnos a través de nuestra sección de
+              <strong> Atención al Cliente</strong> o llamarnos al <strong>(01) 204-5444</strong>. Estamos aquí para
+              ayudarte.
+            </p>
+          </li>
+
+          <!-- ÍTEM 10 -->
+          <li>
+            <h2 class="text-lg lg:text-xl font-semibold mb-3">
+              Medios de pago que podrás utilizar en este sitio
+            </h2>
+            <p class="leading-relaxed text-sm lg:text-base text-justify">
+              En <strong>scanavini.pe</strong>, ofrecemos diversas opciones de pago para que elijas la que más te
+              convenga. A menos que se indique lo contrario para casos específicos, los productos y servicios ofrecidos
+              en este sitio pueden ser pagados a través de los siguientes medios:
+            </p>
+            <ol class="xl:ml-6 list-decimal my-2 space-y-1">
+              <li class="leading-relaxed text-sm lg:text-base text-justify">
+                <strong>Tarjetas de crédito:</strong> Aceptamos tarjetas de crédito Visa, Mastercard, American Express y
+                Diners Club. Todas las transacciones con tarjetas de crédito están sujetas a las políticas y condiciones
+                establecidas por el emisor de tu tarjeta.
+              </li>
+              <li class="leading-relaxed text-sm lg:text-base text-justify">
+                <strong>Tarjetas de débito:</strong> Puedes pagar con tarjetas de débito asociadas a los sistemas
+                transaccionales que utilizamos. El pago se realizará a través de un sistema electrónico seguro que
+                efectuará el cargo automático a tu cuenta bancaria.
+              </li>
+              <li class="leading-relaxed text-sm lg:text-base text-justify">
+                <strong>Plataformas electrónicas y billeteras digitales:</strong> Aceptamos pagos a través de plataformas
+                electrónicas y billeteras digitales que mantengan convenios vigentes con
+                <strong> Scanavini Comercial S.A.C.</strong>.
+              </li>
+              <li class="leading-relaxed text-sm lg:text-base text-justify">
+                <strong>Gift cards:</strong> Aceptamos gift cards adquiridas directamente en
+                <strong> Scanavini</strong>.
+              </li>
+            </ol>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Si, por cualquier motivo, una transacción es cancelada y el pago ya fue realizado a través de alguno de
+              estos medios, la devolución del monto se regirá por las políticas establecidas por el emisor de tu tarjeta
+              o el proveedor del servicio de pago utilizado.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Ten en cuenta que el uso de tarjetas de crédito o débito está sujeto a los términos y condiciones pactados
+              con el emisor de tu tarjeta, incluyendo fechas de emisión, caducidad, límites de crédito y bloqueos. En
+              caso de contradicciones, prevalecerán los términos establecidos en el contrato de tu tarjeta.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              En <strong>scanavini.pe</strong>, podrás encontrar ofertas especiales asociadas a uno o más medios de
+              pago. Sin embargo, algunos métodos de pago podrían no estar disponibles para ciertos productos o tipos de
+              entrega. Te recomendamos revisar las condiciones específicas al momento de realizar tu compra.
+            </p>
+          </li>
+
+          <!-- ÍTEM 11 -->
+          <li>
+            <h2 class="text-lg lg:text-xl font-semibold mb-3">
+              Políticas de seguridad
+            </h2>
+            <p class="leading-relaxed text-sm lg:text-base text-justify">
+              En <strong>scanavini.pe</strong>, adoptamos todas las medidas necesarias y prudentes para garantizar
+              la seguridad de tus datos personales y de tu información de pago. Tu privacidad y protección son nuestra
+              prioridad.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              En caso de detectar cambios en la información que has registrado en nuestro sitio, irregularidades en las
+              transacciones relacionadas con tu identificación o el medio de pago utilizado, o simplemente como medida de
+              protección adicional, nuestro equipo de atención al cliente podrá contactarte vía telefónica o correo
+              electrónico. Este contacto tiene como objetivo corroborar tus datos y prevenir posibles situaciones de
+              fraude.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Si no logramos establecer contacto contigo en un plazo de <strong>72 horas</strong>, por tu seguridad, tu
+              solicitud de compra no será confirmada. En ese caso, te notificaremos vía telefónica o correo electrónico
+              que tu pedido ha quedado sin efecto debido a la imposibilidad de verificar tu identidad o el medio de pago
+              proporcionado.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              En <strong>Scanavini</strong>, nos comprometemos a brindarte una experiencia de compra segura y confiable.
+              Si tienes alguna duda o necesitas asistencia, no dudes en contactarnos a través de nuestra sección de
+              <strong> Atención al Cliente</strong> o llamando al <strong>(01) 204-5444</strong>.
+            </p>
+          </li>
+
+          <!-- ÍTEM 12 -->
+          <li>
+            <h2 class="text-lg lg:text-xl font-semibold mb-3">
+              Atención de solicitudes, consultas y reclamos
+            </h2>
+            <p class="leading-relaxed text-sm lg:text-base text-justify">
+              En <strong>scanavini.pe</strong>, estamos comprometidos a atender tus solicitudes, consultas y
+              reclamos de manera rápida y eficiente. Nos encargamos directamente de todos los aspectos relacionados con la
+              entrega, recepción y postventa de los productos que adquieras en nuestra plataforma. Esto incluye, pero no
+              se limita a, la gestión de entregas, devoluciones, garantías y cualquier otra inquietud que puedas tener
+              sobre tu compra.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Si experimentas algún problema con un producto, como fallas de funcionamiento, discrepancias en la
+              descripción, problemas con la boleta o factura, o cualquier otro tema relacionado, nuestro equipo de
+              atención al cliente estará disponible para ayudarte. En caso de que tu consulta o reclamo esté relacionado
+              con la garantía de un producto, te proporcionaremos toda la información necesaria para que puedas resolverlo
+              de manera ágil.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Para contactarnos, puedes utilizar nuestra sección de <strong>Atención al Cliente</strong> en el sitio web
+              o llamarnos al número <strong>(01) 204-5444</strong>. Estamos aquí para asegurarnos de que tu experiencia de
+              compra en <strong>scanavini.pe</strong> sea siempre satisfactoria.
+            </p>
+          </li>
+
+          <!-- ÍTEM 13 -->
+          <li>
+            <h2 class="text-lg lg:text-xl font-semibold mb-3">
+              Autorización para el tratamiento de tus datos personales
+            </h2>
+            <p class="leading-relaxed text-sm lg:text-base text-justify">
+              En <strong>Scanavini</strong>, nuestro compromiso es ofrecerte los productos y servicios que mejor se
+              adapten a tus necesidades. Para lograrlo, es necesario tratar ciertos datos personales que nos proporcionas.
+              Te invitamos a leer nuestra
+              <a href="https://www.scanavini.pe/politica-de-privacidad" target="_blank" class="underline hover:opacity-80 hover:text-brand-dark">
+                Política de Privacidad
+              </a>, donde podrás conocer qué datos recolectamos, cómo los utilizamos y demás información relevante sobre
+              el tratamiento de tus datos personales.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Al aceptar este documento, aceptas nuestra <strong>Política de Privacidad</strong> y autorizas a
+              <strong> Scanavini</strong>, de conformidad con las normas que regulan la protección de datos personales en
+              Perú, a tratar la información que nos proporcionas al comprar nuestros productos y/o utilizar nuestros
+              servicios, ya sea a través de nuestros canales de comunicación o venta, tanto presenciales como en línea.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Consideramos como <strong>Datos Personales</strong> cualquier información que permita identificarte o te
+              haga identificable, tales como tu nombre, número de documento de identidad, domicilio, teléfono, correo
+              electrónico, datos de geolocalización, historial de navegación y hábitos de compra, entre otros.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              En virtud del consentimiento que nos otorgas al aceptar estos Términos y Condiciones y la Política de
+              Privacidad, estamos autorizados a utilizar tus datos para las siguientes finalidades:
+            </p>
+            <ul class="list-disc ml-6 my-2 space-y-1">
+              <li class="leading-relaxed text-sm lg:text-base text-justify">
+                <strong>Gestión de compras y servicios:</strong> Para gestionar y procesar las compras que realices a
+                través de <strong>Scanavini</strong>, incluyendo la atención de consultas, reclamos y solicitudes
+                relacionadas con tus pedidos y servicios contratados.
+              </li>
+              <li class="leading-relaxed text-sm lg:text-base text-justify">
+                <strong>Prevención de fraudes:</strong> Para prevenir y detectar usos engañosos, fraudulentos o ilegales
+                de nuestros sistemas, protegiendo así los intereses legítimos de <strong>Scanavini</strong> y nuestros
+                clientes.
+              </li>
+              <li class="leading-relaxed text-sm lg:text-base text-justify">
+                <strong>Comunicación:</strong> Para establecer un canal de comunicación contigo y gestionar consultas,
+                solicitudes y reclamos relacionados con nuestros productos y servicios.
+              </li>
+            </ul>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Tus datos personales solo serán tratados mientras sean necesarios para cumplir con las finalidades
+              mencionadas, salvo que exista una obligación legal que requiera su conservación por un plazo mayor.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              En caso de que te solicitemos autorización para finalidades adicionales, como el envío de publicidad o
+              acciones de marketing, trataremos tus datos únicamente si nos otorgas tu consentimiento expreso.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              <strong>Scanavini</strong> será responsable del tratamiento de tus datos personales, garantizando su
+              protección y confidencialidad de acuerdo con las normas peruanas de protección de datos.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Puedes revocar en cualquier momento la autorización que nos has otorgado para tratar tus datos personales.
+              Sin embargo, ten en cuenta que esto podría limitar tu acceso a algunos de nuestros servicios. Además,
+              tienes derecho a solicitar información sobre los datos que hemos recolectado, así como a ejercer tus
+              derechos de rectificación, cancelación, oposición y otros que confieren las leyes de protección de datos
+              personales. Para ejercer estos derechos, contáctanos a través de nuestro correo electrónico:
+              <a href="mailto:info@scanavini.pe" class="underline hover:opacity-80 hover:text-brand-dark">info@scanavini.pe</a>.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Si consideras que no hemos atendido adecuadamente tu solicitud, puedes presentar una reclamación ante la
+              <strong> Autoridad Nacional de Protección de Datos Personales</strong>, dirigiéndote a la Mesa de Partes
+              del Ministerio de Justicia y Derechos Humanos: Calle Scipion Llona 350, Miraflores, Lima, Perú.
+            </p>
+
+            <h3 class="text-base lg:text-lg font-semibold mt-4 mb-2">
+              Uso de Cookies
+            </h3>
+            <p class="leading-relaxed text-sm lg:text-base text-justify">
+              Al aceptar este documento, autorizas a <strong>Scanavini</strong> a utilizar cookies y tecnologías
+              similares para mejorar tu experiencia de usuario y mostrarte publicidad relevante. Las cookies son pequeños
+              archivos de texto que se almacenan en tu dispositivo y nos permiten reconocerte cada vez que visitas
+              nuestro sitio web.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Puedes deshabilitar las cookies en cualquier momento desde la configuración de tu navegador. Sin embargo,
+              esto podría limitar algunas funcionalidades de nuestro sitio, como el carrito de compras o la gestión de
+              pedidos. Para más información sobre el uso de cookies, te invitamos a leer nuestra
+              <a href="https://www.scanavini.pe/politica-de-cookies" target="_blank" class="underline hover:opacity-80 hover:text-brand-dark">
+                Política de Cookies
+              </a>.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Al aceptar estos Términos y Condiciones, también estás aceptando nuestra Política de Privacidad y Política
+              de Cookies.
+            </p>
+          </li>
+
+          <!-- ÍTEM 14 -->
+          <li>
+            <h2 class="text-lg lg:text-xl font-semibold mb-3">
+              Alcance de los precios informados en este sitio
+            </h2>
+            <p class="leading-relaxed text-sm lg:text-base text-justify">
+              Los precios mostrados en <strong>scanavini.pe</strong> corresponden exclusivamente al valor del
+              producto o servicio ofrecido, incluyendo los impuestos aplicables. Estos precios no incluyen gastos
+              adicionales como transporte, manejo, envío o instalación, a menos que se indique expresamente en la
+              descripción del producto o que hayas contratado dicho servicio de manera adicional. Cualquier costo extra
+              será informado de manera clara y detallada en el carrito de compras antes de finalizar tu pedido.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              En <strong>Scanavini</strong>, nos esforzamos por garantizar que los precios publicados en nuestro sitio
+              web sean precisos y actualizados. Sin embargo, en raras ocasiones, podrían presentarse errores humanos o
+              técnicos que afecten la información mostrada. Te invitamos a realizar tus compras de buena fe, ajustándote
+              a las prácticas comerciales justas y éticas. Nos reservamos el derecho de no procesar solicitudes de
+              compra que, por motivos fundados, consideremos que se han realizado aprovechando errores evidentes o con
+              fines comerciales no autorizados.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Cualquier modificación en la información publicada en <strong>scanavini.pe</strong>, incluyendo
+              precios, disponibilidad de productos, promociones u ofertas, se aplicará únicamente a operaciones futuras
+              y no afectará los derechos adquiridos por los consumidores en compras anteriores. Nos comprometemos a
+              informar de manera transparente cualquier cambio que pueda afectar tu experiencia de compra.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              <strong>Scanavini Comercial S.A.C.</strong> asume la responsabilidad exclusiva por los productos y
+              servicios ofrecidos en <strong>scanavini.pe</strong>. En caso de errores u omisiones en la
+              información proporcionada, como precios incorrectos, descripciones inexactas o disponibilidad de stock, nos
+              comprometemos a resolver cualquier inconveniente de manera rápida y efectiva, garantizando siempre la
+              satisfacción de nuestros clientes.
+            </p>
+          </li>
+
+          <!-- ÍTEM 15 -->
+          <li>
+            <h2 class="text-lg lg:text-xl font-semibold mb-3">
+              Ofertas y promociones
+            </h2>
+            <p class="leading-relaxed text-sm lg:text-base text-justify">
+              En <strong>scanavini.pe</strong>, las ofertas consisten en el ofrecimiento de productos a precios
+              rebajados de manera temporal, en comparación con los precios habituales de nuestro catálogo. Por otro
+              lado, las promociones son ofertas especiales que brindan condiciones más favorables que las habituales,
+              como descuentos adicionales, envíos gratuitos o regalos con la compra.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Las ofertas y promociones disponibles en <strong>scanavini.pe</strong> están diseñadas
+              exclusivamente para actos de consumo personal o familiar. Esto significa que están destinadas a satisfacer
+              necesidades personales o del hogar, y no para fines comerciales o de reventa. Por ello, no se permite la
+              adquisición de más de una oferta o promoción por persona o tarjeta de crédito. En caso de detectar compras
+              que excedan este límite, nos reservamos el derecho de anular dichos pedidos.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Las ofertas y promociones publicadas en <strong>scanavini.pe</strong> estarán vigentes únicamente
+              mientras duren los stocks disponibles y podrán variar respecto a otros canales de venta de Scanavini. En
+              promociones que incluyan la entrega gratuita o rebajada de un producto al comprar otro, el envío del
+              artículo promocional se realizará a la misma dirección de entrega del producto principal, a menos que
+              solicites enviarlos a direcciones diferentes, en cuyo caso se aplicarán los costos de envío correspondientes
+              para cada destino.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              En el caso de productos en promoción, podrán aplicarse límites en la cantidad de unidades que un cliente
+              puede adquirir, así como plazos de vigencia y disponibilidad de stock específicos. Estas condiciones serán
+              detalladas en la descripción de cada promoción en nuestro sitio web.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Las ofertas (precios rebajados) cuentan con un stock mínimo de una (1) unidad. La disponibilidad de los
+              productos en <strong>scanavini.pe</strong> está sujeta al stock existente en tiempo real. La
+              publicación de un producto en nuestro sitio no garantiza su disponibilidad, ya que las compras se procesan
+              de manera simultánea. El stock se reservará únicamente una vez que tu compra haya sido confirmada y recibas
+              la notificación correspondiente.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              En <strong>Scanavini</strong>, nos esforzamos por ofrecerte las mejores ofertas y promociones, siempre con
+              transparencia y claridad en las condiciones aplicables. Te invitamos a revisar regularmente nuestro sitio
+              para no perderte ninguna de estas oportunidades.
+            </p>
+          </li>
+
+          <!-- ÍTEM 16 -->
+          <li>
+            <h2 class="text-lg lg:text-xl font-semibold mb-3">
+              Propiedad Intelectual
+            </h2>
+            <p class="leading-relaxed text-sm lg:text-base text-justify">
+              Todos los contenidos incluidos en este sitio web, como textos, material gráfico, logotipos, íconos de
+              botones, códigos fuente, imágenes, clips de audio, descargas digitales, compilaciones de datos y, en
+              general, el diseño y apariencia del sitio, son propiedad de <strong>Scanavini Comercial S.A.C.</strong> o
+              de sus proveedores de contenido, y están protegidos por las leyes aplicables y convenios internacionales
+              sobre propiedad intelectual.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Los materiales gráficos, logotipos, encabezados de página, frases publicitarias, íconos de botones, textos
+              y nombres de servicios incluidos en este sitio son marcas comerciales, creaciones o signos distintivos de
+              <strong> Scanavini</strong> en Perú y otros países. Dichas marcas y creaciones no pueden ser utilizadas en
+              relación con ningún producto o servicio que pueda generar confusión entre los clientes ni de ninguna manera
+              que desacredite o perjudique a <strong>Scanavini</strong>. Las demás marcas comerciales que aparezcan en
+              este sitio y no sean propiedad de <strong>Scanavini Comercial S.A.C.</strong> pertenecen a sus respectivos
+              dueños.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Todos los derechos no otorgados expresamente en estos Términos y Condiciones son reservados por
+              <strong> Scanavini Comercial S.A.C.</strong> o sus respectivos titulares, proveedores, editores y creadores
+              de contenido. Ningún producto, imagen o sonido puede ser reproducido, duplicado, copiado, vendido,
+              revendido, visitado o explotado total o parcialmente sin el consentimiento escrito previo de
+              <strong> Scanavini</strong>. Asimismo, no está permitido enmarcar o utilizar técnicas de enmarcación para
+              encerrar cualquier marca comercial, logotipo u otra información protegida (incluyendo imágenes, texto,
+              diseño de página o formularios) de <strong>Scanavini</strong> sin autorización escrita previa.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              También está prohibido el uso de meta etiquetas o cualquier otro tipo de “texto oculto” que utilice el
+              nombre o marcas comerciales de <strong>Scanavini</strong> sin previa autorización escrita. Cualquier uso
+              indebido del sitio, de sus marcas o de su contenido puede constituir una infracción legal, sin perjuicio de
+              las excepciones expresamente señaladas en la legislación vigente.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              En <strong>Scanavini Comercial S.A.C.</strong>, respetamos los derechos de propiedad intelectual de
+              terceros. Si consideras que algún contenido o producto disponible en nuestro sitio vulnera tus derechos de
+              propiedad intelectual, contáctanos al <strong>(01) 204-5444</strong> o a través de nuestro sitio web
+              <strong>www.scanavini.pe</strong>.
+            </p>
+          </li>
+
+          <!-- ÍTEM 17 -->
+          <li>
+            <h2 class="text-lg lg:text-xl font-semibold mb-3">
+              Tus publicaciones
+            </h2>
+            <p class="leading-relaxed text-sm lg:text-base text-justify">
+              En el uso de <strong>scanavini.pe</strong>, en ciertas ocasiones podrás generar y publicar
+              comentarios, reseñas, fotografías de productos y otro tipo de contenido (en adelante, las “Publicaciones”).
+              Es importante que tengas en cuenta que las Publicaciones que realices serán de tu exclusiva
+              responsabilidad, por lo que debes tomar las precauciones necesarias para proteger tu privacidad y la de tu
+              entorno.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Al generar contenido en nuestra plataforma, te comprometes a no realizar Publicaciones que reflejen
+              comportamientos inadecuados, tales como, sin que esta lista sea limitativa:
+            </p>
+            <ul class="list-disc ml-6 my-2 space-y-1">
+              <li class="leading-relaxed text-sm lg:text-base text-justify">
+                <strong>Contenido sexual:</strong> No está permitido publicar contenido de carácter sexual, ya sea
+                explícito o promocional, especialmente si dicho contenido es considerado ilegal según las leyes
+                aplicables.
+              </li>
+              <li class="leading-relaxed text-sm lg:text-base text-justify">
+                <strong>Explotación de menores:</strong> Queda prohibido subir o distribuir contenido que facilite la
+                explotación o el abuso de menores de edad.
+              </li>
+              <li class="leading-relaxed text-sm lg:text-base text-justify">
+                <strong>Contenido financiero:</strong> No se permite publicar contenido que promocione productos o
+                servicios de cualquier tipo.
+              </li>
+              <li class="leading-relaxed text-sm lg:text-base text-justify">
+                <strong>Actividades ilegales:</strong> Está prohibido publicar contenido que facilite, promocione o
+                incite a actividades ilegales.
+              </li>
+              <li class="leading-relaxed text-sm lg:text-base text-justify">
+                <strong>Contenido perjudicial para la salud:</strong> No se permite publicar contenido que pueda ser
+                dañino o perjudicial para la salud de las personas.
+              </li>
+              <li class="leading-relaxed text-sm lg:text-base text-justify">
+                <strong>Violación de propiedad intelectual:</strong> Queda prohibido publicar contenido que infrinja los
+                derechos de propiedad intelectual de terceros o de <strong>Scanavini</strong>.
+              </li>
+            </ul>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              <strong>Scanavini</strong> podrá mantener disponibles las Publicaciones que realices para que puedan ser
+              visualizadas por otros usuarios. Si consideras que alguna Publicación de terceros refleja comportamientos
+              inadecuados, como los enumerados anteriormente, puedes reportarla a través de nuestros
+              <a href="https://www.scanavini.pe/nuestros-datos" class="underline hover:opacity-80 hover:text-brand-dark">
+                canales de atención al cliente
+              </a>.
+            </p>
+          </li>
+
+          <!-- ÍTEM 18 -->
+          <li>
+            <h2 class="text-lg lg:text-xl font-semibold mb-3">
+              Domicilios
+            </h2>
+            <p class="leading-relaxed text-sm lg:text-base text-justify">
+              El domicilio de <strong>Scanavini Comercial S.A.C.</strong> es el de sus oficinas centrales:
+              Av. Emilio Cavenecia N° 337, Distrito de San Isidro, Lima, Perú.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Para determinar la competencia de los tribunales, se podrá considerar el domicilio que nos hayas indicado
+              al registrarte en el sitio web <strong>www.scanavini.pe</strong>; y, si no has registrado un
+              domicilio, se considerará el distrito donde tengas tu residencia. Sin perjuicio de lo anterior, siempre
+              podrán aplicarse las reglas de competencia establecidas en las leyes aplicables.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Si la solicitud de compra procede desde un país distinto al del domicilio del cliente, el contrato se
+              entenderá formado en el lugar del domicilio del cliente.
+            </p>
+          </li>
+
+          <!-- ÍTEM 19 -->
+          <li>
+            <h2 class="text-lg lg:text-xl font-semibold mb-3">
+              Validez y Vigencia de los T&amp;C
+            </h2>
+            <p class="leading-relaxed text-sm lg:text-base text-justify">
+              Versión actualizada al 28 de febrero de 2025.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              <strong>Scanavini Comercial S.A.C.</strong> podrá modificar estos Términos y Condiciones en cualquier
+              momento, conforme a lo establecido en este documento. Cualquier cambio realizado tendrá efectos a futuro y
+              será aplicable desde su publicación en nuestra página web.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Si se realizan modificaciones a los Términos y Condiciones, te informaremos a través de un pop-up al
+              momento de registrarte o al concretar una compra (check-in o check-out). Para continuar con el uso de
+              nuestros servicios, deberás aceptar los nuevos términos mediante un clic. Si no estás de acuerdo con los
+              cambios, puedes optar por no aceptarlos.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              La versión actualizada de los Términos y Condiciones estará siempre disponible en nuestro sitio web
+              <a href="https://scanavini.pe" target="_blank" class="underline hover:opacity-80 hover:text-brand-dark">
+                www.scanavini.pe
+              </a>.
+            </p>
+          </li>
+
+
+        </ol>
+      </article>
+    </main>
   </section>
-  
 </Layout>
-

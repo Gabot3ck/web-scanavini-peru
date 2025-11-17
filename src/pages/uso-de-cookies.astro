@@ -3,12 +3,11 @@ import Layout from '../layouts/Layout.astro';
 
 // Datos para la página
 const pageData = {
-  title: 'Uso de Cookies',
-  description: 'Política de uso de cookies del sitio web.',
+  title: 'Política de Cookies',
+  description: 'Política de uso de cookies del sitio web www.scanavini.pe de Scanavini Perú.',
 };
 ---
 
-<!-- logoSwapOnHoverAtTop={true} Activa el cambio del logo en hover cuando se está “arriba” -->
 <Layout 
   title={pageData.title}
   description={pageData.description}
@@ -21,64 +20,235 @@ const pageData = {
   <section class="container-custom sm:px-3 md:px-5 lg:px-10 xl:px-0 min-h-[60vh] py-20 xl:mt-16">
     <header class="border-b border-neutral-grey/20">
       <div class="container-custom py-8">
-        <h1 class=" text-xl  xl:text-3xl 2xl:text-4xl font-semibold text-neutral-dark">
-          Política de Uso de Cookies
+        <h1 class="text-xl xl:text-3xl 2xl:text-4xl font-semibold text-neutral-dark">
+          Política de Cookies
         </h1>
         <p class="mt-2 text-sm md:text-base text-neutral-grey">
-          Última actualización: <time datetime="2025-10-01">01 de octubre de 2025</time>
+          Última actualización: <time datetime="2022-12-16">16 de diciembre de 2022</time>
         </p>
       </div>
     </header>
 
-    <main  class="container-custom py-8 md:py-12">
+    <main class="container-custom py-8 md:py-12">
       <article 
-        class="card shadow-soft border border-neutral-grey/20 bg-background-light p-6 md:p-10 rounded-2xl"
+        class="card shadow-soft border border-neutral-grey/20 bg-background-light p-6 md:p-10 rounded-2xl" 
         role="article"
       >
         <ol class="space-y-8 list-decimal pl-6">
-          <li id="informacion-general">
-            <h2 class="text-lg  lg:text-xl font-semibold mb-3">¿Qué son las cookies?</h2>
-            <p class="leading-relaxed text-sm lg:text-base">
-              Las cookies son pequeños archivos de texto que se almacenan en su navegador cuando visita sitios web. Permiten que el sitio web recuerde sus acciones y preferencias (como idioma o inicio de sesión) durante un período de tiempo.
-            </p>
-          </li>
 
+          <!-- Intro -->
           <li>
-            <h2 class="text-lg  lg:text-xl font-semibold mb-3">Finalidad del uso de cookies</h2>
-            <p class="leading-relaxed text-sm lg:text-base">
-              Las cookies nos permiten mejorar la navegación, analizar el uso del sitio para optimizarlo y proporcionar contenido relevante según sus intereses.
+            <h2 class="text-lg lg:text-xl font-semibold mb-3">Política de Cookies</h2>
+            <p class="leading-relaxed text-sm lg:text-base text-justify">
+              En <strong>scanavini.pe</strong>, utilizamos cookies propias para mejorar nuestros servicios, optimizar 
+              el funcionamiento del sitio y ofrecerte una experiencia de navegación personalizada. Las cookies son pequeños 
+              archivos de texto que se almacenan en tu dispositivo cuando visitas nuestro sitio web. Estas cookies nos permiten:
             </p>
-          </li>
 
-          <li>
-            <h2 class="text-lg  lg:text-xl font-semibold mb-3">Consentimiento y administración</h2>
-            <p class="leading-relaxed text-sm lg:text-base">
-              Al continuar navegando en este sitio, usted acepta el uso de cookies según esta política.
-            </p>
-            <p >Puede configurar su navegador para rechazar, bloquear o eliminar cookies en cualquier momento. Sin embargo, algunas funciones del sitio podrían no funcionar correctamente si las cookies están deshabilitadas.</p>
-          </li>
-
-          <li>
-            <h2 class="text-lg  lg:text-xl font-semibold mb-3">Tipos de cookies que utilizamos:</h2>
-            <ul class="list-disc ml-10 mt-3" >
-              <li><strong>Cookies necesarias:</strong> Son esenciales para el funcionamiento del sitio y no pueden ser desactivadas en nuestros sistemas.</li>
-              <li><strong>Cookies de rendimiento y analíticas:</strong> Nos ayudan a entender cómo interactúan los usuarios con el sitio y mejorar su experiencia.</li>
-              <li><strong>Cookies funcionales:</strong> Permiten recordar elecciones específicas para personalizar la experiencia del usuario.</li>
-              <li><strong>Cookies de terceros:</strong> Utilizadas por servicios externos que mejoran la funcionalidad del sitio, como análisis o publicidad.</li>
+            <ul class="xl:ml-6 list-disc mt-3 space-y-2">
+              <li class="leading-relaxed text-sm lg:text-base text-justify">
+                Mejorar nuestros servicios y garantizar el correcto funcionamiento del sitio web.
+              </li>
+              <li class="leading-relaxed text-sm lg:text-base text-justify">
+                Elaborar información estadística para entender cómo interactúas con nuestra plataforma.
+              </li>
+              <li class="leading-relaxed text-sm lg:text-base text-justify">
+                Personalizar el contenido que te ofrecemos, basándonos en tus hábitos de navegación y preferencias.
+              </li>
             </ul>
-          </li>
 
-          <li>
-            <h2 class="text-lg  lg:text-xl font-semibold mb-3">Contacto</h2>
-            <p class="leading-relaxed text-sm lg:text-base">
-              Para dudas o consultas sobre nuestra política de cookies, puede contactarnos a través de nuestro a través del
-            <a href="/contacto"  class="underline hover:opacity-80 hover:text-brand-dark">formulario de contacto</a>
-            , al correo electrónico
-            <a href="mailto:info@scanavini.com" class="underline hover:opacity-80 hover:text-brand-dark">info@scanavini.com</a>
-            o llamar al 
-            <a href="tel:+56228290100" class="underline hover:opacity-80 hover:text-brand-dark">+56 2 2829 0100</a>.
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              El objetivo de esta Política de Cookies es ayudarte a comprender cómo y para qué utilizamos las cookies en 
+              <strong>scanavini.pe</strong>, así como las opciones que tienes para gestionarlas. En Scanavini, nos 
+              comprometemos a proteger tu privacidad y a utilizar las cookies de manera transparente y responsable.
             </p>
           </li>
+
+          <!-- 1. ¿Qué son las cookies? -->
+          <li>
+            <h2 class="text-lg lg:text-xl font-semibold mb-3">¿Qué son las cookies?</h2>
+            <p class="leading-relaxed text-sm lg:text-base text-justify">
+              Las cookies son pequeños archivos de texto que se almacenan en el dispositivo del usuario (computadora, teléfono móvil, tableta, etc.) 
+              cuando navega a través de Internet. Estos archivos contienen un identificador único que permite reconocer el dispositivo del usuario, 
+              incluso si cambia de ubicación o dirección IP. Las cookies se instalan durante la navegación en <strong>scanavini.pe</strong> 
+              y permiten a nuestro sitio web recordar tus preferencias, mejorar tu experiencia de compra y analizar el comportamiento de los usuarios 
+              para optimizar nuestros servicios.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              En <strong>scanavini.pe</strong>, utilizamos cookies para:
+            </p>
+            <ul class="xl:ml-6 list-disc mt-3 space-y-2">
+              <li class="leading-relaxed text-sm lg:text-base text-justify">Facilitar la navegación y el uso de nuestra plataforma.</li>
+              <li class="leading-relaxed text-sm lg:text-base text-justify">Recordar tus preferencias y configuraciones.</li>
+              <li class="leading-relaxed text-sm lg:text-base text-justify">
+                Analizar el comportamiento de los usuarios para mejorar nuestros productos y servicios.
+              </li>
+              <li class="leading-relaxed text-sm lg:text-base text-justify">
+                Personalizar el contenido y las ofertas según tus intereses.
+              </li>
+            </ul>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Es importante destacar que <strong>Scanavini</strong> no comparte información recopilada a través de cookies con terceros, 
+              excepto con empresas de despacho que colaboran con nosotros para la entrega de productos. Estas empresas solo reciben 
+              la información necesaria para cumplir con el servicio de entrega y están obligadas a proteger tus datos personales.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Puedes acceder a <strong>scanavini.pe</strong> sin activar las cookies; sin embargo, desactivarlas puede afectar 
+              el funcionamiento óptimo de la plataforma y limitar algunas funcionalidades, como la personalización de la experiencia 
+              de compra o el acceso a ciertas secciones del sitio.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Si deseas gestionar o desactivar las cookies, puedes hacerlo a través de la configuración de tu navegador. Ten en cuenta 
+              que, al desactivar las cookies, es posible que algunas funciones de <strong>scanavini.pe</strong> no estén disponibles 
+              o no funcionen correctamente.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              En <strong>Scanavini</strong>, nos comprometemos a proteger tu privacidad y a utilizar las cookies de manera responsable 
+              para ofrecerte una experiencia de compra segura y personalizada. Si tienes alguna pregunta sobre nuestra Política de Cookies, 
+              no dudes en contactarnos a través de nuestra sección de <strong>Atención al Cliente</strong>.
+            </p>
+          </li>
+
+          <!-- 2. ¿Para qué usamos las cookies? -->
+          <li>
+            <h2 class="text-lg lg:text-xl font-semibold mb-3">¿Para qué usamos las cookies?</h2>
+            <p class="leading-relaxed text-sm lg:text-base text-justify">
+              Utilizamos cookies estrictamente necesarias y esenciales para que puedas navegar 
+              por nuestro sitio web de manera eficiente, acceder a áreas seguras y disfrutar de opciones personalizadas. Estas cookies 
+              son fundamentales para el correcto funcionamiento de nuestra plataforma y no pueden ser desactivadas.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Además, empleamos cookies de análisis que recopilan datos sobre el uso de nuestro sitio web. Estas cookies nos ayudan 
+              a mejorar la experiencia del cliente, midiendo el rendimiento de la página, identificando áreas de mejora y optimizando 
+              la personalización de nuestros servicios.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Nuestro sitio web también puede incluir enlaces a redes sociales (como Facebook, Instagram o Twitter). Es importante 
+              destacar que <strong>Scanavini</strong> no controla las cookies utilizadas por estas plataformas externas. Para obtener más 
+              información sobre las políticas de cookies de estas redes sociales, te recomendamos revisar sus respectivas páginas 
+              de políticas de privacidad y cookies.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              En <strong>Scanavini</strong>, nos comprometemos a proteger tu privacidad y a garantizar que tu experiencia en 
+              <strong>scanavini.pe</strong> sea segura y transparente. Si tienes alguna pregunta sobre el uso de cookies 
+              en nuestro sitio, no dudes en contactarnos a través de nuestra sección de <strong>Atención al Cliente</strong>.
+            </p>
+          </li>
+
+          <!-- 3. ¿Qué tipo de cookies usamos y para qué? -->
+          <li>
+            <h2 class="text-lg lg:text-xl font-semibold mb-3">¿Qué tipo de cookies usamos y para qué uso le damos?</h2>
+            <p class="leading-relaxed text-sm lg:text-base text-justify">
+              A continuación, te explicamos los tipos de cookies que utilizamos y su finalidad:
+            </p>
+
+            <h3 class="text-base lg:text-lg font-semibold mt-6 mb-2">1. Cookies de Sesión</h3>
+            <p class="leading-relaxed text-sm lg:text-base text-justify">
+              Estas cookies tienen una duración limitada al tiempo que estás navegando en nuestro sitio web. Se eliminan automáticamente 
+              cuando cierras el navegador. Su principal función es almacenar información necesaria para brindarte el servicio que solicitas 
+              durante tu visita.
+            </p>
+
+            <h3 class="text-base lg:text-lg font-semibold mt-6 mb-2">2. Cookies Persistentes</h3>
+            <p class="leading-relaxed text-sm lg:text-base text-justify">
+              Estas cookies permanecen en tu dispositivo por un período más largo, lo que nos permite recordar tus preferencias y 
+              configuraciones en visitas futuras. Esto evita que tengas que volver a seleccionar ciertos parámetros cada vez que accedes 
+              a nuestro sitio.
+            </p>
+
+            <h3 class="text-base lg:text-lg font-semibold mt-6 mb-2">3. Cookies Propias</h3>
+            <p class="leading-relaxed text-sm lg:text-base text-justify">
+              Son cookies creadas y gestionadas exclusivamente por <strong>Scanavini</strong>. Solo nuestro sitio web puede leerlas, y se utilizan 
+              para los siguientes propósitos:
+            </p>
+            <ul class="xl:ml-6 list-disc mt-3 space-y-2">
+              <li class="leading-relaxed text-sm lg:text-base text-justify">
+                <strong>Cookies Técnicas:</strong> Facilitan la navegación y el uso de las funcionalidades del sitio, como la carga 
+                optimizada de imágenes y el acceso a áreas restringidas.
+              </li>
+              <li class="leading-relaxed text-sm lg:text-base text-justify">
+                <strong>Cookies de Personalización:</strong> Permiten que el sitio web recuerde tus preferencias, como el idioma, 
+                la configuración regional o el tipo de navegador que utilizas.
+              </li>
+              <li class="leading-relaxed text-sm lg:text-base text-justify">
+                <strong>Cookies de Análisis:</strong> Nos ayudan a comprender cómo interactúas con nuestro sitio web. Estas cookies 
+                generan un identificador anónimo para medir la frecuencia de tus visitas, la duración de tu sesión y las páginas que 
+                más te interesan. Esta información nos permite mejorar continuamente la experiencia de nuestros usuarios.
+              </li>
+            </ul>
+
+            <h3 class="text-base lg:text-lg font-semibold mt-6 mb-2">4. Cookies de Terceros</h3>
+            <p class="leading-relaxed text-sm lg:text-base text-justify">
+              En <strong>scanavini.pe</strong>, también utilizamos cookies gestionadas por terceros para mejorar nuestros servicios. 
+              Estas incluyen:
+            </p>
+            <ul class="xl:ml-6 list-disc mt-3 space-y-2">
+              <li class="leading-relaxed text-sm lg:text-base text-justify">
+                <strong>Cookies de Redes Sociales:</strong> Utilizamos cookies de plataformas como Facebook, Instagram y TikTok
+                para permitirte compartir contenido de nuestro sitio web en tus redes sociales o facilitar el registro en nuestro 
+                ecommerce utilizando tus credenciales de estas plataformas.
+              </li>
+              <li class="leading-relaxed text-sm lg:text-base text-justify">
+                <strong>Cookies Publicitarias:</strong> Estas cookies son gestionadas por empresas externas que nos ayudan a mostrar 
+                publicidad relevante basada en tus intereses. También nos permiten medir la efectividad de nuestras campañas publicitarias 
+                y ofrecerte contenido personalizado. Puedes obtener más información sobre el uso de cookies por parte de estos terceros 
+                en sus respectivas políticas de privacidad.
+              </li>
+            </ul>
+
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              En <strong>Scanavini</strong>, nos comprometemos a proteger tu privacidad y a utilizar las cookies de manera responsable. 
+              Si deseas gestionar o desactivar las cookies, puedes hacerlo a través de la configuración de tu navegador. Sin embargo, 
+              ten en cuenta que desactivar ciertas cookies puede afectar la funcionalidad de nuestro sitio web.
+            </p>
+          </li>
+
+          <!-- 4. Gestión de las cookies -->
+          <li>
+            <h2 class="text-lg lg:text-xl font-semibold mb-3">Gestión de las cookies</h2>
+            <p class="leading-relaxed text-sm lg:text-base text-justify">
+              Durante tu navegación en <strong>scanavini.pe</strong>, es posible que se instalen cookies en tu dispositivo. 
+              Estas cookies son pequeños archivos de texto que nos ayudan a mejorar tu experiencia de compra y a optimizar el 
+              funcionamiento de nuestro sitio web. Tú tienes el control sobre estas cookies y puedes gestionarlas en cualquier 
+              momento, ya sea deshabilitándolas o rechazándolas a través de la configuración de tu navegador.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Al aceptar nuestras cookies, nos permites ofrecerte un servicio más eficiente y personalizado. Estas cookies nos 
+              ayudan a recordar tus preferencias, mejorar la velocidad y seguridad del sitio, y proporcionarte una experiencia 
+              de navegación más fluida y adaptada a tus necesidades.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Si decides deshabilitar algunas o todas las cookies, ten en cuenta que esto podría afectar tu experiencia de 
+              navegación en <strong>scanavini.pe</strong>. Algunas funcionalidades del sitio, como la personalización 
+              de contenidos o el recordatorio de tus preferencias, podrían no estar disponibles o funcionar de manera limitada. 
+              Sin embargo, las cookies esenciales, que son necesarias para el correcto funcionamiento del sitio, seguirán 
+              activas para garantizar que puedas navegar y realizar tus compras sin problemas.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              Para gestionar o deshabilitar las cookies, puedes acceder a la configuración de tu navegador y ajustar las 
+              preferencias según tus necesidades. La mayoría de los navegadores te permiten bloquear las cookies o recibir 
+              una notificación cuando se intentan instalar. Ten en cuenta que, si decides rechazar todas las cookies, 
+              algunas características de <strong>scanavini.pe</strong> podrían no estar disponibles o no funcionar 
+              correctamente, lo que podría limitar tu experiencia de usuario.
+            </p>
+            <p class="leading-relaxed text-sm lg:text-base text-justify mt-3">
+              En <strong>Scanavini</strong>, nos comprometemos a proteger tu privacidad y a utilizar las cookies de manera 
+              responsable para mejorar tu experiencia en nuestro sitio web. Si tienes alguna duda sobre el uso de cookies 
+              o necesitas asistencia, no dudes en contactarnos a través de nuestra sección de <strong>Atención al Cliente</strong>.
+            </p>
+          </li>
+
+          <!-- 5. Vigencia de esta política -->
+          <li>
+            <h2 class="text-lg lg:text-xl font-semibold mb-3">Vigencia de esta política</h2>
+            <p class="leading-relaxed text-sm lg:text-base text-justify">
+              Es posible que en el futuro actualicemos la información contenida en esta política. En caso de que lo hagamos, te notificaremos 
+              a través de distintos medios, como un banner, un pop-up o una notificación en nuestro sitio web, para que puedas revisar los cambios, 
+              valorarlos y, si lo deseas, modificar la configuración de tu navegador. Una versión actualizada de nuestra Política de Cookies 
+              estará siempre disponible en <strong>scanavini.pe</strong>.
+            </p>
+          </li>
+
         </ol>
       </article>
     </main>
