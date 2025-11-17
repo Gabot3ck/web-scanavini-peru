@@ -32,12 +32,17 @@ import VideoLazy from "../../layout/VideoLazy.astro";
 
 		<!-- Columna VIDEO (izquierda en desktop) -->
 		<div class="order-2 lg:order-1" data-animation="videoShowrrom">
-			<VideoLazy
+			<!-- <VideoLazy
 				title="Video Showroom Scanavini, Vitacura"
 				poster="/images/poster-showroom.webp"
 				srcMp4="https://storage.scanavini.cl/videos/showroom-scanavini.mp4"  
 				capMaxHeight
-			/>
+			/> -->
+			<img 
+				src="/images/showroom-peru.webp" 
+				alt="Showroom Scanavini Perú"
+				class="relative w-full rounded-lg overflow-hidden border border-background-muted shadow-soft hover:cursor-pointer absolute inset-0 w-full h-full object-cover"
+			>
 		</div>
 	</div>
 </section>
@@ -57,6 +62,7 @@ import VideoLazy from "../../layout/VideoLazy.astro";
 		reset: true,              // solo se anima una vez
 		cleanup: false,             // limpia estilos inline cuando termina
 		delay: 100,
+		mobile: false,
 	});
 
 	ScrollReveal().reveal('[data-animation="text"]', {
@@ -69,6 +75,7 @@ import VideoLazy from "../../layout/VideoLazy.astro";
 		reset: true,              // solo se anima una vez
 		cleanup: false,             // limpia estilos inline cuando termina
 		delay: 250,
+		mobile: false,
 	});
 
 	ScrollReveal().reveal('[data-animation="videoShowrrom"]', {
@@ -81,6 +88,7 @@ import VideoLazy from "../../layout/VideoLazy.astro";
 		reset: true,              // solo se anima una vez
 		cleanup: false,             // limpia estilos inline cuando termina
 		delay: 400,
+		mobile: false,
 	});
 
 </script>
