@@ -1365,6 +1365,21 @@
     "min_empaque": "1"
   },
   {
+    "imagen": "https://storage.scanavini.cl/productos/imagenes/accesorios-uso-comercial/quicios/Quicios_2300.jpg",
+    "ficha": "https://storage.scanavini.cl/productos/fichas-tecnicas/accesorios-uso-comercial/quicios/QUICIO%20ART%20DT2300.pdf",
+    "familia": "Accesorios Uso Comercial",
+    "categoria": "Quicios",
+    "sku": "741QH.DT-2300",
+    "descripcion": "Quicio Hidráulico/130kg máx/tapa acero inoxidable",
+    "ean13": "7805712150592",
+    "longitud_cm": "34",
+    "ancho_cm": "14",
+    "altura_cm": "11",
+    "volumen_cc": "5.236",
+    "peso_g": "6.310",
+    "min_empaque": "1"
+  },
+  {
     "imagen": "https://storage.scanavini.cl/productos/imagenes/accesorios-uso-comercial/quicios/quicio-741P615-AI.jpg",
     "ficha": "https://storage.scanavini.cl/productos/fichas-tecnicas/accesorios-uso-comercial/quicios/QUICIO%20ART%20615.pdf",
     "familia": "Accesorios Uso Comercial",
