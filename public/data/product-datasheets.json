@@ -1380,6 +1380,21 @@
     "min_empaque": "1"
   },
   {
+    "imagen": "https://storage.scanavini.cl/productos/imagenes/accesorios-uso-comercial/quicios/Quicios_2400.jpg",
+    "ficha": "https://storage.scanavini.cl/productos/fichas-tecnicas/accesorios-uso-comercial/quicios/QUICIO%20ART%20DT2400.pdf",
+    "familia": "Accesorios Uso Comercial",
+    "categoria": "Quicios",
+    "sku": "741QH.DT-2400",
+    "descripcion": "Quicio Hidráulico al piso/180kg máx/tapa acero inoxidable",
+    "ean13": "7805712150585",
+    "longitud_cm": "32",
+    "ancho_cm": "15,5",
+    "altura_cm": "10,5",
+    "volumen_cc": "5.208",
+    "peso_g": "6.860",
+    "min_empaque": "1"
+  },
+  {
     "imagen": "https://storage.scanavini.cl/productos/imagenes/accesorios-uso-comercial/quicios/quicio-741P615-AI.jpg",
     "ficha": "https://storage.scanavini.cl/productos/fichas-tecnicas/accesorios-uso-comercial/quicios/QUICIO%20ART%20615.pdf",
     "familia": "Accesorios Uso Comercial",
