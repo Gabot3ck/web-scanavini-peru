@@ -86,7 +86,7 @@ export const navigationData: NavigationData = {
             { text: "Candados", href: "https://www.tiendascanavini.pe/candados" },
             { text: "Barras Antipánico, Brazos Hidráulicos y Frenos Hidráulicos", href: "https://www.tiendascanavini.pe/accesorios-uso-comercial" },
             { text: "Bisagras", href: "https://www.tiendascanavini.pe/bisagras" },
-            { text: "Manillas", href: "https://www.tiendascanavini.pe/cerraduras/cerraduras-con-manija" },
+            { text: "Manijas", href: "https://www.tiendascanavini.pe/cerraduras/cerraduras-con-manija" },
             { text: "Tiradores, Topes y Españoletas", href: "https://www.tiendascanavini.pe/tiradores" },
             { text: "Descargar Catálogo", href: "https://storage.scanavini.cl/catalogos/CatalogoScanavini_2024.pdf", isBtn: true }
           ]
