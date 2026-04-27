@@ -49,7 +49,7 @@ export const navigationData: NavigationData = {
     },
     {
       text: "Andeslock",
-      href: "https://andeslock.com/",
+      href: "https://www.andeslock.pe/",
       isBtn: true
     }
   ]
