@@ -3015,6 +3015,21 @@
     "min_empaque": "1"
   },
   {
+    "imagen": "https://storage.scanavini.cl/productos/imagenes/cerraduras/cerraduras-digitales/Cerradura_Digital_AK9.jpg",
+    "ficha": "https://storage.scanavini.cl/productos/fichas-tecnicas/cerraduras/cerraduras-digitales/Cerradura%20Digital%20A9-K.pdf",
+    "familia": "Cerraduras",
+    "categoria": "Cerradura Digitales",
+    "sku": "718CDIG-A9-K",
+    "descripcion": "Cerradura Digital para puertas protex",
+    "ean13": "",
+    "longitud_cm": "38",
+    "ancho_cm": "13",
+    "altura_cm": "17",
+    "volumen_cc": "",
+    "peso_g": "2.592",
+    "min_empaque": "1"
+  },
+  {
     "imagen": "https://storage.scanavini.cl/productos/imagenes/cerraduras/cerraduras-electromagneticas/CEM_22017S.jpg",
     "ficha": "https://storage.scanavini.cl/productos/fichas-tecnicas/cerraduras/cerraduras-electromagneticas/CEM22017S.pdf",
     "familia": "Cerraduras",
