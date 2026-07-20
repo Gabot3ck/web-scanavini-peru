@@ -7168,5 +7168,20 @@
     "volumen_cc": "1837,5",
     "peso_g": "690",
     "min_empaque": "1"
+  },
+  {
+    "imagen": "https://storage.scanavini.cl/productos/imagenes/cerraduras/cerraduras-sobreponer/cerraduras-mecanicas/Cerradura_sobreponer_2102.jpg",
+    "ficha": "https://storage.scanavini.cl/productos/fichas-tecnicas/cerraduras/cerraduras-sobreponer/cerraduras-mecanicas/Cerradura_sobreponer_2102.pdf",
+    "familia": "Cerraduras",
+    "categoria": "Cerradura de Sobreponer",
+    "sku": "7112102-CI.N",
+    "descripcion": "Cerradura Sobreponer Extra Fuerte con 4 cerrojos, Negro, 5 llaves",
+    "ean13": "7805712222503",
+    "longitud_cm": "22,6",
+    "ancho_cm": "11,5",
+    "altura_cm": "9",
+    "volumen_cc": "2339,1",
+    "peso_g": "1730",
+    "min_empaque": "1"
   }
 ]
