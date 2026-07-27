@@ -3015,6 +3015,21 @@
     "min_empaque": "1"
   },
   {
+    "imagen": "https://storage.scanavini.cl/productos/imagenes/cerraduras/cerraduras-digitales/Cerr_Digital_A210-K.jpg",
+    "ficha": "https://storage.scanavini.cl/productos/fichas-tecnicas/cerraduras/cerraduras-digitales/Cerradura%20Digital%20A210-K.pdf",
+    "familia": "Cerraduras",
+    "categoria": "Cerradura Digitales",
+    "sku": "718CDIG-A210-K.D",
+    "descripcion": "Cerr.Digital/Bluetooth/Huella Digital/Picaporte-Cerrojo/Negro/Derecha",
+    "ean13": "7805712222527",
+    "longitud_cm": "38",
+    "ancho_cm": "17",
+    "altura_cm": "13",
+    "volumen_cc": "8.398",
+    "peso_g": "2.592",
+    "min_empaque": "1"
+  },
+  {
     "imagen": "https://storage.scanavini.cl/productos/imagenes/cerraduras/cerraduras-digitales/Cerradura_Digital_AK9.jpg",
     "ficha": "https://storage.scanavini.cl/productos/fichas-tecnicas/cerraduras/cerraduras-digitales/Cerradura%20Digital%20A9-K.pdf",
     "familia": "Cerraduras",
