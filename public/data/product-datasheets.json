@@ -2715,6 +2715,21 @@
     "min_empaque": "1"
   },
   {
+    "imagen": "https://storage.scanavini.cl/productos/imagenes/cerraduras/cerraduras-sobreponer/cerraduras-electricas/transformador_520.jpg",
+    "ficha": "https://storage.scanavini.cl/productos/fichas-tecnicas/cerraduras/cerraduras-sobreponer/cerraduras-electricas/Transformador%20El%C3%A9ctrico%20520.pdf",
+    "familia": "Cerraduras",
+    "categoria": "Cerradura de Sobreponer",
+    "sku": "701520",
+    "descripcion": "Transformador Bluetooth/TTlock/100-250V CA/12V CC",
+    "ean13": "7805712202413",
+    "longitud_cm": "14,4",
+    "ancho_cm": "7,4",
+    "altura_cm": "3,5",
+    "volumen_cc": "372,9",
+    "peso_g": "124",
+    "min_empaque": "1"
+  },
+  {
     "imagen": "https://storage.scanavini.cl/productos/imagenes/cerraduras/cerraduras-sobreponer/cerraduras-electricas/2050-CI.N.jpg",
     "ficha": "https://storage.scanavini.cl/productos/fichas-tecnicas/cerraduras/cerraduras-sobreponer/cerraduras-electricas/Cerradura%20de%20Sobreponer%20El%C3%A9ctrica%202050.pdf",
     "familia": "Cerraduras",
