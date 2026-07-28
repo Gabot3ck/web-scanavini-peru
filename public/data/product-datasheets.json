@@ -7198,5 +7198,20 @@
     "volumen_cc": "2339,1",
     "peso_g": "1730",
     "min_empaque": "1"
+  },
+  {
+    "imagen": "https://storage.scanavini.cl/productos/imagenes/accesorios-uso-comercial/herrajes/herraje_705HEK.jpg",
+    "ficha": "https://storage.scanavini.cl/productos/fichas-tecnicas/accesorios-uso-comercial/herrajes/HERRAJE%20ANTIPALANCA%20705HEK.pdf",
+    "familia": "Cerraduras",
+    "categoria": "Cerradura de Sobreponer",
+    "sku": "705HE.ANTIPALANCA.K",
+    "descripcion": "Herraje Antipalanca/negro",
+    "ean13": "7805712222596",
+    "longitud_cm": "17",
+    "ancho_cm": "6,15",
+    "altura_cm": "6",
+    "volumen_cc": "627,3",
+    "peso_g": "920",
+    "min_empaque": "1"
   }
 ]
