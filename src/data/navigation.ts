@@ -37,7 +37,7 @@ export const navigationData: NavigationData = {
     },
     {
       text: "Descargar catálogo",
-      href: "https://storage.scanavini.cl/catalogos/CatalogoScanavini_2024.pdf"
+      href: "https://storage.scanavini.cl/catalogos/peru/CATALOGO_SCANAVINI_PERU_2026.pdf"
     },
     {
       text: "Contacto",
