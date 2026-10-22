@@ -20,14 +20,6 @@ export const brandsLogos: BrandLogo[] = [
     description: "Diseñadores de manillas italianas que unen artesanía, diseño y calidad"
   },
   {
-    id: "roto",
-    flag: withVersion("/images/logos/partners/alemania.svg"),
-    image: withVersion("/images/logos/partners/roto.svg"),
-    imageHeight: "20",
-    imageHeightMobile:"16",
-    description: "Herrajes y soluciones innovadoras para perfiles de PVC"
-  },
-  {
     id: "estamp",
     flag: withVersion("/images/logos/partners/españa.svg"),
     image: withVersion("/images/logos/partners/estamp.svg"),
