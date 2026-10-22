@@ -1515,6 +1515,21 @@
     "min_empaque": "1"
   },
   {
+    "imagen": "https://storage.scanavini.cl/productos/imagenes/accesorios-uso-comercial/herrajes/herraje_705HEK.jpg",
+    "ficha": "https://storage.scanavini.cl/productos/fichas-tecnicas/accesorios-uso-comercial/herrajes/HERRAJE%20ANTIPALANCA%20705HEK.pdf",
+    "familia": "Cerraduras",
+    "categoria": "Cerradura de Sobreponer",
+    "sku": "705HE.ANTIPALANCA.K",
+    "descripcion": "Herraje Antipalanca/negro",
+    "ean13": "7805712222596",
+    "longitud_cm": "17",
+    "ancho_cm": "6,15",
+    "altura_cm": "6",
+    "volumen_cc": "627,3",
+    "peso_g": "920",
+    "min_empaque": "1"
+  },
+  {
     "imagen": "https://storage.scanavini.cl/productos/imagenes/cerraduras/cerraduras-embutir/multipunto/Cerradura_Embutir_1380NS-300x300.jpeg",
     "ficha": "https://storage.scanavini.cl/productos/fichas-tecnicas/cerraduras/cerraduras-embutir/multipunto/Cerradura%20de%20Embutir%20Multipunto%201380.pdf",
     "familia": "Cerraduras",
@@ -2700,7 +2715,7 @@
     "min_empaque": "1"
   },
   {
-    "imagen": "https://storage.scanavini.cl/productos/imagenes/cerraduras/cerraduras-sobreponer/cerraduras-electricas/transformador_510.jpeg",
+    "imagen": "https://storage.scanavini.cl/productos/imagenes/cerraduras/cerraduras-sobreponer/cerraduras-electricas/transformador_510.jpg",
     "ficha": "https://storage.scanavini.cl/productos/fichas-tecnicas/cerraduras/cerraduras-sobreponer/cerraduras-electricas/Transformador%20El%C3%A9ctrico%20510.pdf",
     "familia": "Cerraduras",
     "categoria": "Cerradura de Sobreponer",
@@ -7215,18 +7230,18 @@
     "min_empaque": "1"
   },
   {
-    "imagen": "https://storage.scanavini.cl/productos/imagenes/accesorios-uso-comercial/herrajes/herraje_705HEK.jpg",
-    "ficha": "https://storage.scanavini.cl/productos/fichas-tecnicas/accesorios-uso-comercial/herrajes/HERRAJE%20ANTIPALANCA%20705HEK.pdf",
+    "imagen": "https://storage.scanavini.cl/productos/imagenes/cerraduras/cerraduras-sobreponer/cerraduras-mecanicas/Cerradura_sobreponer_2102_30_CAN.jpg",
+    "ficha": "https://storage.scanavini.cl/productos/fichas-tecnicas/cerraduras/cerraduras-sobreponer/cerraduras-mecanicas/Cerradura_sobreponer_2102.pdf",
     "familia": "Cerraduras",
     "categoria": "Cerradura de Sobreponer",
-    "sku": "705HE.ANTIPALANCA.K",
-    "descripcion": "Herraje Antipalanca/negro",
-    "ean13": "7805712222596",
-    "longitud_cm": "17",
-    "ancho_cm": "6,15",
-    "altura_cm": "6",
-    "volumen_cc": "627,3",
-    "peso_g": "920",
+    "sku": "7112102-30.CA.N",
+    "descripcion": "Cerradura Sobreponer Extra Fuerte con 4 cerrojos, 5 llaves, caja sop. Negro",
+    "ean13": "7805712205414",
+    "longitud_cm": "22,6",
+    "ancho_cm": "11,5",
+    "altura_cm": "9",
+    "volumen_cc": "2339,1",
+    "peso_g": "1730",
     "min_empaque": "1"
   }
 ]
