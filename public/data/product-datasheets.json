@@ -6705,6 +6705,36 @@
     "min_empaque": "1"
   },
   {
+    "imagen": "https://storage.scanavini.cl/productos/imagenes/andeslock/bisagras/Bisagras_A40X30-AIM.R.webp",
+    "ficha": "https://storage.scanavini.cl/productos/fichas-tecnicas/andeslock/Bisagras%20A40X30-AIM.R.pdf",
+    "familia": "Andeslock",
+    "categoria": "Bisagras con rodamientos",
+    "sku": "737A40X30+AIM.R",
+    "descripcion": "Andeslock pack blister 3 Bisagras 4\"x3\"/Acero inox. mariposa",
+    "ean13": "7805712220462",
+    "longitud_cm": "2",
+    "ancho_cm": "15",
+    "altura_cm": "21",
+    "volumen_cc": "630",
+    "peso_g": "419",
+    "min_empaque": "1"
+  },
+  {
+    "imagen": "https://storage.scanavini.cl/productos/imagenes/andeslock/bisagras/Bisagras_A40X30-AKM.R.webp",
+    "ficha": "https://storage.scanavini.cl/productos/fichas-tecnicas/andeslock/Bisagras%20A40X30-AKM.R.pdf",
+    "familia": "Andeslock",
+    "categoria": "Bisagras con rodamientos",
+    "sku": "737A40X30+AKM.R",
+    "descripcion": "Andeslock pack blister 3 Bisagras 4\"x3\"/Acero negro/ mariposa",
+    "ean13": "7805712202475",
+    "longitud_cm": "2",
+    "ancho_cm": "15",
+    "altura_cm": "21",
+    "volumen_cc": "630",
+    "peso_g": "419",
+    "min_empaque": "1"
+  },
+  {
     "imagen": "https://storage.scanavini.cl/productos/imagenes/andeslock/bisagras/Bisagras_A30X30-ALP.R.r58.jpg",
     "ficha": "https://storage.scanavini.cl/productos/fichas-tecnicas/andeslock/Bisagra%2030x30%20ALP.R.r5_8.pdf",
     "familia": "Andeslock",
